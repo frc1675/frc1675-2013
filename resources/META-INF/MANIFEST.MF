@@ -1,0 +1,6 @@
+MIDlet-Name: frc1675-2013
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: FIRST
+MIDlet-1: UPS2013, , org.frc1675.UPS2013
+MicroEdition-Profile: IMP-1.0
+MicroEdition-Configuration: CLDC-1.1
