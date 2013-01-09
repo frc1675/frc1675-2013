@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.frc1675.commands.CommandBase;
 import org.frc1675.commands.ExampleCommand;
+import org.frc1675.insight.DefaultInsightDisplayStrategy;
+import org.frc1675.insight.InsightController;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -36,6 +38,10 @@ public class UPS2013 extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
+        
+        //set insight display strategy
+        InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
+        
     }
 
     public void autonomousInit() {
@@ -48,6 +54,11 @@ public class UPS2013 extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        InsightController.updateInsightDisplay();
+    }
+    
+    public void disabledPeriodic() {
+        InsightController.updateInsightDisplay();
     }
 
     public void teleopInit() {
@@ -63,6 +74,7 @@ public class UPS2013 extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        InsightController.updateInsightDisplay();
     }
     
     /**
