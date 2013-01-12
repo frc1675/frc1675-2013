@@ -6,6 +6,7 @@ package org.frc1675.subsystems;
 
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.MecanumDrive;
@@ -24,10 +25,10 @@ public class MecanumSystem extends Subsystem {
     private SpeedController motor4;
     
     public MecanumSystem(){
-        motor1 = new Jaguar(RobotMap.DSC_SLOT, RobotMap.DRIVE_MOTOR_1);
-        motor2 = new Jaguar(RobotMap.DSC_SLOT, RobotMap.DRIVE_MOTOR_2);
-        motor3 = new Jaguar(RobotMap.DSC_SLOT, RobotMap.DRIVE_MOTOR_3);
-        motor4 = new Jaguar(RobotMap.DSC_SLOT, RobotMap.DRIVE_MOTOR_4);
+        motor1 = new Victor(RobotMap.BACK_LEFT_DRIVE_MOTOR);
+        motor2 = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+        motor3 = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
+        motor4 = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
         
         
     }

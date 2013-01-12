@@ -21,13 +21,6 @@ public class RobotMap {
     public static final int BACK_LEFT_DRIVE_MOTOR = 3;
     public static final int BACK_RIGHT_DRIVE_MOTOR = 4;
     
-    public static final int DSC_SLOT = 1;
-    public static final int DRIVE_MOTOR_1 = 1;
-    public static final int DRIVE_MOTOR_2 = 2;
-    public static final int DRIVE_MOTOR_3 = 3;
-    public static final int DRIVE_MOTOR_4 = 4;
-    
-    
     public static final int DRIVER_CONTROLLER = 1;
     public static final double DEADZONE_RADIUS = 0.15;
 }
