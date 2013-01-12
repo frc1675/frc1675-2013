@@ -19,7 +19,7 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     
-    public static MecanumSystem mecanum = new MecanumSystem();
+    public static MecanumSystem mecanum;// = new MecanumSystem();
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static SimpleTankDrive simpleTankDrive = new SimpleTankDrive();

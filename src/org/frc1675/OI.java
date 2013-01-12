@@ -64,6 +64,16 @@ public class OI {
         return magnitude;
     }
     
+    public double getMecanumRotation(){
+        double x = driverController.getRawAxis(XBoxControllerMap.RIGHT_X_AXIS);
+        double rotation = x;
+        if(Math.abs(rotation) < RobotMap.DEADZONE_RADIUS){
+            rotation = 0;
+        }
+        
+        return rotation;
+    }
+    
     public double getMecanumDirection(){
         double direction;
         double x = driverController.getRawAxis(XBoxControllerMap.LEFT_X_AXIS);
@@ -78,19 +88,9 @@ public class OI {
             direction = MathUtils.atan2(y, x);
         }
         direction -= Math.PI/2;
-        
+        System.out.println(direction);
         
         return direction;
-    }
-    
-    public double getMecanumRotation(){
-        double x = driverController.getRawAxis(XBoxControllerMap.RIGHT_X_AXIS);
-        double rotation = x;
-        if(Math.abs(rotation) < RobotMap.DEADZONE_RADIUS){
-            rotation = 0;
-        }
-        
-        return rotation;
     }
     
     public double getLeftY(){

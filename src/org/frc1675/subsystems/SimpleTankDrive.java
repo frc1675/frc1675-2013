@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
+import org.frc1675.commands.TankDrive;
 
 /**
  *
@@ -32,6 +33,7 @@ public class SimpleTankDrive extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new TankDrive());
     }
 
     public void setRightSpeed(double rightStick) {
@@ -42,8 +44,8 @@ public class SimpleTankDrive extends Subsystem {
     }
 
     public void setLeftSpeed(double leftStick) {
-        frontLeftMotor.set(leftStick);
-        backLeftMotor.set(leftStick);
+        frontLeftMotor.set(-leftStick);
+        backLeftMotor.set(-leftStick);
     }
 
     public double getRightSpeed() {
