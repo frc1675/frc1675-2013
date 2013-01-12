@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.ExampleSubsystem;
 import org.frc1675.subsystems.SimpleTankDrive;
+import org.frc1675.subsystems.MecanumSystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -17,6 +18,8 @@ import org.frc1675.subsystems.SimpleTankDrive;
 public abstract class CommandBase extends Command {
 
     public static OI oi;
+    
+    public static MecanumSystem mecanum;
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static SimpleTankDrive simpleTankDrive = new SimpleTankDrive();
@@ -28,6 +31,7 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
+        
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(exampleSubsystem);
