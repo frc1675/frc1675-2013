@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.ExampleSubsystem;
 import org.frc1675.subsystems.SimpleTankDrive;
-import org.frc1675.subsystems.MecanumSystem;
+import org.frc1675.subsystems.SimpleMecanumDrive;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -19,7 +19,7 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     
-    public static MecanumSystem mecanum;// = new MecanumSystem();
+    public static SimpleMecanumDrive mecanum;// = new SimpleMecanumDrive();
     // Create a single static instance of all of your subsystems
     public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
     public static SimpleTankDrive simpleTankDrive = new SimpleTankDrive();

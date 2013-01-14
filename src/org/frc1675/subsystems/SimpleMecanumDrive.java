@@ -15,7 +15,7 @@ import org.frc1675.commands.MecanumDrive;
  *
  * @author ericmiller
  */
-public class MecanumSystem extends Subsystem {
+public class SimpleMecanumDrive extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -24,7 +24,7 @@ public class MecanumSystem extends Subsystem {
     private SpeedController motor3;
     private SpeedController motor4;
     
-    public MecanumSystem(){
+    public SimpleMecanumDrive(){
         motor1 = new Victor(RobotMap.BACK_LEFT_DRIVE_MOTOR);
         motor2 = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
         motor3 = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
