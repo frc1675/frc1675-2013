@@ -19,11 +19,16 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     
-    public static SimpleMecanumDrive mecanum;// = new SimpleMecanumDrive();
+    
     // Create a single static instance of all of your subsystems
-    public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-    public static SimpleTankDrive simpleTankDrive = new SimpleTankDrive();
-
+    public static SimpleMecanumDrive mecanum;
+    public static SimpleTankDrive simpleTankDrive;
+    
+    static {
+//        mecanum = new SimpleMecanumDrive();
+        simpleTankDrive = new SimpleTankDrive();
+    }
+    
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
         // will), constructing it during the construction of CommandBase (from
@@ -32,9 +37,6 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         oi = new OI();
         
-
-        // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(exampleSubsystem);
     }
 
     public CommandBase(String name) {
