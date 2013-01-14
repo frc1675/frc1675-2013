@@ -13,7 +13,7 @@ public class MecanumDrive extends CommandBase {
     public MecanumDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(mecanum);
+        requires(simpleMecanumDrive);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class MecanumDrive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        mecanum.drive(oi.getMecanumMagnitude(), oi.getMecanumDirection(), oi.getMecanumRotation());
+        simpleMecanumDrive.drive(oi.getMecanumMagnitude(), oi.getMecanumDirection(), oi.getMecanumRotation());
     }
 
     // Make this return true when this Command no longer needs to run execute()

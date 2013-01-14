@@ -21,11 +21,11 @@ public abstract class CommandBase extends Command {
     
     
     // Create a single static instance of all of your subsystems
-    public static SimpleMecanumDrive mecanum;
+    public static SimpleMecanumDrive simpleMecanumDrive;
     public static SimpleTankDrive simpleTankDrive;
     
     static {
-//        mecanum = new SimpleMecanumDrive();
+//        simpleMecanumDrive = new SimpleMecanumDrive();
         simpleTankDrive = new SimpleTankDrive();
     }
     
