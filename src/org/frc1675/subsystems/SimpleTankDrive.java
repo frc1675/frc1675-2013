@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
-import org.frc1675.commands.TankDrive;
+import org.frc1675.commands.tank.TankDrive;
 
 /**
  *
