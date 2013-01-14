@@ -4,9 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package org.frc1675;
-
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -36,10 +34,10 @@ public class UPS2013 extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
-        
+
         //set insight display strategy
         InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
-        
+
     }
 
     public void autonomousInit() {
@@ -54,13 +52,13 @@ public class UPS2013 extends IterativeRobot {
         Scheduler.getInstance().run();
         InsightController.updateInsightDisplay();
     }
-    
+
     public void disabledPeriodic() {
         InsightController.updateInsightDisplay();
     }
 
     public void teleopInit() {
-	// This makes sure that the autonomous stops running when
+        // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
@@ -74,7 +72,7 @@ public class UPS2013 extends IterativeRobot {
         Scheduler.getInstance().run();
         InsightController.updateInsightDisplay();
     }
-    
+
     /**
      * This function is called periodically during test mode
      */

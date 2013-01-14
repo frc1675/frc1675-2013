@@ -11,7 +11,7 @@ import org.frc1675.commands.CommandBase;
  * @author ericmiller
  */
 public class MecanumDrive extends CommandBase {
-    
+
     public MecanumDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -40,5 +40,4 @@ public class MecanumDrive extends CommandBase {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-    
 }
