@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.frc1675.commands.CommandBase;
-import org.frc1675.commands.ExampleCommand;
 import org.frc1675.insight.DefaultInsightDisplayStrategy;
 import org.frc1675.insight.InsightController;
 
@@ -34,7 +33,6 @@ public class UPS2013 extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
 
         // Initialize all subsystems
         CommandBase.init();
