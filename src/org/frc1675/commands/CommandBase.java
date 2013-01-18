@@ -29,8 +29,8 @@ public abstract class CommandBase extends Command {
     static {
 //        simpleMecanumDrive = new SimpleMecanumDrive();
         simpleTankDrive = new SimpleTankDrive();
-        leftEncoderPID = new LeftTankDrivePIDSubsystem();
-        rightEncoderPID = new RightTankDrivePIDSubsystem();        
+//        leftEncoderPID = new LeftTankDrivePIDSubsystem();
+//        rightEncoderPID = new RightTankDrivePIDSubsystem();        
     }
     
     public static void init() {
