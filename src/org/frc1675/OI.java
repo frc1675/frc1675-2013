@@ -1,15 +1,18 @@
 package org.frc1675;
 
 import com.sun.squawk.util.MathUtils;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.frc1675.commands.tank.GoStraight;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-
+    public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
+private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -36,8 +39,8 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
     public OI() {
+        driverXButton.whenPressed(new GoStraight());
     }
-    private Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER);
 
     public double getMecanumMagnitude() {
         double x = driverController.getRawAxis(XBoxControllerMap.LEFT_X_AXIS);

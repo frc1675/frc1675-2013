@@ -1,8 +1,9 @@
 package org.frc1675.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
+import org.frc1675.subsystems.LeftTankDrivePIDSubsystem;
+import org.frc1675.subsystems.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.SimpleTankDrive;
 import org.frc1675.subsystems.SimpleMecanumDrive;
 
@@ -22,10 +23,14 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static SimpleMecanumDrive simpleMecanumDrive;
     public static SimpleTankDrive simpleTankDrive;
+    public static LeftTankDrivePIDSubsystem leftEncoderPID;
+    public static RightTankDrivePIDSubsystem rightEncoderPID;
     
     static {
 //        simpleMecanumDrive = new SimpleMecanumDrive();
         simpleTankDrive = new SimpleTankDrive();
+        leftEncoderPID = new LeftTankDrivePIDSubsystem();
+        rightEncoderPID = new RightTankDrivePIDSubsystem();        
     }
     
     public static void init() {
