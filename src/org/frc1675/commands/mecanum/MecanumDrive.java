@@ -2,18 +2,20 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands;
+package org.frc1675.commands.mecanum;
+
+import org.frc1675.commands.CommandBase;
 
 /**
  *
  * @author ericmiller
  */
-public class TankDrive extends CommandBase {
-    
-    public TankDrive() {
+public class MecanumDrive extends CommandBase {
+
+    public MecanumDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(simpleTankDrive);
+        requires(simpleMecanumDrive);
     }
 
     // Called just before this Command runs the first time
@@ -22,8 +24,7 @@ public class TankDrive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        simpleTankDrive.setLeftSpeed(oi.getLeftY());
-        simpleTankDrive.setRightSpeed(oi.getRightY());
+        simpleMecanumDrive.drive(oi.getMecanumMagnitude(), oi.getMecanumDirection(), oi.getMecanumRotation());
     }
 
     // Make this return true when this Command no longer needs to run execute()

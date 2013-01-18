@@ -1,15 +1,21 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.frc1675.commands.tank;
 
-package org.frc1675.commands;
+import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author bradmiller
+ * @author ericmiller
  */
-public class ExampleCommand extends CommandBase {
-
-    public ExampleCommand() {
+public class TankDrive extends CommandBase {
+    
+    public TankDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(simpleTankDrive);
     }
 
     // Called just before this Command runs the first time
@@ -18,6 +24,8 @@ public class ExampleCommand extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        simpleTankDrive.setLeftSpeed(oi.getLeftY());
+        simpleTankDrive.setRightSpeed(oi.getRightY());
     }
 
     // Make this return true when this Command no longer needs to run execute()
