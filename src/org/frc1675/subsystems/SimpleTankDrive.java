@@ -37,8 +37,8 @@ public class SimpleTankDrive extends Subsystem {
     }
 
     public void setRightSpeed(double rightStick) {
-        frontRightMotor.set(rightStick);
-        backRightMotor.set(rightStick);
+        frontRightMotor.set(-rightStick);
+        backRightMotor.set(-rightStick);
 
 
     }

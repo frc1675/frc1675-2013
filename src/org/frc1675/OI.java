@@ -2,6 +2,7 @@
 package org.frc1675;
 
 import com.sun.squawk.util.MathUtils;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 
 /**
