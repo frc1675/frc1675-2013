@@ -37,6 +37,8 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         frontRightMotor = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
         backRightMotor = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
         
+        rightEncoder = new Encoder(RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B);
+        
         double inputRangeMinimum=0;
         double inputRangeMaximum=0;
         
