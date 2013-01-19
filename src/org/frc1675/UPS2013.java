@@ -41,7 +41,10 @@ public class UPS2013 extends IterativeRobot {
         //Scheduler.getInstance().add(new CompressorWork());
 
         //set insight display strategy
+
 //       InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
+
+
 
     }
 
@@ -55,17 +58,24 @@ public class UPS2013 extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+
 //        InsightController.updateInsightDisplay();
+
     }
 
+
     public void disabledInit(){
-        System.out.println("disabledInit");
+
     }
     
-    public void disabledPeriodic()
-    {
-        System.out.println("disabled periodic");
+
+    public void disabledPeriodic() {
+//        InsightController.updateInsightDisplay();
+
     }
+    
+
+   
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
@@ -78,9 +88,14 @@ public class UPS2013 extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+
          Scheduler.getInstance().run();
 //        InsightController.updateInsightDisplay();
          
+
+        Scheduler.getInstance().run();
+ //       InsightController.updateInsightDisplay();
+
     }
     /**
      * This function is called periodically during test mode

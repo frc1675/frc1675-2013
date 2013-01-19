@@ -16,6 +16,7 @@ public class OI {
     public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
 
+
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -30,7 +31,8 @@ public class OI {
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.Attempted to add PID controllers.  
     // Once you have a button, it's trivial to bind it to a button in one of
-    // three ways:
+    // three wahave a button, it's trivial to bind it to a button in one of
+    //// TRIGGERINGys:
     // Once you have a button, it's trivial to bind it to a button in one of
     //// TRIGGERING COMMANDS WITH BUTTONS
     // Once you have a button, it's trivial to bind it to a button in one of
@@ -47,7 +49,12 @@ public class OI {
 
     //HOLY COMMENT holy shit
     public OI() {
-//       driverXButton.whenPressed(new GoStraight());
+
+
+        driverXButton.whenPressed(new GoStraight());
+//        driverYButton.whenPressed(new DriveForTime(2));
+        
+
         
     }
 
