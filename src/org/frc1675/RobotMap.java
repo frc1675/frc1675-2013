@@ -21,11 +21,18 @@ public class RobotMap {
     public static final int BACK_LEFT_DRIVE_MOTOR = 3;
     public static final int BACK_RIGHT_DRIVE_MOTOR = 4;
     
+    public static final int COMPRESSOR_SPIKE = 2;
+    
     public static final int FRONT_LEFT_ENCODER_A = 1;
     public static final int FRONT_LEFT_ENCODER_B = 2;
     public static final int FRONT_RIGHT_ENCODER_A = 3;
     public static final int FRONT_RIGHT_ENCODER_B = 4;
+    public static final int HIGH_PRESSURE_SWITCH = 5;
+    
+    public static final int PNEAUMATIC_EXTEND = 1;
+    public static final int PNEAUMATIC_RETRACT = 3;
     
     public static final int DRIVER_CONTROLLER = 1;
+    public static final int OPERATOR_CONTROLLER = 2;
     public static final double DEADZONE_RADIUS = 0.15;
 }

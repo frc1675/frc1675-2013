@@ -4,6 +4,8 @@ import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Scheduler;
+import org.frc1675.commands.CompressorWork;
 import org.frc1675.commands.tank.GoStraight;
 
 /**
@@ -13,6 +15,7 @@ import org.frc1675.commands.tank.GoStraight;
 public class OI {
     public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
+
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -32,8 +35,6 @@ public class OI {
     //// TRIGGERING COMMANDS WITH BUTTONS
     // Once you have a button, it's trivial to bind it to a button in one of
     // three ways:
-    // Once you have a button, it's trivial to bind it to a button in one of
-    // three ways:
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());
@@ -46,7 +47,8 @@ public class OI {
 
     //HOLY COMMENT holy shit
     public OI() {
-        driverXButton.whenPressed(new GoStraight());
+//       driverXButton.whenPressed(new GoStraight());
+        
     }
 
     public double getMecanumMagnitude() {

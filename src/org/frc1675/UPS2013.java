@@ -6,11 +6,14 @@
 /*----------------------------------------------------------------------------*/
 package org.frc1675;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.frc1675.commands.CommandBase;
+import org.frc1675.commands.CompressorWork;
 import org.frc1675.insight.DefaultInsightDisplayStrategy;
 import org.frc1675.insight.InsightController;
 
@@ -24,7 +27,7 @@ import org.frc1675.insight.InsightController;
 public class UPS2013 extends IterativeRobot {
 
     Command autonomousCommand;
-
+    Command compressorCommand;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -33,10 +36,12 @@ public class UPS2013 extends IterativeRobot {
         // instantiate the command used for the autonomous period
 
         // Initialize all subsystems
+        
         CommandBase.init();
+        //Scheduler.getInstance().add(new CompressorWork());
 
         //set insight display strategy
-        InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
+//       InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
 
     }
 
@@ -50,32 +55,37 @@ public class UPS2013 extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        InsightController.updateInsightDisplay();
+//        InsightController.updateInsightDisplay();
     }
 
-    public void disabledPeriodic() {
-        InsightController.updateInsightDisplay();
+    public void disabledInit(){
+        System.out.println("disabledInit");
     }
-
+    
+    public void disabledPeriodic()
+    {
+        System.out.println("disabled periodic");
+    }
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        autonomousCommand.cancel();
+        //autonomousCommand.cancel();
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-        InsightController.updateInsightDisplay();
+         Scheduler.getInstance().run();
+//        InsightController.updateInsightDisplay();
+         
     }
-
     /**
      * This function is called periodically during test mode
      */
+         
     public void testPeriodic() {
         LiveWindow.run();
     }
