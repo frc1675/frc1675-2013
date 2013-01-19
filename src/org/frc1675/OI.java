@@ -13,6 +13,7 @@ import org.frc1675.commands.tank.GoStraight;
 public class OI {
     public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
+    private Button driverYButton = new JoystickButton(driverController, XBoxControllerMap.Y_BUTTON);
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -47,6 +48,9 @@ public class OI {
     //HOLY COMMENT holy shit
     public OI() {
         driverXButton.whenPressed(new GoStraight());
+//        driverYButton.whenPressed(new DriveForTime(2));
+        
+        
     }
 
     public double getMecanumMagnitude() {

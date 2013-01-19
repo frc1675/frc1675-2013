@@ -36,7 +36,7 @@ public class UPS2013 extends IterativeRobot {
         CommandBase.init();
 
         //set insight display strategy
-        InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
+  //      InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
 
     }
 
@@ -50,11 +50,11 @@ public class UPS2013 extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        InsightController.updateInsightDisplay();
+ //       InsightController.updateInsightDisplay();
     }
 
     public void disabledPeriodic() {
-        InsightController.updateInsightDisplay();
+//        InsightController.updateInsightDisplay();
     }
 
     public void teleopInit() {
@@ -70,7 +70,7 @@ public class UPS2013 extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        InsightController.updateInsightDisplay();
+ //       InsightController.updateInsightDisplay();
     }
 
     /**
