@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.LeftTankDrivePIDSubsystem;
-import org.frc1675.subsystems.PneaumaticPistons;
+import org.frc1675.subsystems.PneumaticPistons;
 import org.frc1675.subsystems.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.SimpleMecanumDrive;
 
@@ -28,14 +28,14 @@ public abstract class CommandBase extends Command {
     public static LeftTankDrivePIDSubsystem leftEncoderPID;
     public static RightTankDrivePIDSubsystem rightEncoderPID;
     public static CompressorSystem compressor;
-    public static PneaumaticPistons pneaumaticPistons;
+    public static PneumaticPistons pneumaticPistons;
     
     static {
 //        simpleMecanumDrive = new SimpleMecanumDrive();
 
 //      simpleTankDrive = new SimpleTankDrive();
         compressor = new CompressorSystem();
-        pneaumaticPistons = new PneaumaticPistons();
+        pneumaticPistons = new PneumaticPistons();
         leftEncoderPID = new LeftTankDrivePIDSubsystem();
         rightEncoderPID = new RightTankDrivePIDSubsystem();        
 

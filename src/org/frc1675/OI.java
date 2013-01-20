@@ -3,6 +3,7 @@ package org.frc1675;
 import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.frc1675.commands.CompressorWork;
@@ -15,6 +16,9 @@ import org.frc1675.commands.tank.GoStraight;
 public class OI {
     public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
+    
+    public DigitalIOButton pneumaticsExtendedSwitch = new DigitalIOButton(RobotMap.EXTEND_PNEUMATICS_SWITCH);
+    public DigitalIOButton pneumaticsRetractedSwitch = new DigitalIOButton(RobotMap.RETRACT_PNEUMATICS_SWITCH);
 
 
     //// CREATING BUTTONS

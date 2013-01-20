@@ -12,15 +12,15 @@ import org.frc1675.RobotMap;
  *
  * @author team1675
  */
-public class PneaumaticPistons extends Subsystem {
+public class PneumaticPistons extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     private Solenoid extend;
     private Solenoid retract;
     
-    public PneaumaticPistons(){
-        extend = new Solenoid(RobotMap.PNEAUMATIC_EXTEND);
-        retract = new Solenoid(RobotMap.PNEAUMATIC_RETRACT);
+    public PneumaticPistons(){
+        extend = new Solenoid(RobotMap.PNEUMATIC_EXTEND);
+        retract = new Solenoid(RobotMap.PNEUMATIC_RETRACT);
     }
 
     public void initDefaultCommand() {
@@ -36,7 +36,7 @@ public class PneaumaticPistons extends Subsystem {
         retract.set(true);
         
     }
-    public void stop(){
+    public void doNothing(){
         extend.set(false);
         extend.set(false);
     }
