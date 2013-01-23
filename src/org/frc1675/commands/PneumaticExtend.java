@@ -34,6 +34,7 @@ public class PneumaticExtend extends CommandBase {
         
         if (oi.pneumaticsExtendedSwitch.get()){
             return true;
+            
         }
         
         return true;  //this is here so that in testing without switch it will work, remove once switch is added
