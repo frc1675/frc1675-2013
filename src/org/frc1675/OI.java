@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import org.frc1675.commands.PneumaticExtend;
+import org.frc1675.commands.PneumaticRetract;
 import org.frc1675.commands.tank.GoStraight;
 
 /**
@@ -15,7 +17,8 @@ import org.frc1675.commands.tank.GoStraight;
 public class OI {
     public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
-    
+    private Button driverYButton = new JoystickButton(driverController, XBoxControllerMap.Y_BUTTON); 
+    private Button driverAButton = new JoystickButton(driverController, XBoxControllerMap.A_BUTTON); 
     public DigitalIOButton pneumaticsExtendedSwitch = new DigitalIOButton(RobotMap.EXTEND_PNEUMATICS_SWITCH);
     public DigitalIOButton pneumaticsRetractedSwitch = new DigitalIOButton(RobotMap.RETRACT_PNEUMATICS_SWITCH);
 
@@ -56,6 +59,8 @@ public class OI {
 
         driverXButton.whenPressed(new GoStraight());
 //        driverYButton.whenPressed(new DriveForTime(2));
+        driverYButton.whenPressed(new PneumaticExtend());
+        driverAButton.whenPressed(new PneumaticRetract());
         
 
         
