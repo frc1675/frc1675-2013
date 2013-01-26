@@ -6,16 +6,12 @@
 /*----------------------------------------------------------------------------*/
 package org.frc1675;
 
-import edu.wpi.first.wpilibj.Compressor;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.frc1675.commands.CommandBase;
-import org.frc1675.commands.CompressorWork;
-import org.frc1675.insight.DefaultInsightDisplayStrategy;
-import org.frc1675.insight.InsightController;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,8 +22,7 @@ import org.frc1675.insight.InsightController;
  */
 public class UPS2013 extends IterativeRobot {
 
-    Command autonomousCommand;
-    Command compressorCommand;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -38,7 +33,7 @@ public class UPS2013 extends IterativeRobot {
         // Initialize all subsystems
         
         CommandBase.init();
-        //Scheduler.getInstance().add(new CompressorWork());
+
 
         //set insight display strategy
 

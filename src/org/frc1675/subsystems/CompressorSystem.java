@@ -33,7 +33,7 @@ public class CompressorSystem extends Subsystem {
         else{
             compressor.setRelayValue(Relay.Value.kOff);
         }
-        System.out.println(compressor.getPressureSwitchValue());
+//        System.out.println(compressor.getPressureSwitchValue());
     }
     public void init(){
         compressor.start();

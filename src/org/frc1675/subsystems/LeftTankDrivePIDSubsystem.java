@@ -5,8 +5,10 @@
 package org.frc1675.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
@@ -26,8 +28,7 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     private SpeedController backLeftMotor;
     
     private Encoder leftEncoder;
-
-
+    
     // Initialize your subsystem here
     public LeftTankDrivePIDSubsystem() {
         super("LeftTankDrivePIDSubsystem", Kp, Ki, Kd);
@@ -37,11 +38,13 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         //                  to
         // enable() - Enables the PID controller.
 
-        frontLeftMotor = new Talon(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
-        
+        frontLeftMotor = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+        backLeftMotor = new Victor(RobotMap.BACK_LEFT_DRIVE_MOTOR);
+
         
         leftEncoder = new Encoder(RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B);
-       
+        leftEncoder.start();
+        leftEncoder.setDistancePerPulse(1.0);
 //        double inputRangeMinimum=0;
 //        double inputRangeMaximum=0;
 //        
@@ -71,11 +74,16 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-        frontLeftMotor.set(output);
+        frontLeftMotor.set(.25 * output);
+        backLeftMotor.set(.25 * output);
     }
     
     public void set(double velocity){
-        frontLeftMotor.set(velocity);   
+        frontLeftMotor.set(velocity);
+        backLeftMotor.set(velocity);
     }
     
+    public void resetEncoder(){
+        leftEncoder.reset();
+    }
 }

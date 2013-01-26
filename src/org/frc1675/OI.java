@@ -57,10 +57,10 @@ public class OI {
     public OI() {
 
 
-        driverXButton.whenPressed(new GoStraight());
-//        driverYButton.whenPressed(new DriveForTime(2));
-        driverYButton.whileHeld(new PneumaticExtend());
-        driverAButton.whileHeld(new PneumaticRetract());
+//        driverXButton.whenPressed(new GoStraight());
+
+//        driverYButton.whenPressed(new PneumaticExtend());
+//        driverAButton.whenPressed(new PneumaticRetract());
         
 
         
@@ -102,7 +102,7 @@ public class OI {
             direction = MathUtils.atan2(y, x);
         }
         direction -= Math.PI / 2;
-        System.out.println(direction);
+//        System.out.println(direction);
 
         return direction;
     }

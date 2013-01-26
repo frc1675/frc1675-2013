@@ -53,12 +53,12 @@ public class SimpleMecanumDrive extends Subsystem {
         * l = left
         * r = right */
         
-        //sSystem.out.println("Mecanum.drive: motor1:"+motor1.get()+", motor2: "+motor2.get()+", motor3: "+motor3.get()+", motor4: "+motor4.get());
+        System.out.println("Mecanum.drive: motor1:"+motor1.get()+", motor2: "+motor2.get()+", motor3: "+motor3.get()+", motor4: "+motor4.get());
         
     }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        
+        setDefaultCommand(new MecanumDrive());
     }
 }

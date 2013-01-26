@@ -23,21 +23,20 @@ public abstract class CommandBase extends Command {
     
     
     // Create a single static instance of all of your subsystems
-//    public static SimpleMecanumDrive simpleMecanumDrive;
-//    public static SimpleTankDrive simpleTankDrive = new SimpleTankDrive();
+    public static SimpleMecanumDrive simpleMecanumDrive;
     public static LeftTankDrivePIDSubsystem leftEncoderPID;
     public static RightTankDrivePIDSubsystem rightEncoderPID;
     public static CompressorSystem compressor;
     public static PneumaticPistons pneumaticPistons;
     
     static {
-//        simpleMecanumDrive = new SimpleMecanumDrive();
+        simpleMecanumDrive = new SimpleMecanumDrive();
 
-//      simpleTankDrive = new SimpleTankDrive();
+
         compressor = new CompressorSystem();
-        pneumaticPistons = new PneumaticPistons();
-        leftEncoderPID = new LeftTankDrivePIDSubsystem();
-        rightEncoderPID = new RightTankDrivePIDSubsystem();        
+//        pneumaticPistons = new PneumaticPistons();
+//        leftEncoderPID = new LeftTankDrivePIDSubsystem();
+//        rightEncoderPID = new RightTankDrivePIDSubsystem();        
 
 //        simpleTankDrive = new SimpleTankDrive();
 
