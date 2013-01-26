@@ -36,11 +36,15 @@ public class RobotMap {
     public static final int RETRACT_PNEUMATICS_SWITCH = 7;
     
     //solenoids
-    public static final int PNEUMATIC_EXTEND = 1;
-    public static final int PNEUMATIC_RETRACT = 3;
+    public static final int PNEUMATIC_RETRACT = 1;    
+    public static final int PNEUMATIC_EXTEND = 3;
+
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;
     public static final int OPERATOR_CONTROLLER = 2;
     public static final double DEADZONE_RADIUS = 0.15;
+    
+    //analog card
+    public static final int GYRO = 2;
 }

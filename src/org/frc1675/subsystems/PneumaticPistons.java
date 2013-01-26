@@ -5,6 +5,7 @@
 package org.frc1675.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
    
@@ -17,6 +18,7 @@ public class PneumaticPistons extends Subsystem {
     // here. Call these from Commands.
     private Solenoid extend;
     private Solenoid retract;
+    
     
     public PneumaticPistons(){
         extend = new Solenoid(RobotMap.PNEUMATIC_EXTEND);

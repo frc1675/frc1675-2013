@@ -20,15 +20,15 @@ public class GoStraight extends CommandBase {
         requires (rightEncoderPID);
         requires (leftEncoderPID);
         
-        double setpoint = rightEncoderPID.turnInchesIntoTicks(12, 360);
+        setpoint = rightEncoderPID.turnInchesIntoTicks(12, 360);
 
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         
-        rightEncoderPID.setSetpoint(setpoint);
-        leftEncoderPID.setSetpoint(setpoint);
+        rightEncoderPID.setSetpoint(3600);
+        leftEncoderPID.setSetpoint(3600);
         
         rightEncoderPID.enable();
         leftEncoderPID.enable();
@@ -36,7 +36,8 @@ public class GoStraight extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        System.out.println("PID'ing");
+        System.out.println("PID'ing: left = " + leftEncoderPID.getPIDController().get() + " right = " + rightEncoderPID.getPIDController().get());
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,7 +48,7 @@ public class GoStraight extends CommandBase {
         double changeInPosition = rightPosition + leftPosition - (2 * setpoint);
         
         
-        return (changeInPosition < .1 * setpoint);
+        return (changeInPosition == 0 * setpoint);
 
     }
 
@@ -55,6 +56,8 @@ public class GoStraight extends CommandBase {
     protected void end() {
         rightEncoderPID.disable();
         leftEncoderPID.disable();
+        rightEncoderPID.resetEncoder();
+        leftEncoderPID.resetEncoder();
 
     }
 

@@ -5,6 +5,7 @@
 package org.frc1675.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
@@ -28,6 +29,8 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
             
     private Encoder rightEncoder;     
     
+    private Gyro gyro; 
+    
     
     // Initialize your subsystem here
     public RightTankDrivePIDSubsystem() {
@@ -37,10 +40,13 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-        frontRightMotor = new Talon(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
-        backRightMotor = new Talon(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
+        frontRightMotor = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
+        backRightMotor = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
         
         rightEncoder = new Encoder(RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B);
+        rightEncoder.start();
+        rightEncoder.setDistancePerPulse(1.0);
+        
         
 //        double inputRangeMinimum=0;
 //        double inputRangeMaximum=0;
@@ -65,11 +71,14 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-        backRightMotor.set(output);
-        frontRightMotor.set(output);
+        backRightMotor.set(.25 * output);
+        frontRightMotor.set(.25 * output);
     }
     public double turnInchesIntoTicks(double distanceInches, int encoderTicks){
         return (distanceInches*(encoderTicks/(6*(Math.PI))));
+    }
+    public void resetEncoder(){
+        rightEncoder.reset();
     }
     
     
