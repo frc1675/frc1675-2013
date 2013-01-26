@@ -4,21 +4,27 @@
  */
 package org.frc1675.commands;
 
+import edu.wpi.first.wpilibj.Timer;
+
 /**
  *
  * @author jstano
  */
 public class PneumaticRetract extends CommandBase {
     
+    Timer timer;
+    
     public PneumaticRetract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(pneumaticPistons);
+        timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        pneumaticPistons.retract();
+//        pneumaticPistons.retract();
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,16 +34,21 @@ public class PneumaticRetract extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (oi.pneumaticsRetractedSwitch.get()){
+//        if (oi.pneumaticsRetractedSwitch.get()){
+//            return true;
+//        }
+        
+        if(timer.get() > 0.25){
             return true;
         }
         
-        return true;  //this is here so that in testing without switch it will still work, remove once switch is added
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
         pneumaticPistons.doNothing();
+        timer.stop();
     }
 
     // Called when another command which requires one or more of the same
