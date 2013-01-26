@@ -7,6 +7,7 @@ package org.frc1675.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.TankDriveWithJoysticks;
@@ -15,7 +16,7 @@ import org.frc1675.commands.TankDriveWithJoysticks;
  *
  * @author team1675
  */
-public class LeftTankDrivePIDSubsystem extends Subsystem {
+public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
 
     private static final double Kp = 1.0;
     private static final double Ki = 0.0;
@@ -29,7 +30,7 @@ public class LeftTankDrivePIDSubsystem extends Subsystem {
 
     // Initialize your subsystem here
     public LeftTankDrivePIDSubsystem() {
-  //      super("LeftTankDrivePIDSubsystem", Kp, Ki, Kd);
+        super("LeftTankDrivePIDSubsystem", Kp, Ki, Kd);
 
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system

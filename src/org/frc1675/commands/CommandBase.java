@@ -41,8 +41,7 @@ public abstract class CommandBase extends Command {
 
 //        simpleTankDrive = new SimpleTankDrive();
 
-        leftEncoderPID = new LeftTankDrivePIDSubsystem();
-        rightEncoderPID = new RightTankDrivePIDSubsystem();        
+        
 
     }
     

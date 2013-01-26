@@ -50,7 +50,7 @@ public class UPS2013 extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        autonomousCommand.start();
+        //autonomousCommand.start();
     }
 
     /**
@@ -102,6 +102,6 @@ public class UPS2013 extends IterativeRobot {
      */
          
     public void testPeriodic() {
-        LiveWindow.run();
+    //    LiveWindow.run();
     }
 }
