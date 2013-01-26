@@ -24,7 +24,7 @@ public class PneumaticExtend extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        pneumaticPistons.doNothing();
+        pneumaticPistons.extend();
         
         
     }
@@ -42,7 +42,7 @@ public class PneumaticExtend extends CommandBase {
     }
     // Called once after isFinished returns true
     protected void end() {
-        execute();
+        pneumaticPistons.doNothing();
     }
 
     // Called when another command which requires one or more of the same

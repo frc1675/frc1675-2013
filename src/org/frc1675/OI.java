@@ -59,8 +59,8 @@ public class OI {
 
         driverXButton.whenPressed(new GoStraight());
 //        driverYButton.whenPressed(new DriveForTime(2));
-        driverYButton.whenPressed(new PneumaticExtend());
-        driverAButton.whenPressed(new PneumaticRetract());
+        driverYButton.whileHeld(new PneumaticExtend());
+        driverAButton.whileHeld(new PneumaticRetract());
         
 
         
