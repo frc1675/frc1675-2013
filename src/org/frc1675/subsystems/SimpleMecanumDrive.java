@@ -39,15 +39,15 @@ public class SimpleMecanumDrive extends Subsystem {
         double sinD = Math.sin(dirInRad);
         double cosD = Math.cos(dirInRad);
         
-        double frWheelSpeed = cosD * magnitude - rotation;
-        double brWheelSpeed = sinD * magnitude - rotation;
-        double flWheelSpeed = cosD * magnitude + rotation;
-        double blWheelSpeed = sinD * magnitude + rotation;
+        double frWheelSpeed = cosD * magnitude + rotation;
+        double brWheelSpeed = sinD * magnitude + rotation;
+        double flWheelSpeed = sinD * magnitude - rotation;
+        double blWheelSpeed = cosD * magnitude - rotation;
         
-        motorBL.set(blWheelSpeed);
-        motorFL.set(flWheelSpeed);
+        motorBL.set(blWheelSpeed * -1.0);
+        motorFL.set(flWheelSpeed * -1.0);
         motorFR.set(frWheelSpeed * -1.0);
-        motorBR.set(brWheelSpeed * -1.0); //flips may change to other side
+        motorBR.set(brWheelSpeed * -1.0);
         /*f = front
         * b = back
         * l = left
