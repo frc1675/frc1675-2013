@@ -19,10 +19,14 @@ public class GyroPID extends PIDSubsystem {
     private static final double Kd = 0.0;
     private Gyro gyro;
     private double outputPID = 0.0;
+
     // Initialize your subsystem here
     public GyroPID() {
         super("Gyro", Kp, Ki, Kd);
         gyro = new Gyro(RobotMap.GYRO);
+        double inputRangeMinimum = 0;
+        double inputRangeMaximum = 359;        
+        setInputRange(inputRangeMinimum, inputRangeMaximum);
 
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
