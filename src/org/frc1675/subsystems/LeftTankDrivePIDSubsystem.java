@@ -5,9 +5,9 @@
 package org.frc1675.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
+
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
+
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -26,7 +26,6 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     
     private SpeedController frontLeftMotor;
     private SpeedController backLeftMotor;
-    
     private Encoder leftEncoder;
     
     // Initialize your subsystem here
@@ -37,18 +36,16 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-
-        frontLeftMotor = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
-        backLeftMotor = new Victor(RobotMap.BACK_LEFT_DRIVE_MOTOR);
-
+        frontLeftMotor = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
+        backLeftMotor = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
         
         leftEncoder = new Encoder(RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B);
         leftEncoder.start();
         leftEncoder.setDistancePerPulse(1.0);
-//        double inputRangeMinimum=0;
-//        double inputRangeMaximum=0;
-//        
-//        setInputRange(inputRangeMinimum, inputRangeMaximum);
+        double inputRangeMinimum=0;
+        double inputRangeMaximum=0;
+        
+        setInputRange(inputRangeMinimum, inputRangeMaximum);
         
     }
     
@@ -81,6 +78,9 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     public void set(double velocity){
         frontLeftMotor.set(velocity);
         backLeftMotor.set(velocity);
+    }
+    public double get(){
+        return frontLeftMotor.get();
     }
     
     public void resetEncoder(){

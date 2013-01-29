@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
- * @author team1675
+ * @author Tony Stano
  */
 public class PneumaticExtend extends CommandBase {
     

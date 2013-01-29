@@ -81,7 +81,9 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         rightEncoder.reset();
     }
     
-    
+    public double get(){
+       return frontRightMotor.get();
+    }
     
     public void set(double velocity){
         frontRightMotor.set(velocity);

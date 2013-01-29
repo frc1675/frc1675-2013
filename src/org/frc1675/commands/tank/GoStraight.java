@@ -17,33 +17,33 @@ public class GoStraight extends CommandBase {
     public GoStraight() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires (rightEncoderPID);
-        requires (leftEncoderPID);
+        requires (rightDrivePID);
+        requires (leftDrivePID);
         
-        setpoint = rightEncoderPID.turnInchesIntoTicks(12, 360);
+        setpoint = rightDrivePID.turnInchesIntoTicks(12, 360);
 
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         
-        rightEncoderPID.setSetpoint(3600);
-        leftEncoderPID.setSetpoint(3600);
+        rightDrivePID.setSetpoint(3600);
+        leftDrivePID.setSetpoint(3600);
         
-        rightEncoderPID.enable();
-        leftEncoderPID.enable();
+        rightDrivePID.enable();
+        leftDrivePID.enable();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        System.out.println("PID'ing: left = " + leftEncoderPID.getPIDController().get() + " right = " + rightEncoderPID.getPIDController().get());
+        System.out.println("PID'ing: left = " + leftDrivePID.getPIDController().get() + " right = " + rightDrivePID.getPIDController().get());
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        double rightPosition = rightEncoderPID.getPosition();
-        double leftPosition = leftEncoderPID.getPosition();
+        double rightPosition = rightDrivePID.getPosition();
+        double leftPosition = leftDrivePID.getPosition();
         
         double changeInPosition = rightPosition + leftPosition - (2 * setpoint);
         
@@ -54,10 +54,10 @@ public class GoStraight extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        rightEncoderPID.disable();
-        leftEncoderPID.disable();
-        rightEncoderPID.resetEncoder();
-        leftEncoderPID.resetEncoder();
+        rightDrivePID.disable();
+        leftDrivePID.disable();
+        rightDrivePID.resetEncoder();
+        leftDrivePID.resetEncoder();
 
     }
 

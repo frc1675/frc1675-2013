@@ -6,7 +6,7 @@ package org.frc1675.commands;
 
 /**
  *
- * @author team1675
+ * @author Tony Stano
  */
 public class CompressorWork extends CommandBase {
     

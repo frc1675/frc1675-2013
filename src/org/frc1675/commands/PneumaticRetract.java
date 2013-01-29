@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
- * @author jstano
+ * @author Tony Stano
  */
 public class PneumaticRetract extends CommandBase {
     

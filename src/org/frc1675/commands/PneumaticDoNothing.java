@@ -6,7 +6,7 @@ package org.frc1675.commands;
 
 /**
  *
- * @author jstano
+ * @author Tony Stano
  */
 public class PneumaticDoNothing extends CommandBase {
     

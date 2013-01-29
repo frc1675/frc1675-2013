@@ -44,6 +44,7 @@ public class RobotMap {
     public static final int DRIVER_CONTROLLER = 1;
     public static final int OPERATOR_CONTROLLER = 2;
     public static final double DEADZONE_RADIUS = 0.15;
+    public static final double ACCELERATION_INCREMENT = .02;
     
     //analog card
     public static final int GYRO = 2;

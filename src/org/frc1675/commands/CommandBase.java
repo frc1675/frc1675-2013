@@ -24,21 +24,20 @@ public abstract class CommandBase extends Command {
     
     // Create a single static instance of all of your subsystems
     public static SimpleMecanumDrive simpleMecanumDrive;
-    public static LeftTankDrivePIDSubsystem leftEncoderPID;
-    public static RightTankDrivePIDSubsystem rightEncoderPID;
     public static CompressorSystem compressor;
     public static PneumaticPistons pneumaticPistons;
+    public static LeftTankDrivePIDSubsystem leftDrivePID;
+    public static RightTankDrivePIDSubsystem rightDrivePID;
     
     static {
         simpleMecanumDrive = new SimpleMecanumDrive();
-
+//        leftDrivePID = new LeftTankDrivePIDSubsystem();
+//        rightDrivePID = new RightTankDrivePIDSubsystem();
 
         compressor = new CompressorSystem();
 //        pneumaticPistons = new PneumaticPistons();
-//        leftEncoderPID = new LeftTankDrivePIDSubsystem();
-//        rightEncoderPID = new RightTankDrivePIDSubsystem();        
+        
 
-//        simpleTankDrive = new SimpleTankDrive();
 
         
 
@@ -51,9 +50,7 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
-        
-
-        
+                
     }
 
     public CommandBase(String name) {
