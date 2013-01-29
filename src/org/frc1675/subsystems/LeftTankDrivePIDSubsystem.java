@@ -43,7 +43,7 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         leftEncoder.start();
         leftEncoder.setDistancePerPulse(1.0);
         double inputRangeMinimum=0;
-        double inputRangeMaximum=0;
+        double inputRangeMaximum= 36000000;
         
         setInputRange(inputRangeMinimum, inputRangeMaximum);
         
