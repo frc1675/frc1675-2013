@@ -36,8 +36,8 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-        frontLeftMotor = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
-        backLeftMotor = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
+        frontLeftMotor = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+        backLeftMotor = new Victor(RobotMap.BACK_LEFT_DRIVE_MOTOR);
         
         leftEncoder = new Encoder(RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B);
         leftEncoder.start();

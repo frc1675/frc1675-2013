@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -26,27 +26,54 @@ public class TankDriveWithJoysticks extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double leftStick = oi.getLeftY();
-        double rightStick = oi.getRightY();
-        double leftMotor = leftDrivePID.get();
-        double rightMotor = rightDrivePID.get();
+        double rightStick = oi.getRightY();       
+        double absoluteLeftStick = Math.abs(leftStick);
+        double absoluteRightStick = Math.abs(rightStick);
+        double absoluteLeftMotor = Math.abs(leftDrivePID.get());
+        double absoluteRightMotor = Math.abs(rightDrivePID.get());
         double leftSetting = 0;
         double rightSetting = 0;
+        boolean rightIsOutsideDeadZone = false;
+        boolean leftIsOutsideDeadZone = false;
         
-        
-        if(leftStick > leftMotor){
-            leftSetting = leftStick + RobotMap.ACCELERATION_INCREMENT;
-        }
-        else{
-            leftSetting = leftStick;
-        }
-        if(rightStick > rightMotor){
-            rightSetting = rightStick + RobotMap.ACCELERATION_INCREMENT;
-        }
-        else{
-            rightSetting = rightStick;
+        if (absoluteLeftStick < RobotMap.DEADZONE_RADIUS){
+            leftIsOutsideDeadZone = false;
+        }else{
+            leftIsOutsideDeadZone = true;
         }
         
+        if (leftIsOutsideDeadZone){
+            if(leftStick > absoluteLeftMotor){
+                leftSetting = absoluteLeftMotor + RobotMap.ACCELERATION_INCREMENT;
+            }else{
+                leftSetting = leftStick;
+            }
+        }else{
+            leftSetting = 0;
+        }        
+        if (leftStick <= -RobotMap.DEADZONE_RADIUS){
+            leftSetting = -leftSetting;
+        }
         leftDrivePID.set(leftSetting);
+        
+        
+        if (absoluteRightStick < RobotMap.DEADZONE_RADIUS){
+            rightIsOutsideDeadZone = false;
+        }else{
+            rightIsOutsideDeadZone = true;
+        }     
+        if (rightIsOutsideDeadZone){
+            if(rightStick > absoluteRightMotor){
+                rightSetting = absoluteRightMotor + RobotMap.ACCELERATION_INCREMENT;
+            }else{
+                rightSetting = rightStick;
+            }
+        }else{
+            rightSetting = 0;
+        }
+        if (rightStick<= -RobotMap.DEADZONE_RADIUS){
+            rightSetting = -rightSetting;
+        }
         rightDrivePID.set(rightSetting);
     }
 
