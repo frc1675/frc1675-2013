@@ -31,10 +31,10 @@ public class TankDriveWithJoysticks extends CommandBase {
         double absoluteRightStick = Math.abs(rightStick);
         double absoluteLeftMotor = Math.abs(leftDrivePID.get());
         double absoluteRightMotor = Math.abs(rightDrivePID.get());
-        double leftSetting = 0;
-        double rightSetting = 0;
-        boolean rightIsOutsideDeadZone = false;
-        boolean leftIsOutsideDeadZone = false;
+        double leftSetting;
+        double rightSetting;
+        boolean rightIsOutsideDeadZone;
+        boolean leftIsOutsideDeadZone;
         
         if (absoluteLeftStick < RobotMap.DEADZONE_RADIUS){
             leftIsOutsideDeadZone = false;
@@ -43,7 +43,7 @@ public class TankDriveWithJoysticks extends CommandBase {
         }
         
         if (leftIsOutsideDeadZone){
-            if(leftStick > absoluteLeftMotor){
+            if(leftStick > absoluteLeftMotor && absoluteLeftMotor > RobotMap.DEADZONE_RADIUS + .05){
                 leftSetting = absoluteLeftMotor + RobotMap.ACCELERATION_INCREMENT;
             }else{
                 leftSetting = leftStick;
@@ -62,7 +62,7 @@ public class TankDriveWithJoysticks extends CommandBase {
         }else{
             rightIsOutsideDeadZone = true;
         }     
-        if (rightIsOutsideDeadZone){
+        if (rightIsOutsideDeadZone && absoluteRightMotor > RobotMap.DEADZONE_RADIUS + .05){
             if(rightStick > absoluteRightMotor){
                 rightSetting = absoluteRightMotor + RobotMap.ACCELERATION_INCREMENT;
             }else{
