@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
-import org.frc1675.commands.tank.GoStraight;
+import org.frc1675.commands.drive.tank.GoStraight;
 
 /**
  * This class is the glue that binds the controls on the physical operator

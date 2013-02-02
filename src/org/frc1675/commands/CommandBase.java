@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.CompressorSystem;
-import org.frc1675.subsystems.LeftTankDrivePIDSubsystem;
+import org.frc1675.subsystems.drive.tank.LeftTankDrivePIDSubsystem;
 import org.frc1675.subsystems.climber.Climber;
-import org.frc1675.subsystems.RightTankDrivePIDSubsystem;
-import org.frc1675.subsystems.SimpleMecanumDrive;
+import org.frc1675.subsystems.drive.tank.RightTankDrivePIDSubsystem;
+import org.frc1675.subsystems.drive.mecanum.SimpleMecanumDrive;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

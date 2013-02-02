@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.subsystems;
+package org.frc1675.subsystems.drive.mecanum;
 
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
-import org.frc1675.commands.mecanum.MecanumDrive;
+import org.frc1675.commands.drive.mecanum.MecanumDrive;
 
 /**
  *
