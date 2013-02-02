@@ -1,33 +1,30 @@
-    /*
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.drive.tank;
+package org.frc1675.commands.drive;
 
-import edu.wpi.first.wpilibj.command.Command;
-import org.frc1675.RobotMap;
 import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author ericmiller
+ * @author team1675
  */
-public class TankDriveWithJoysticks extends CommandBase {
+public class GyroCommand extends CommandBase {
     
-    public TankDriveWithJoysticks() {
-        requires(leftDrivePID);
-        requires(rightDrivePID);
-        
+    public GyroCommand() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(gyroPID);        
     }
-   
+
     // Called just before this Command runs the first time
-    protected void initialize() {        
+    protected void initialize() {
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        leftDrivePID.set(oi.getLeftTankCommand());
-        rightDrivePID.set(oi.getRightTankCommand());
+        System.out.println("This is the angle the gyroscope is showing:" + gyroPID.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()

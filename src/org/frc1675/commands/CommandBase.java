@@ -8,6 +8,7 @@ import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.climbassist.ClimbAssist;
 import org.frc1675.subsystems.drive.tank.LeftTankDrivePIDSubsystem;
 import org.frc1675.subsystems.climber.Climber;
+import org.frc1675.subsystems.drive.GyroPID;
 import org.frc1675.subsystems.drive.tank.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.drive.mecanum.SimpleMecanumDrive;
 import org.frc1675.subsystems.drive.tank.TankDrivePIDSubsystem;
@@ -36,9 +37,10 @@ public abstract class CommandBase extends Command {
     public static TankDrivePIDSubsystem rightDrivePID;
     public static Dumper dumper;
     public static ClimbAssist climbAssist;
+    public static GyroPID gyroPID;
     
     static {
-//        simpleMecanumDrive = new SimpleMecanumDrive();
+        //        simpleMecanumDrive = new SimpleMecanumDrive();
 //        leftDrivePID = new LeftTankDrivePIDSubsystem();
 //        rightDrivePID = new RightTankDrivePIDSubsystem();
         leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
@@ -48,17 +50,15 @@ public abstract class CommandBase extends Command {
         rightDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
                 RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR, 
                 RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, 
-                1.0);
-
+                1.0);       
+        
         compressor = new CompressorSystem();
 //        climber = new Climber();
 //        dumper = new Dumper();
-//        climbAssist = new ClimbAssist();
+//        climbAssist = new ClimbAssist();        
+        gyroPID = new GyroPID(1.0, 0.0, 0.0, RobotMap.GYRO, 0.0, 359,
+                RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
         
-
-
-        
-
     }
     
     public static void init() {
@@ -67,8 +67,9 @@ public abstract class CommandBase extends Command {
         // which commands extend), subsystems are not guaranteed to be
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
-        oi = new OI();
-                
+        oi = new OI();        
+            
+       
     }
 
     public CommandBase(String name) {

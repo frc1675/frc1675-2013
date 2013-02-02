@@ -7,6 +7,7 @@ package org.frc1675.subsystems.drive;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import org.frc1675.RobotMap;
+import org.frc1675.commands.drive.GyroCommand;
 
 /**
  *
@@ -14,37 +15,38 @@ import org.frc1675.RobotMap;
  */
 public class GyroPID extends PIDSubsystem {
 
-    private static final double Kp = 1.0;
-    private static final double Ki = 0.0;
-    private static final double Kd = 0.0;
     private Gyro gyro;
     private double outputPID = 0.0;
 
     // Initialize your subsystem here
-    public GyroPID() {
-        super("Gyro", Kp, Ki, Kd);
-        gyro = new Gyro(RobotMap.GYRO);
-        double inputRangeMinimum = 0;
-        double inputRangeMaximum = 359;        
+    public GyroPID(double p, double i, double d, int gyroChannel, 
+            double inputRangeMinimum, double inputRangeMaximum, double gyroSensitivity) {
+        super("Gyro", p, i, d);
+        gyro = new Gyro(gyroChannel);       
+        
         setInputRange(inputRangeMinimum, inputRangeMaximum);
 
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
+        // 0.007 volts per degree per second
+        gyro.setSensitivity(gyroSensitivity);   
+        
     }
-    
   
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new GyroCommand());
     }
     
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
-        return 0.0;
+        // yourPot.getAverageVoltage() / kYourMaxVoltage;                
+        return gyro.pidGet();
         
     }
     
@@ -53,8 +55,13 @@ public class GyroPID extends PIDSubsystem {
         // e.g. yourMotor.set(output);
         outputPID = output;
     }
+    
     public double getPIDOutput(){
         return outputPID;
     }
-
+    
+    public double getAngle(){
+        return gyro.getAngle();
+    }
+    
 }
