@@ -44,18 +44,9 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         leftEncoder = new Encoder(RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B);
         leftEncoder.start();
         leftEncoder.setDistancePerPulse(1.0);
-        double inputRangeMinimum=0;
-        double inputRangeMaximum= 36000000;
         
         rampTimer = new Timer();
         rampTimer.start();
-        
-        setInputRange(inputRangeMinimum, inputRangeMaximum);
-        
-    }
-    
-    public double turnInchesIntoTicks(double distanceInches, int encoderTicks){
-        return (distanceInches*(encoderTicks/(6*(Math.PI))));
     }
     
     public void initDefaultCommand() {

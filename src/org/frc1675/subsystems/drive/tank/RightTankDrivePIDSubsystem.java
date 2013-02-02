@@ -27,17 +27,13 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
     
     private SpeedController frontRightMotor;
     private SpeedController backRightMotor;
-            
-    private Encoder rightEncoder;     
-    
-    private Gyro gyro; 
-    
+    private Encoder rightEncoder;
     private Timer rampTimer;
     
     
     // Initialize your subsystem here
     public RightTankDrivePIDSubsystem() {
-        super("RightTankDrivePIDSubsystem", Kp, Ki, Kd);
+        super("LeftTankDrivePIDSubsystem", Kp, Ki, Kd);
 
         // Use these to get going:
         // setSetpoint() -  Sets where the PID controller should move the system
@@ -52,43 +48,28 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         
         rampTimer = new Timer();
         rampTimer.start();
-        
-        
-//        double inputRangeMinimum=0;
-//        double inputRangeMaximum=0;
-//        
-//        setInputRange(inputRangeMinimum, inputRangeMaximum);
-        
     }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new TankDriveWithJoysticks());
+        
+        
     }
     
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
+        // yourPot.getAverageVoltage() / kYourMaxVoltage;        
         return rightEncoder.get();
     }
     
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-        backRightMotor.set(output);
         frontRightMotor.set(output);
-    }
-    public double turnInchesIntoTicks(double distanceInches, int encoderTicks){
-        return (distanceInches*(encoderTicks/(6*(Math.PI))));
-    }
-    public void resetEncoder(){
-        rightEncoder.reset();
-    }
-    
-    public double get(){
-       return frontRightMotor.get();
+        backRightMotor.set(output);
     }
     
     public void set(double velocity){
@@ -99,5 +80,12 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         }
         frontRightMotor.set(velocity);
         backRightMotor.set(velocity);
+    }
+    public double get(){
+        return frontRightMotor.get();
+    }
+    
+    public void resetEncoder(){
+        rightEncoder.reset();
     }
 }

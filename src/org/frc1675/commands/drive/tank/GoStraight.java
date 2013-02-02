@@ -19,8 +19,6 @@ public class GoStraight extends CommandBase {
         // eg. requires(chassis);
         requires (rightDrivePID);
         requires (leftDrivePID);
-        
-        setpoint = rightDrivePID.turnInchesIntoTicks(12, 360);
 
     }
 
