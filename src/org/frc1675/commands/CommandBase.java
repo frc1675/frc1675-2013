@@ -38,7 +38,7 @@ public abstract class CommandBase extends Command {
     public static ClimbAssist climbAssist;
     
     static {
-        simpleMecanumDrive = new SimpleMecanumDrive();
+//        simpleMecanumDrive = new SimpleMecanumDrive();
 //        leftDrivePID = new LeftTankDrivePIDSubsystem();
 //        rightDrivePID = new RightTankDrivePIDSubsystem();
         leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
