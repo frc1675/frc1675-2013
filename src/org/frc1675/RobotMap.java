@@ -37,7 +37,13 @@ public class RobotMap {
     
     //solenoids
     public static final int CLIMBER_RETRACT = 1;    
-    public static final int CLIMBER_EXTEND = 3;
+    public static final int CLIMBER_EXTEND = 2;
+    
+    public static final int DUMPER_RETRACT = 4;    
+    public static final int DUMPER_EXTEND = 5;
+    
+    public static final int CLIMB_ASSIST_RETRACT = 7;    
+    public static final int CLIMB_ASSIST_EXTEND = 8;
 
     
     //controllers and other stuff
