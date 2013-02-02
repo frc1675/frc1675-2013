@@ -15,10 +15,28 @@ import org.frc1675.commands.drive.tank.GoStraight;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
+    public Joystick driverController = new Joystick(RobotMap.OPERATOR_CONTROLLER); 
+    private Button driverBButton = new JoystickButton(driverController, XBoxControllerMap.B_BUTTON);
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
     private Button driverYButton = new JoystickButton(driverController, XBoxControllerMap.Y_BUTTON); 
-    private Button driverAButton = new JoystickButton(driverController, XBoxControllerMap.A_BUTTON); 
+    private Button driverAButton = new JoystickButton(driverController, XBoxControllerMap.A_BUTTON);
+    private Button driverRightBumper = new JoystickButton(driverController, XBoxControllerMap.RIGHT_BUMPER_BUTTON);
+    private Button driverLeftBumper = new JoystickButton(driverController, XBoxControllerMap.LEFT_BUMPER_BUTTON);
+    private Button driverLeftJoystickButton = new JoystickButton(driverController, XBoxControllerMap.RIGHT_JOYSTICK_BUTTON);
+    private Button driverRightJoystickButton = new JoystickButton(driverController, XBoxControllerMap.LEFT_JOYSTICK_BUTTON);
+    
+    
+    public Joystick operatorController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
+    private Button operatorBButton = new JoystickButton(operatorController, XBoxControllerMap.B_BUTTON);
+    private Button operatorXButton = new JoystickButton(operatorController, XBoxControllerMap.X_BUTTON);
+    private Button operatorYButton = new JoystickButton(operatorController, XBoxControllerMap.Y_BUTTON); 
+    private Button operatorAButton = new JoystickButton(operatorController, XBoxControllerMap.A_BUTTON);
+    private Button operatorRightBumper = new JoystickButton(operatorController, XBoxControllerMap.RIGHT_BUMPER_BUTTON);
+    private Button operatorLeftBumper = new JoystickButton(operatorController, XBoxControllerMap.LEFT_BUMPER_BUTTON);
+    private Button operatorLeftJoystickButton = new JoystickButton(operatorController, XBoxControllerMap.RIGHT_JOYSTICK_BUTTON);
+    private Button operatorRightJoystickButton = new JoystickButton(operatorController, XBoxControllerMap.LEFT_JOYSTICK_BUTTON);
+    
+    
     public DigitalIOButton pneumaticsExtendedSwitch = new DigitalIOButton(RobotMap.EXTEND_PNEUMATICS_SWITCH);
     public DigitalIOButton pneumaticsRetractedSwitch = new DigitalIOButton(RobotMap.RETRACT_PNEUMATICS_SWITCH);
 
