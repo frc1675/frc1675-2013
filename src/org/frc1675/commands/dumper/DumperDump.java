@@ -2,44 +2,37 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.climber;
+package org.frc1675.commands.dumper;
 
 import edu.wpi.first.wpilibj.Timer;
+import org.frc1675.RobotMap;
 import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author Tony Stano
+ * @author josh
  */
-public class ClimberRetract extends CommandBase {
+public class DumperDump extends CommandBase {
     
     Timer timer;
     
-    public ClimberRetract() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(climber);
-        timer = new Timer();
+    public DumperDump() {
+        requires(dumper);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//        climber.retract();
         timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        climber.retract();
+        dumper.dump();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-//        if (oi.pneumaticsRetractedSwitch.get()){
-//            return true;
-//        }
-        
-        if(timer.get() > 0.25){
+        if(timer.get() > RobotMap.SOLENOID_ACTIVE_TIME){
             return true;
         }
         
@@ -48,13 +41,12 @@ public class ClimberRetract extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        climber.doNothing();
+        dumper.doNothing();
         timer.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        end();
     }
 }

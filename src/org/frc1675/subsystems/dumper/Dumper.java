@@ -25,7 +25,7 @@ public class Dumper extends Subsystem {
         //no default command
     }
     
-    public void extend(){
+    public void dump(){
         extend.set(true);
         retract.set(false);
     }
@@ -33,5 +33,9 @@ public class Dumper extends Subsystem {
     public void retract(){
         extend.set(false);
         retract.set(true);
+    }
+    public void doNothing(){
+        extend.set(false);
+        extend.set(false);
     }
 }

@@ -8,6 +8,7 @@ import org.frc1675.subsystems.drive.tank.LeftTankDrivePIDSubsystem;
 import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.drive.tank.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.drive.mecanum.SimpleMecanumDrive;
+import org.frc1675.subsystems.dumper.Dumper;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -25,9 +26,10 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static SimpleMecanumDrive simpleMecanumDrive;
     public static CompressorSystem compressor;
-    public static Climber pneumaticPistons;
+    public static Climber climber;
     public static LeftTankDrivePIDSubsystem leftDrivePID;
     public static RightTankDrivePIDSubsystem rightDrivePID;
+    public static Dumper dumper;
     
     static {
         simpleMecanumDrive = new SimpleMecanumDrive();
@@ -35,7 +37,7 @@ public abstract class CommandBase extends Command {
 //        rightDrivePID = new RightTankDrivePIDSubsystem();
 
         compressor = new CompressorSystem();
-//        pneumaticPistons = new Climber();
+//        climber = new Climber();
         
 
 

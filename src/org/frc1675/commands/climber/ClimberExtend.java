@@ -5,6 +5,7 @@
 package org.frc1675.commands.climber;
 
 import edu.wpi.first.wpilibj.Timer;
+import org.frc1675.RobotMap;
 import org.frc1675.commands.CommandBase;
 
 /**
@@ -18,20 +19,19 @@ public class ClimberExtend extends CommandBase {
     public ClimberExtend() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(pneumaticPistons);
+        requires(climber);
         timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//        pneumaticPistons.extend();
         timer.start();
         
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        pneumaticPistons.extend();
+        climber.extend();
         
         
     }
@@ -43,7 +43,7 @@ public class ClimberExtend extends CommandBase {
 //            return true;
 //            
 //        }
-        if(timer.get() > 0.25){
+        if(timer.get() > RobotMap.SOLENOID_ACTIVE_TIME){
             return true;
         }
         
@@ -52,7 +52,7 @@ public class ClimberExtend extends CommandBase {
     }
     // Called once after isFinished returns true
     protected void end() {
-        pneumaticPistons.doNothing();
+        climber.doNothing();
         timer.stop();
     }
 

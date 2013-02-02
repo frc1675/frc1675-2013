@@ -44,6 +44,8 @@ public class RobotMap {
     
     public static final int CLIMB_ASSIST_RETRACT = 7;    
     public static final int CLIMB_ASSIST_EXTEND = 8;
+    
+    public static final double SOLENOID_ACTIVE_TIME = 0.1;
 
     
     //controllers and other stuff
