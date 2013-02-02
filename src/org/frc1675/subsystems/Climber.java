@@ -13,16 +13,16 @@ import org.frc1675.RobotMap;
  *
  * @author team1675
  */
-public class PneumaticPistons extends Subsystem {
+public class Climber extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     private Solenoid extend;
     private Solenoid retract;
     
     
-    public PneumaticPistons(){
-        extend = new Solenoid(RobotMap.PNEUMATIC_EXTEND);
-        retract = new Solenoid(RobotMap.PNEUMATIC_RETRACT);
+    public Climber(){
+        extend = new Solenoid(RobotMap.CLIMBER_EXTEND);
+        retract = new Solenoid(RobotMap.CLIMBER_RETRACT);
     }
 
     public void initDefaultCommand() {

@@ -4,38 +4,60 @@
  */
 package org.frc1675.commands;
 
+import edu.wpi.first.wpilibj.Timer;
+
 /**
  *
  * @author Tony Stano
  */
-public class PneumaticDoNothing extends CommandBase {
+public class ClimberExtend extends CommandBase {
     
-    public PneumaticDoNothing() {
+    Timer timer;
+    
+    public ClimberExtend() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(pneumaticPistons);
+        timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        pneumaticPistons.doNothing();
+//        pneumaticPistons.extend();
+        timer.start();
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        pneumaticPistons.extend();
+        
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        
+//        if (oi.pneumaticsExtendedSwitch.get()){
+//            return true;
+//            
+//        }
+        if(timer.get() > 0.25){
+            return true;
+        }
+        
+        return false;
+    
     }
-
     // Called once after isFinished returns true
     protected void end() {
+        pneumaticPistons.doNothing();
+        timer.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }

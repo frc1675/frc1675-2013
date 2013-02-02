@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.LeftTankDrivePIDSubsystem;
-import org.frc1675.subsystems.PneumaticPistons;
+import org.frc1675.subsystems.Climber;
 import org.frc1675.subsystems.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.SimpleMecanumDrive;
 
@@ -25,7 +25,7 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static SimpleMecanumDrive simpleMecanumDrive;
     public static CompressorSystem compressor;
-    public static PneumaticPistons pneumaticPistons;
+    public static Climber pneumaticPistons;
     public static LeftTankDrivePIDSubsystem leftDrivePID;
     public static RightTankDrivePIDSubsystem rightDrivePID;
     
@@ -35,7 +35,7 @@ public abstract class CommandBase extends Command {
 //        rightDrivePID = new RightTankDrivePIDSubsystem();
 
         compressor = new CompressorSystem();
-//        pneumaticPistons = new PneumaticPistons();
+//        pneumaticPistons = new Climber();
         
 
 

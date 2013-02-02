@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import org.frc1675.commands.PneumaticExtend;
-import org.frc1675.commands.PneumaticRetract;
+import org.frc1675.commands.ClimberExtend;
+import org.frc1675.commands.ClimberRetract;
 import org.frc1675.commands.tank.GoStraight;
 
 /**
@@ -59,8 +59,8 @@ public class OI {
 
 //        driverXButton.whenPressed(new GoStraight());
 
-//        driverYButton.whenPressed(new PneumaticExtend());
-//        driverAButton.whenPressed(new PneumaticRetract());
+//        driverYButton.whenPressed(new ClimberExtend());
+//        driverAButton.whenPressed(new ClimberRetract());
         
 
         
@@ -108,12 +108,23 @@ public class OI {
     }
 
     public double getLeftY() {
-
-        return driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
+        double leftY = driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
+        double absValue = Math.abs(leftY);
+        if(absValue <= RobotMap.DEADZONE_RADIUS){
+            return 0.0;
+        } else {
+            return leftY;
+        }
     }
 
     public double getRightY() {
-        return driverController.getRawAxis(XBoxControllerMap.RIGHT_Y_AXIS);
+        double rightY = driverController.getRawAxis(XBoxControllerMap.RIGHT_Y_AXIS);
+        double absValue = Math.abs(rightY);
+        if(absValue <= RobotMap.DEADZONE_RADIUS){
+            return 0.0;
+        } else {
+            return rightY;
+        }
     }
     
 

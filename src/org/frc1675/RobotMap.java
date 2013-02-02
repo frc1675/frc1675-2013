@@ -36,8 +36,8 @@ public class RobotMap {
     public static final int RETRACT_PNEUMATICS_SWITCH = 7;
     
     //solenoids
-    public static final int PNEUMATIC_RETRACT = 1;    
-    public static final int PNEUMATIC_EXTEND = 3;
+    public static final int CLIMBER_RETRACT = 1;    
+    public static final int CLIMBER_EXTEND = 3;
 
     
     //controllers and other stuff

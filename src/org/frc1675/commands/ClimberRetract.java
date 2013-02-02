@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.Timer;
  *
  * @author Tony Stano
  */
-public class PneumaticExtend extends CommandBase {
+public class ClimberRetract extends CommandBase {
     
     Timer timer;
     
-    public PneumaticExtend() {
+    public ClimberRetract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(pneumaticPistons);
@@ -23,32 +23,28 @@ public class PneumaticExtend extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//        pneumaticPistons.extend();
+//        pneumaticPistons.retract();
         timer.start();
-        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        pneumaticPistons.extend();
-        
-        
+        pneumaticPistons.retract();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        
-//        if (oi.pneumaticsExtendedSwitch.get()){
+//        if (oi.pneumaticsRetractedSwitch.get()){
 //            return true;
-//            
 //        }
+        
         if(timer.get() > 0.25){
             return true;
         }
         
         return false;
-    
     }
+
     // Called once after isFinished returns true
     protected void end() {
         pneumaticPistons.doNothing();
