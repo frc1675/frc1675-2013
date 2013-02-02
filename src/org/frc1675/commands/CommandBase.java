@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.LeftTankDrivePIDSubsystem;
-import org.frc1675.subsystems.Climber;
+import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.SimpleMecanumDrive;
 

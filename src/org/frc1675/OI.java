@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import org.frc1675.commands.ClimberExtend;
-import org.frc1675.commands.ClimberRetract;
+import org.frc1675.commands.climber.ClimberExtend;
+import org.frc1675.commands.climber.ClimberRetract;
 import org.frc1675.commands.tank.GoStraight;
 
 /**
