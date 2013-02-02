@@ -34,6 +34,7 @@ public class Dumper extends Subsystem {
         extend.set(false);
         retract.set(true);
     }
+    
     public void doNothing(){
         extend.set(false);
         retract.set(false);

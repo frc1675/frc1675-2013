@@ -16,10 +16,8 @@ import org.frc1675.commands.CompressorWork;
  * @author team1675
  */
 public class CompressorSystem extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    
     private Compressor compressor;
-
     
     public CompressorSystem(){
         compressor = new Compressor(RobotMap.HIGH_PRESSURE_SWITCH, RobotMap.COMPRESSOR_SPIKE);
@@ -33,7 +31,6 @@ public class CompressorSystem extends Subsystem {
         else{
             compressor.setRelayValue(Relay.Value.kOff);
         }
-//        System.out.println(compressor.getPressureSwitchValue());
     }
     public void init(){
         compressor.start();
@@ -44,13 +41,6 @@ public class CompressorSystem extends Subsystem {
     }
     public void initDefaultCommand() {
         setDefaultCommand(new CompressorWork());
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
-    
-    
-    
-    
-    
 }
 

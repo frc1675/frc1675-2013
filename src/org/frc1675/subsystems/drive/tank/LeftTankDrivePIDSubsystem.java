@@ -50,11 +50,7 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new TankDriveWithJoysticks());
-        
-        
     }
     
     protected double returnPIDInput() {
@@ -80,6 +76,7 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         frontLeftMotor.set(velocity);
         backLeftMotor.set(velocity);
     }
+    
     public double get(){
         return frontLeftMotor.get();
     }

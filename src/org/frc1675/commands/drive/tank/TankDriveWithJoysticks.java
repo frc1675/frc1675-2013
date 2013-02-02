@@ -14,8 +14,6 @@ import org.frc1675.commands.CommandBase;
 public class TankDriveWithJoysticks extends CommandBase {
     
     public TankDriveWithJoysticks() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(leftDrivePID);
         requires(rightDrivePID);
     }

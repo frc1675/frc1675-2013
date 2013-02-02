@@ -15,8 +15,6 @@ public class GoStraight extends CommandBase {
     
     
     public GoStraight() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires (rightDrivePID);
         requires (leftDrivePID);
 
@@ -24,7 +22,6 @@ public class GoStraight extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
         rightDrivePID.setSetpoint(3600);
         leftDrivePID.setSetpoint(3600);
         
@@ -44,7 +41,6 @@ public class GoStraight extends CommandBase {
         double leftPosition = leftDrivePID.getPosition();
         
         double changeInPosition = rightPosition + leftPosition - (2 * setpoint);
-        
         
         return (changeInPosition == 0 * setpoint);
 

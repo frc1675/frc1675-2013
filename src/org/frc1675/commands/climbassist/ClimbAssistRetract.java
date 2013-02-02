@@ -36,7 +36,6 @@ public class ClimbAssistRetract extends CommandBase {
         if(timer.get() > RobotMap.SOLENOID_ACTIVE_TIME){
             return true;
         }
-        
         return false;
     }
 

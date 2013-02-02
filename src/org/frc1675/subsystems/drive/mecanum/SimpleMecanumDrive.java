@@ -16,8 +16,6 @@ import org.frc1675.commands.drive.mecanum.MecanumDrive;
  * @author ericmiller
  */
 public class SimpleMecanumDrive extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 
     private SpeedController motorBL;
     private SpeedController motorFL;
@@ -29,8 +27,6 @@ public class SimpleMecanumDrive extends Subsystem {
         motorFL = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
         motorFR = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
         motorBR = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
-        
-        
     }
     
     public void drive(double magnitude, double direction, double rotation){
@@ -54,11 +50,9 @@ public class SimpleMecanumDrive extends Subsystem {
         * r = right */
         
         System.out.println("Mecanum.drive: motor1:"+motorBL.get()+", motor2: "+motorFL.get()+", motor3: "+motorFR.get()+", motor4: "+motorBR.get());
-        
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
         setDefaultCommand(new MecanumDrive());
     }
 }

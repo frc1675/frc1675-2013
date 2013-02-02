@@ -13,8 +13,6 @@ import org.frc1675.commands.CommandBase;
 public class MecanumDrive extends CommandBase {
 
     public MecanumDrive() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(simpleMecanumDrive);
     }
 

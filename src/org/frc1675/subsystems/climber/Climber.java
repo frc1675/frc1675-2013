@@ -14,11 +14,9 @@ import org.frc1675.RobotMap;
  * @author team1675
  */
 public class Climber extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+    
     private Solenoid extend;
     private Solenoid retract;
-    
     
     public Climber(){
         extend = new Solenoid(RobotMap.CLIMBER_EXTEND);
@@ -26,18 +24,19 @@ public class Climber extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        // no default command
     }
+    
     public void extend(){
         extend.set(true);
         retract.set(false);
     }
+    
     public void retract(){
         extend.set(false);
         retract.set(true);
-        
     }
+    
     public void doNothing(){
         extend.set(false);
         retract.set(false);

@@ -17,8 +17,6 @@ public class ClimberExtend extends CommandBase {
     Timer timer;
     
     public ClimberExtend() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(climber);
         timer = new Timer();
     }
@@ -26,30 +24,21 @@ public class ClimberExtend extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         timer.start();
-        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         climber.extend();
-        
-        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        
-//        if (oi.pneumaticsExtendedSwitch.get()){
-//            return true;
-//            
-//        }
         if(timer.get() > RobotMap.SOLENOID_ACTIVE_TIME){
             return true;
         }
-        
         return false;
-    
     }
+    
     // Called once after isFinished returns true
     protected void end() {
         climber.doNothing();

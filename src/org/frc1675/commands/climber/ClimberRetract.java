@@ -17,8 +17,6 @@ public class ClimberRetract extends CommandBase {
     Timer timer;
     
     public ClimberRetract() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
         requires(climber);
         timer = new Timer();
     }
@@ -35,11 +33,9 @@ public class ClimberRetract extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        
         if(timer.get() > RobotMap.SOLENOID_ACTIVE_TIME){
             return true;
         }
-        
         return false;
     }
 
