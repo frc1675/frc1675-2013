@@ -40,7 +40,7 @@ public class Climber extends Subsystem {
     }
     public void doNothing(){
         extend.set(false);
-        extend.set(false);
+        retract.set(false);
     }
 
 }

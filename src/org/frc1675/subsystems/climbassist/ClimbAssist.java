@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.subsystems.dumper;
+package org.frc1675.subsystems.climbassist;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,13 +12,13 @@ import org.frc1675.RobotMap;
  *
  * @author josh
  */
-public class Dumper extends Subsystem {
+public class ClimbAssist extends Subsystem {
     private Solenoid extend;
     private Solenoid retract;
     
-    public Dumper(){
-        extend = new Solenoid(RobotMap.DUMPER_EXTEND);
-        retract = new Solenoid(RobotMap.DUMPER_RETRACT);
+    public ClimbAssist(){
+        extend = new Solenoid(RobotMap.CLIMB_ASSIST_EXTEND);
+        retract = new Solenoid(RobotMap.CLIMB_ASSIST_RETRACT);
     }
 
     public void initDefaultCommand() {

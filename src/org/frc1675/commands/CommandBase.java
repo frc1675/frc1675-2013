@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.subsystems.CompressorSystem;
+import org.frc1675.subsystems.climbassist.ClimbAssist;
 import org.frc1675.subsystems.drive.tank.LeftTankDrivePIDSubsystem;
 import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.drive.tank.RightTankDrivePIDSubsystem;
@@ -30,6 +31,7 @@ public abstract class CommandBase extends Command {
     public static LeftTankDrivePIDSubsystem leftDrivePID;
     public static RightTankDrivePIDSubsystem rightDrivePID;
     public static Dumper dumper;
+    public static ClimbAssist climbAssist;
     
     static {
         simpleMecanumDrive = new SimpleMecanumDrive();
@@ -39,6 +41,7 @@ public abstract class CommandBase extends Command {
         compressor = new CompressorSystem();
 //        climber = new Climber();
 //        dumper = new Dumper();
+//        climbAssist = new ClimbAssist();
         
 
 
