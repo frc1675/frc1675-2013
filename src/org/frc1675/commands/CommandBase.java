@@ -38,6 +38,7 @@ public abstract class CommandBase extends Command {
 
         compressor = new CompressorSystem();
 //        climber = new Climber();
+//        dumper = new Dumper();
         
 
 

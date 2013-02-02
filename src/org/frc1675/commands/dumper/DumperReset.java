@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.climber;
+package org.frc1675.commands.dumper;
 
 import edu.wpi.first.wpilibj.Timer;
 import org.frc1675.RobotMap;
@@ -10,16 +10,14 @@ import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author Tony Stano
+ * @author josh
  */
-public class ClimberRetract extends CommandBase {
+public class DumperReset extends CommandBase {
     
     Timer timer;
     
-    public ClimberRetract() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(climber);
+    public DumperReset() {
+        requires(dumper);
         timer = new Timer();
     }
 
@@ -30,12 +28,11 @@ public class ClimberRetract extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        climber.retract();
+        dumper.reset();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        
         if(timer.get() > RobotMap.SOLENOID_ACTIVE_TIME){
             return true;
         }
@@ -45,7 +42,7 @@ public class ClimberRetract extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        climber.doNothing();
+        dumper.doNothing();
         timer.stop();
     }
 

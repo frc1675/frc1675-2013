@@ -30,7 +30,7 @@ public class Dumper extends Subsystem {
         retract.set(false);
     }
     
-    public void retract(){
+    public void reset(){
         extend.set(false);
         retract.set(true);
     }
