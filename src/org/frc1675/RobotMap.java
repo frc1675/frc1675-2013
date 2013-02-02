@@ -56,4 +56,7 @@ public class RobotMap {
     
     //analog card
     public static final int GYRO = 2;
+    
+    
+    public static final double TANK_RAMP_TIME = 0.5;
 }

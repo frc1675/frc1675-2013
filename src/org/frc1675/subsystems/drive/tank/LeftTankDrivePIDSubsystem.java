@@ -7,6 +7,7 @@ package org.frc1675.subsystems.drive.tank;
 import edu.wpi.first.wpilibj.Encoder;
 
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Timer;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -27,6 +28,7 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     private SpeedController frontLeftMotor;
     private SpeedController backLeftMotor;
     private Encoder leftEncoder;
+    private Timer rampTimer;
     
     // Initialize your subsystem here
     public LeftTankDrivePIDSubsystem() {
@@ -44,6 +46,9 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
         leftEncoder.setDistancePerPulse(1.0);
         double inputRangeMinimum=0;
         double inputRangeMaximum= 36000000;
+        
+        rampTimer = new Timer();
+        rampTimer.start();
         
         setInputRange(inputRangeMinimum, inputRangeMaximum);
         
@@ -71,11 +76,16 @@ public class LeftTankDrivePIDSubsystem extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-        frontLeftMotor.set(.25 * output);
-        backLeftMotor.set(.25 * output);
+        frontLeftMotor.set(output);
+        backLeftMotor.set(output);
     }
     
     public void set(double velocity){
+        if(velocity == 0.0){
+            rampTimer.reset(); //get ready to ramp
+        } else if (rampTimer.get() < RobotMap.TANK_RAMP_TIME) {
+            velocity = velocity * (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
+        }
         frontLeftMotor.set(velocity);
         backLeftMotor.set(velocity);
     }

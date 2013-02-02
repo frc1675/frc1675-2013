@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -31,6 +32,8 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
     
     private Gyro gyro; 
     
+    private Timer rampTimer;
+    
     
     // Initialize your subsystem here
     public RightTankDrivePIDSubsystem() {
@@ -46,6 +49,9 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         rightEncoder = new Encoder(RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B);
         rightEncoder.start();
         rightEncoder.setDistancePerPulse(1.0);
+        
+        rampTimer = new Timer();
+        rampTimer.start();
         
         
 //        double inputRangeMinimum=0;
@@ -71,8 +77,8 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-        backRightMotor.set(.25 * output);
-        frontRightMotor.set(.25 * output);
+        backRightMotor.set(output);
+        frontRightMotor.set(output);
     }
     public double turnInchesIntoTicks(double distanceInches, int encoderTicks){
         return (distanceInches*(encoderTicks/(6*(Math.PI))));
@@ -86,6 +92,11 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
     }
     
     public void set(double velocity){
+        if(velocity == 0.0){
+            rampTimer.reset(); //get ready to ramp
+        } else if (rampTimer.get() < RobotMap.TANK_RAMP_TIME) {
+            velocity = velocity * (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
+        }
         frontRightMotor.set(velocity);
         backRightMotor.set(velocity);
     }
