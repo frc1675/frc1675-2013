@@ -3,12 +3,14 @@ package org.frc1675.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
+import org.frc1675.RobotMap;
 import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.climbassist.ClimbAssist;
 import org.frc1675.subsystems.drive.tank.LeftTankDrivePIDSubsystem;
 import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.drive.tank.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.drive.mecanum.SimpleMecanumDrive;
+import org.frc1675.subsystems.drive.tank.TankDrivePIDSubsystem;
 import org.frc1675.subsystems.dumper.Dumper;
 
 /**
@@ -28,8 +30,10 @@ public abstract class CommandBase extends Command {
     public static SimpleMecanumDrive simpleMecanumDrive;
     public static CompressorSystem compressor;
     public static Climber climber;
-    public static LeftTankDrivePIDSubsystem leftDrivePID;
-    public static RightTankDrivePIDSubsystem rightDrivePID;
+//    public static LeftTankDrivePIDSubsystem leftDrivePID;
+//    public static RightTankDrivePIDSubsystem rightDrivePID;
+    public static TankDrivePIDSubsystem leftDrivePID;
+    public static TankDrivePIDSubsystem rightDrivePID;
     public static Dumper dumper;
     public static ClimbAssist climbAssist;
     
@@ -37,6 +41,14 @@ public abstract class CommandBase extends Command {
         simpleMecanumDrive = new SimpleMecanumDrive();
 //        leftDrivePID = new LeftTankDrivePIDSubsystem();
 //        rightDrivePID = new RightTankDrivePIDSubsystem();
+        leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
+                RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR, 
+                RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, 
+                1.0);
+        rightDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
+                RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR, 
+                RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, 
+                1.0);
 
         compressor = new CompressorSystem();
 //        climber = new Climber();

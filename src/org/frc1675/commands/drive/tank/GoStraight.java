@@ -43,7 +43,6 @@ public class GoStraight extends CommandBase {
         double changeInPosition = rightPosition + leftPosition - (2 * setpoint);
         
         return (changeInPosition == 0 * setpoint);
-
     }
 
     // Called once after isFinished returns true
