@@ -25,12 +25,12 @@ public class ClimbAssist extends Subsystem {
         //no default command
     }
     
-    public void dump(){
+    public void extend(){
         extend.set(true);
         retract.set(false);
     }
     
-    public void reset(){
+    public void retract(){
         extend.set(false);
         retract.set(true);
     }
