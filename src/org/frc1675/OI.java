@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
 import org.frc1675.commands.drive.tank.GoStraight;
+import org.frc1675.commands.drive.tank.GoToAngle;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -57,7 +58,7 @@ public class OI {
     public OI() {
 
 
-//        driverXButton.whenPressed(new GoStraight());
+        driverXButton.whenPressed(new GoToAngle(90));
 
 //        driverYButton.whenPressed(new ClimberExtend());
 //        driverAButton.whenPressed(new ClimberRetract());

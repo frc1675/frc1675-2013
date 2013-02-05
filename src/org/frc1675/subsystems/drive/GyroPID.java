@@ -55,6 +55,9 @@ public class GyroPID extends PIDSubsystem {
         // e.g. yourMotor.set(output);
         outputPID = output;
     }
+    public void reset(){
+        gyro.reset();
+    }
     
     public double getPIDOutput(){
         return outputPID;
