@@ -59,4 +59,7 @@ public class RobotMap {
     public static final double VOLTS_PER_DEGREES_PER_SECONDS = 0.007;
     
     public static final double TANK_RAMP_TIME = 0.5;
+    
+    public static final double DRIVE_WHEEL_DIAMETER = 0.5;
+    public static final double DRIVE_ENCODER_TICKS_PER_REV = 360.0;
 }
