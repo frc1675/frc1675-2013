@@ -37,9 +37,7 @@ public class UPS2013 extends IterativeRobot {
 
         //set insight display strategy
 
-//       InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());
-
-
+//       InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());        
 
     }
 

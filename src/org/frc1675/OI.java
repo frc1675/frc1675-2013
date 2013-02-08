@@ -16,7 +16,7 @@ import org.frc1675.commands.drive.tank.GoToAngle;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    public Joystick driverController = new Joystick(RobotMap.OPERATOR_CONTROLLER); 
+    public Joystick driverController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
     private Button driverBButton = new JoystickButton(driverController, XBoxControllerMap.B_BUTTON);
     private Button driverXButton = new JoystickButton(driverController, XBoxControllerMap.X_BUTTON);
     private Button driverYButton = new JoystickButton(driverController, XBoxControllerMap.Y_BUTTON); 
@@ -27,7 +27,7 @@ public class OI {
     private Button driverRightJoystickButton = new JoystickButton(driverController, XBoxControllerMap.LEFT_JOYSTICK_BUTTON);
     
     
-    public Joystick operatorController = new Joystick(RobotMap.DRIVER_CONTROLLER); 
+    public Joystick operatorController = new Joystick(RobotMap.OPERATOR_CONTROLLER); 
     private Button operatorBButton = new JoystickButton(operatorController, XBoxControllerMap.B_BUTTON);
     private Button operatorXButton = new JoystickButton(operatorController, XBoxControllerMap.X_BUTTON);
     private Button operatorYButton = new JoystickButton(operatorController, XBoxControllerMap.Y_BUTTON); 
@@ -128,7 +128,7 @@ public class OI {
 
     public double getLeftTankCommand() {
         double leftY = -driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
-        double absValue = Math.abs(leftY);
+        double absValue = Math.abs(leftY);        
         if(absValue <= RobotMap.DEADZONE_RADIUS){
             return 0.0;
         } else {
@@ -138,7 +138,7 @@ public class OI {
 
     public double getRightTankCommand() {
         double rightY = -driverController.getRawAxis(XBoxControllerMap.RIGHT_Y_AXIS);
-        double absValue = Math.abs(rightY);
+        double absValue = Math.abs(rightY);        
         if(absValue <= RobotMap.DEADZONE_RADIUS){
             return 0.0;
         } else {

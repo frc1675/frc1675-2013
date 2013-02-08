@@ -56,7 +56,7 @@ public abstract class CommandBase extends Command {
 //        climber = new Climber();
 //        dumper = new Dumper();
 //        climbAssist = new ClimbAssist();        
-        gyroPID = new GyroPID(1.0, 0.0, 0.0, RobotMap.GYRO, 0.0, 359,
+        gyroPID = new GyroPID(1, 0, 0, RobotMap.GYRO, 0, 359,
                 RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
         
     }

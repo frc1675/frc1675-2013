@@ -45,8 +45,8 @@ public class TankDrivePIDSubsystem extends PIDSubsystem {
         rampTimer.start();
     }
     
-    public void initDefaultCommand() {
-        setDefaultCommand(new TankDriveWithJoysticks());
+    public void initDefaultCommand() {        
+        setDefaultCommand(new TankDriveWithJoysticks());         
     }
     
     protected double returnPIDInput() {

@@ -20,6 +20,7 @@ public class GoToAngle extends CommandBase {
         requires(leftDrivePID);
         requires(rightDrivePID);
         this.angle = angle;
+//        this.setTimeout();
     }
 
     // Called just before this Command runs the first time
@@ -39,6 +40,7 @@ public class GoToAngle extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+//        return this.isTimedOut();
         double rightPosition = gyroPID.getPosition();      
         double changeInPosition = rightPosition - angle;        
         return (Math.abs(changeInPosition) <= .025 * angle);
