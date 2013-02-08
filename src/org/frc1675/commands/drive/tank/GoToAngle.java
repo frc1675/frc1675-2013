@@ -34,8 +34,8 @@ public class GoToAngle extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        leftDrivePID.set(gyroPID.getPIDOutput());
-        rightDrivePID.set(-gyroPID.getPIDOutput()); //there is a negative there
+        leftDrivePID.set(gyroPID.getPIDOutput()/2);
+        rightDrivePID.set(-gyroPID.getPIDOutput()/2); //there is a negative there
     }
 
     // Make this return true when this Command no longer needs to run execute()
