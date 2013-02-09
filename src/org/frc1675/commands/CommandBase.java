@@ -54,11 +54,11 @@ public abstract class CommandBase extends Command {
 //        climber = new Climber();
 //        dumper = new Dumper();
 //        climbAssist = new ClimbAssist();        
-        gyroPID = new GyroPID(.007, 0, 0, RobotMap.GYRO, 0, 359,
+        gyroPID = new GyroPID(.004, 0, 0, RobotMap.GYRO, -180, 180,
                 RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
-        
+       
     }
-    
+
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
         // will), constructing it during the construction of CommandBase (from

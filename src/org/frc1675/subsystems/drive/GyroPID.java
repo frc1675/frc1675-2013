@@ -23,7 +23,7 @@ public class GyroPID extends PIDSubsystem {
             double inputRangeMinimum, double inputRangeMaximum, double gyroSensitivity) {
         super("Gyro", p, i, d);
         gyro = new Gyro(gyroChannel);       
-        
+        this.getPIDController().setContinuous();
         setInputRange(inputRangeMinimum, inputRangeMaximum);
 
         // Use these to get going:
@@ -56,6 +56,7 @@ public class GyroPID extends PIDSubsystem {
         // e.g. yourMotor.set(output);
         outputPID = output;
     }
+
     public void reset(){
         gyro.reset();
     }

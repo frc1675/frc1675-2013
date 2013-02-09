@@ -14,8 +14,8 @@ public class GoToAngle extends CommandBase {
     //goes to an angle relative to where the robot is when command was called
     public double angle;    
     public GoToAngle(double angle) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        // Use requires() here to declare subsystem dependenci es
+        // eg. requires(chassis); 
         requires(gyroPID);
         requires(leftDrivePID);
         requires(rightDrivePID);
@@ -38,6 +38,8 @@ public class GoToAngle extends CommandBase {
         leftDrivePID.set(pidOutput);
         rightDrivePID.set(-pidOutput); //there is a negative there
         System.out.println("The PID output is" + pidOutput);
+        System.out.println("This is the angle the gyroscope is showing:" + gyroPID.getAngle());
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
