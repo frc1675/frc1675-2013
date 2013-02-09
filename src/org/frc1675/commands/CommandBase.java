@@ -40,23 +40,21 @@ public abstract class CommandBase extends Command {
     public static GyroPID gyroPID;
     
     static {
-        //        simpleMecanumDrive = new SimpleMecanumDrive();
-//        leftDrivePID = new LeftTankDrivePIDSubsystem();
-//        rightDrivePID = new RightTankDrivePIDSubsystem();
-        leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
-                RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR, 
-                RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, 
-                1.0);
-        rightDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
-                RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR, 
-                RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, 
-                1.0);       
+        simpleMecanumDrive = new SimpleMecanumDrive();
+//        leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
+//                RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR, 
+//                RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, 
+//                1.0);
+//        rightDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
+//                RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR, 
+//                RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, 
+//                1.0);       
         
         compressor = new CompressorSystem();
 //        climber = new Climber();
 //        dumper = new Dumper();
 //        climbAssist = new ClimbAssist();        
-        gyroPID = new GyroPID(2, 0, 0, RobotMap.GYRO, 0, 359,
+        gyroPID = new GyroPID(.007, 0, 0, RobotMap.GYRO, 0, 359,
                 RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
         
     }
