@@ -8,6 +8,7 @@ import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.climbassist.ClimbAssist;
 import org.frc1675.subsystems.drive.tank.LeftTankDrivePIDSubsystem;
 import org.frc1675.subsystems.climber.Climber;
+import org.frc1675.subsystems.drive.DriveSideWrapper;
 import org.frc1675.subsystems.drive.GyroPID;
 import org.frc1675.subsystems.drive.tank.RightTankDrivePIDSubsystem;
 import org.frc1675.subsystems.drive.mecanum.SimpleMecanumDrive;
@@ -38,18 +39,17 @@ public abstract class CommandBase extends Command {
     public static Dumper dumper;
     public static ClimbAssist climbAssist;
     public static GyroPID gyroPID;
-    
+    public static DriveSideWrapper leftSide;
+    public static DriveSideWrapper rightSide;
     static {
-        simpleMecanumDrive = new SimpleMecanumDrive();
-//        leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
-//                RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR, 
-//                RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, 
-//                1.0);
-//        rightDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, 
-//                RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR, 
-//                RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, 
-//                1.0);       
-        
+
+        leftSide = new DriveSideWrapper(RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR);
+        rightSide = new DriveSideWrapper(RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR);
+        simpleMecanumDrive = new SimpleMecanumDrive(leftSide, rightSide);
+        leftDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, leftSide,
+                RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, 1.0);
+        rightDrivePID = new TankDrivePIDSubsystem(1.0, 0.0, 0.0, rightSide, 
+                RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, 1.0);       
         compressor = new CompressorSystem();
 //        climber = new Climber();
 //        dumper = new Dumper();

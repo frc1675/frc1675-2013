@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.mecanum.MecanumDrive;
+import org.frc1675.subsystems.drive.DriveSideWrapper;
 
 /**
  *
@@ -18,17 +19,14 @@ import org.frc1675.commands.drive.mecanum.MecanumDrive;
  */
 public class SimpleMecanumDrive extends Subsystem {
 
-    private SpeedController motorBL;
-    private SpeedController motorFL;
-    private SpeedController motorFR;
-    private SpeedController motorBR;
+    private DriveSideWrapper motorLeftSide;
+    private DriveSideWrapper motorRightSide;   
+    
     private Timer rampTimer;
     
-    public SimpleMecanumDrive(){
-        motorBL = new Victor(RobotMap.BACK_LEFT_DRIVE_MOTOR);
-        motorFL = new Victor(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
-        motorFR = new Victor(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
-        motorBR = new Victor(RobotMap.BACK_RIGHT_DRIVE_MOTOR);
+    public SimpleMecanumDrive(DriveSideWrapper leftSide, DriveSideWrapper rightSide){
+        motorLeftSide = leftSide;
+        motorRightSide = rightSide;
         rampTimer = new Timer();
         rampTimer.start();
     }
@@ -52,16 +50,16 @@ public class SimpleMecanumDrive extends Subsystem {
         double flWheelSpeed = sinD * magnitude - rotation;
         double blWheelSpeed = cosD * magnitude - rotation;
         
-        motorBL.set(blWheelSpeed * -1.0);
-        motorFL.set(flWheelSpeed * -1.0);
-        motorFR.set(frWheelSpeed * -1.0);
-        motorBR.set(brWheelSpeed * -1.0);
+        motorLeftSide.setBack(blWheelSpeed * -1.0);
+        motorLeftSide.setFront(flWheelSpeed * -1.0);
+        motorRightSide.setFront(frWheelSpeed * -1.0);
+        motorRightSide.setBack(brWheelSpeed * -1.0);
         /*f = front
         * b = back
         * l = left
         * r = right */
         
-        System.out.println("Mecanum.drive: motor1:"+motorBL.get()+", motor2: "+motorFL.get()+", motor3: "+motorFR.get()+", motor4: "+motorBR.get());
+
     }
 
     public void initDefaultCommand() {

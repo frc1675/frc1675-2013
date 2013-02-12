@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.tank.TankDriveWithJoysticks;
+import org.frc1675.subsystems.drive.DriveSideWrapper;
 
 /**
  *
@@ -18,14 +19,13 @@ import org.frc1675.commands.drive.tank.TankDriveWithJoysticks;
  */
 public class TankDrivePIDSubsystem extends PIDSubsystem {
     
-    private SpeedController frontMotor;
-    private SpeedController backMotor;
+    private DriveSideWrapper motors;
     private Encoder encoder;
     private Timer rampTimer;
     
     // Initialize your subsystem here
     public TankDrivePIDSubsystem(double p, double i, double d, 
-            int frontMotorChannel, int backMotorChannel, 
+            DriveSideWrapper motors, 
             int encoderAChannel, int encoderBChannel, 
             double distancePerPulse) {
         super("LeftTankDrivePIDSubsystem", p, i, d);
@@ -34,9 +34,8 @@ public class TankDrivePIDSubsystem extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-        frontMotor = new Victor(frontMotorChannel);
-        backMotor = new Victor(backMotorChannel);
-        
+
+        this.motors = motors;
         encoder = new Encoder(encoderAChannel, encoderBChannel);
         encoder.start();
         encoder.setDistancePerPulse(distancePerPulse);
@@ -59,8 +58,8 @@ public class TankDrivePIDSubsystem extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-        frontMotor.set(output);
-        backMotor.set(output);
+        motors.setFront(output);
+        motors.setBack(output);
     }
     
     public void set(double velocity){
@@ -69,13 +68,13 @@ public class TankDrivePIDSubsystem extends PIDSubsystem {
         } else if (rampTimer.get() < RobotMap.TANK_RAMP_TIME) {
             velocity = velocity * (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
         }
-        frontMotor.set(velocity);
-        backMotor.set(velocity);
+        motors.setFront(velocity);
+        motors.setBack(velocity);
     }
     
-    public double get(){
-        return frontMotor.get();
-    }
+//    public double get(){
+//        return 0;
+//    }
     
     public void resetEncoder(){
         encoder.reset();

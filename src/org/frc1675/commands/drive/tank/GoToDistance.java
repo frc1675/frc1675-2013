@@ -11,11 +11,11 @@ import org.frc1675.commands.CommandBase;
  *
  * @author team1675
  */
-public class GoStraight extends CommandBase {
+public class GoToDistance extends CommandBase {
     double setpoint;
     
     
-    public GoStraight(double distanceInFeet) {
+    public GoToDistance(double distanceInFeet) {
         requires (rightDrivePID);
         requires (leftDrivePID);
         setpoint = calculateSetpoint(distanceInFeet);
