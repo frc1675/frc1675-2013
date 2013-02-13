@@ -9,22 +9,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.tank.GoToAngle;
 import org.frc1675.commands.drive.tank.GoToDistance;
-import org.frc1675.commands.dumper.DumperDump;
 import org.frc1675.commands.dumper.DumperReset;
 
 /**
  *
- * @author TonyStano
+ * @author team1675
  */
-public class AutonA extends CommandGroup {
+public class AutonB extends CommandGroup {
     
-    public AutonA() {
+    public AutonB() {
         Timer timer;
         timer = new Timer();
-        addSequential(new GoToDistance(175));
-        addSequential(new DumperDump());
+        addSequential(new GoToDistance(235));
         timer.start();
-        while(timer.get() < RobotMap.DUMP_TIME){
+        while (timer.get() < RobotMap.DUMP_TIME){
         }
         timer.reset();
         timer.stop();
@@ -32,7 +30,6 @@ public class AutonA extends CommandGroup {
         addSequential(new GoToDistance(-12));
         addSequential(new GoToAngle(180));
         addSequential(new GoToDistance(200));
-        
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
