@@ -4,6 +4,7 @@
  */
 package org.frc1675.commands.drive.tank;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.commands.CommandBase;
 
 /**
@@ -37,8 +38,8 @@ public class GoToAngle extends CommandBase {
         double pidOutput = gyroPID.getPIDOutput();
         leftDrivePID.set(pidOutput);
         rightDrivePID.set(-pidOutput); //there is a negative there
-        System.out.println("The PID output is" + pidOutput);
-        System.out.println("This is the angle the gyroscope is showing:" + gyroPID.getAngle());
+        SmartDashboard.putNumber("Gyro PID output", pidOutput);
+        SmartDashboard.putNumber("Gyroscope angle", gyroPID.getAngle());
         
     }
 
