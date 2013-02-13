@@ -19,8 +19,8 @@ public class RobotMap {
     
     //motors
     public static final int FRONT_LEFT_DRIVE_MOTOR = 1;
-    public static final int FRONT_RIGHT_DRIVE_MOTOR = 2;
-    public static final int BACK_LEFT_DRIVE_MOTOR = 3;
+    public static final int FRONT_RIGHT_DRIVE_MOTOR = 3;
+    public static final int BACK_LEFT_DRIVE_MOTOR = 2;
     public static final int BACK_RIGHT_DRIVE_MOTOR = 4;
     
     //relays
@@ -46,13 +46,14 @@ public class RobotMap {
     public static final int CLIMB_ASSIST_EXTEND = 8;
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1;
-
+    public static final double DUMP_TIME = 1.7;
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;
     public static final int OPERATOR_CONTROLLER = 2;
     public static final double DEADZONE_RADIUS = 0.15;
     public static final double ACCELERATION_INCREMENT = .001;
+    
     
     //analog card
     public static final int GYRO = 2;
