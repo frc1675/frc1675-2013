@@ -46,13 +46,12 @@ public class RobotMap {
     public static final int CLIMB_ASSIST_EXTEND = 8;
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1;
-    public static final double DUMP_TIME = 1.7;
+    public static final double DUMP_TIME = 1.7;  
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;
     public static final int OPERATOR_CONTROLLER = 2;
     public static final double DEADZONE_RADIUS = 0.15;
-    public static final double ACCELERATION_INCREMENT = .001;
     
     
     //analog card

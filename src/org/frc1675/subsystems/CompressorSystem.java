@@ -6,7 +6,6 @@ package org.frc1675.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Relay;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.CompressorWork;

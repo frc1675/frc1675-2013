@@ -10,9 +10,9 @@ import org.frc1675.commands.CommandBase;
  *
  * @author team1675
  */
-public class DoNothing extends CommandBase {
+public class TankDriveDoNothing extends CommandBase {
     
-    public DoNothing() {
+    public TankDriveDoNothing() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(leftDrivePID);

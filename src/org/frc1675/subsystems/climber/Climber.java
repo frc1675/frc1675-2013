@@ -3,15 +3,13 @@
  * and open the template in the editor.
  */
 package org.frc1675.subsystems.climber;
-
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
    
 /**
  *
- * @author team1675
+ * @author TonyStano
  */
 public class Climber extends Subsystem {
     

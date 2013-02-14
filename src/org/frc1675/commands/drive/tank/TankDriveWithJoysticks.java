@@ -4,8 +4,7 @@
  */
 package org.frc1675.commands.drive.tank;
 
-import edu.wpi.first.wpilibj.command.Command;
-import org.frc1675.RobotMap;
+
 import org.frc1675.commands.CommandBase;
 
 /**

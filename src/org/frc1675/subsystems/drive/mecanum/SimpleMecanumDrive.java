@@ -4,10 +4,7 @@
  */
 package org.frc1675.subsystems.drive.mecanum;
 
-import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.mecanum.MecanumDrive;

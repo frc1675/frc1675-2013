@@ -38,8 +38,8 @@ public class GoToAngle extends CommandBase {
         double pidOutput = gyroPID.getPIDOutput();
         leftDrivePID.set(pidOutput);
         rightDrivePID.set(-pidOutput); //there is a negative there
-        SmartDashboard.putNumber("Gyro PID output", pidOutput);
-        SmartDashboard.putNumber("Gyroscope angle", gyroPID.getAngle());
+        System.out.println("Gyro PID output" + pidOutput);
+        System.out.println("Gyroscope angle" + gyroPID.getAngle());
         
     }
 

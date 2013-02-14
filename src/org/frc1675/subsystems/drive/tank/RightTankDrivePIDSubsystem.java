@@ -5,13 +5,10 @@
 package org.frc1675.subsystems.drive.tank;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.tank.TankDriveWithJoysticks;
 
