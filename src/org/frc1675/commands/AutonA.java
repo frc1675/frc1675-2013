@@ -24,7 +24,7 @@ public class AutonA extends CommandGroup {
         addSequential(new GoToDistance(175));
         addSequential(new DumperDump());
         timer.start();
-        while(timer.get() < RobotMap.DUMP_TIME){
+        if (timer.get() < RobotMap.DUMP_TIME){
         }
         timer.reset();
         timer.stop();

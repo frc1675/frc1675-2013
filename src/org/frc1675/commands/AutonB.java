@@ -22,7 +22,7 @@ public class AutonB extends CommandGroup {
         timer = new Timer();
         addSequential(new GoToDistance(235));
         timer.start();
-        while (timer.get() < RobotMap.DUMP_TIME){
+        if (timer.get() < RobotMap.DUMP_TIME){
         }
         timer.reset();
         timer.stop();

@@ -26,7 +26,7 @@ public class AutonC extends CommandGroup {
         addSequential(new GoToDistance(180));
         addSequential(new DumperDump());
         timer.start();
-        while (timer.get() < RobotMap.DUMP_TIME){
+        if (timer.get() < RobotMap.DUMP_TIME){
         }
         timer.reset();
         timer.stop();

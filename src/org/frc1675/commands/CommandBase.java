@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.RobotMap;
 import org.frc1675.subsystems.CompressorSystem;
+import org.frc1675.subsystems.Shooter;
 import org.frc1675.subsystems.climbassist.ClimbAssist;
 import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.drive.DriveSideWrapper;
@@ -19,7 +20,7 @@ import org.frc1675.subsystems.dumper.Dumper;
  * subsystem elsewhere in your code in your code use
  * CommandBase.exampleSubsystem
  *
- * @author Author
+ * @author Tony
  */
 public abstract class CommandBase extends Command {
 
@@ -39,8 +40,9 @@ public abstract class CommandBase extends Command {
     public static GyroPID gyroPID;
     public static DriveSideWrapper leftSide;
     public static DriveSideWrapper rightSide;
+    public static Shooter shooter;
     static {
-
+        shooter = new Shooter();
         leftSide = new DriveSideWrapper(RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR);
         rightSide = new DriveSideWrapper(RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR);
         simpleMecanumDrive = new SimpleMecanumDrive(leftSide, rightSide);
