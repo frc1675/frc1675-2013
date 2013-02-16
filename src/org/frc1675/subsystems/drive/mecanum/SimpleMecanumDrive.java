@@ -48,6 +48,14 @@ public class SimpleMecanumDrive extends Subsystem {
         double flWheelSpeed = sinD * magnitude - rotation;
         double blWheelSpeed = cosD * magnitude - rotation;
         
+        if (anyOutsideMax(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
+            double coefficient = getScaleCoefficient(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
+            frWheelSpeed *= coefficient;
+            brWheelSpeed *= coefficient;
+            flWheelSpeed *= coefficient;
+            blWheelSpeed *= coefficient;
+        }
+        
         SmartDashboard.putNumber("Front Right Wheel Speed", frWheelSpeed * -1.0);
         SmartDashboard.putNumber("Front Left Wheel Speed", flWheelSpeed * -1.0);
         SmartDashboard.putNumber("Back Right Wheel Speed", brWheelSpeed * -1.0);
@@ -66,5 +74,20 @@ public class SimpleMecanumDrive extends Subsystem {
 
     public void initDefaultCommand() {
         setDefaultCommand(new MecanumDrive());
+    }
+
+    private boolean anyOutsideMax(double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
+        return Math.abs(frWheelSpeed) > 1.0 || 
+                Math.abs(brWheelSpeed) > 1.0 || 
+                Math.abs(flWheelSpeed) > 1.0 || 
+                Math.abs(blWheelSpeed) > 1.0;
+    }
+
+    private double getScaleCoefficient(double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
+        double maxRight = Math.max(frWheelSpeed, brWheelSpeed);
+        double maxLeft = Math.max(flWheelSpeed, blWheelSpeed);
+        double max = Math.max(maxRight, maxLeft);
+        
+        return 1.0 / max;
     }
 }
