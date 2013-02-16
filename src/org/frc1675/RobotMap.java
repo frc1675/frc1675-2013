@@ -56,11 +56,14 @@ public class RobotMap {
     
     
     //analog card
-    public static final int GYRO = 2;
+    public static final int PRESSURE_SENSOR = 4;
+    
+    public static final int DRIVE_GYRO = 2;
+    public static final int CLIMB_GYRO = 6;
     public static final double VOLTS_PER_DEGREES_PER_SECONDS = 0.007;
     
-    public static final double TANK_RAMP_TIME = .25;
     
-    public static final double DRIVE_WHEEL_DIAMETER = 0.5;
+    public static final double DRIVE_WHEEL_DIAMETER = 6;
+    public static final double TANK_RAMP_TIME = .25;
     public static final double DRIVE_ENCODER_TICKS_PER_REV = 360.0;
 }

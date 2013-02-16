@@ -6,6 +6,7 @@ package org.frc1675.subsystems.drive.mecanum;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.mecanum.MecanumDrive;
 import org.frc1675.subsystems.drive.DriveSideWrapper;
@@ -47,6 +48,10 @@ public class SimpleMecanumDrive extends Subsystem {
         double flWheelSpeed = sinD * magnitude - rotation;
         double blWheelSpeed = cosD * magnitude - rotation;
         
+        SmartDashboard.putNumber("Front Right Wheel Speed", frWheelSpeed * -1.0);
+        SmartDashboard.putNumber("Front Left Wheel Speed", flWheelSpeed * -1.0);
+        SmartDashboard.putNumber("Back Right Wheel Speed", brWheelSpeed * -1.0);
+        SmartDashboard.putNumber("Back Left Wheel Speed", blWheelSpeed * -1.0);
         motorLeftSide.setBack(blWheelSpeed * -1.0);
         motorLeftSide.setFront(flWheelSpeed * -1.0);
         motorRightSide.setFront(frWheelSpeed * -1.0);
