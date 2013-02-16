@@ -84,8 +84,8 @@ public class SimpleMecanumDrive extends Subsystem {
     }
 
     private double getScaleCoefficient(double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
-        double maxRight = Math.max(frWheelSpeed, brWheelSpeed);
-        double maxLeft = Math.max(flWheelSpeed, blWheelSpeed);
+        double maxRight = Math.max(Math.abs(frWheelSpeed), Math.abs(brWheelSpeed));
+        double maxLeft = Math.max(Math.abs(flWheelSpeed), Math.abs(blWheelSpeed));
         double max = Math.max(maxRight, maxLeft);
         
         return 1.0 / max;
