@@ -56,14 +56,21 @@ public class SimpleMecanumDrive extends Subsystem {
             blWheelSpeed *= coefficient;
         }
         
-        SmartDashboard.putNumber("Front Right Wheel Speed", frWheelSpeed * -1.0);
-        SmartDashboard.putNumber("Front Left Wheel Speed", flWheelSpeed * -1.0);
-        SmartDashboard.putNumber("Back Right Wheel Speed", brWheelSpeed * -1.0);
-        SmartDashboard.putNumber("Back Left Wheel Speed", blWheelSpeed * -1.0);
-        motorLeftSide.setBack(blWheelSpeed * -1.0);
-        motorLeftSide.setFront(flWheelSpeed * -1.0);
-        motorRightSide.setFront(frWheelSpeed * -1.0);
-        motorRightSide.setBack(brWheelSpeed * -1.0);
+        frWheelSpeed *= RobotMap.FRONT_RIGHT_DRIVE_POLARITY;
+        brWheelSpeed *= RobotMap.BACK_RIGHT_DRIVE_POLARITY;
+        flWheelSpeed *= RobotMap.FRONT_LEFT_DRIVE_POLARITY;
+        blWheelSpeed *= RobotMap.BACK_LEFT_DRIVE_POLARITY;
+        
+        
+        SmartDashboard.putNumber("Front Right Wheel Speed", frWheelSpeed);
+        SmartDashboard.putNumber("Back Right Wheel Speed", brWheelSpeed);
+        SmartDashboard.putNumber("Front Left Wheel Speed", flWheelSpeed);
+        SmartDashboard.putNumber("Back Left Wheel Speed", blWheelSpeed);
+        
+        motorRightSide.setFront(frWheelSpeed);
+        motorRightSide.setBack(brWheelSpeed);
+        motorLeftSide.setFront(flWheelSpeed);
+        motorLeftSide.setBack(blWheelSpeed);
         /*f = front
         * b = back
         * l = left

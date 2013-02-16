@@ -22,6 +22,12 @@ public class RobotMap {
     public static final int FRONT_RIGHT_DRIVE_MOTOR = 3;
     public static final int BACK_LEFT_DRIVE_MOTOR = 2;
     public static final int BACK_RIGHT_DRIVE_MOTOR = 4;
+    
+    public static final double FRONT_LEFT_DRIVE_POLARITY = -1.0;
+    public static final double FRONT_RIGHT_DRIVE_POLARITY = -1.0;
+    public static final double BACK_LEFT_DRIVE_POLARITY = -1.0;
+    public static final double BACK_RIGHT_DRIVE_POLARITY = -1.0;
+    
     public static final int SHOOTER_MOTOR = 5;
     
     //relays
