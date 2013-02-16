@@ -44,13 +44,16 @@ public class RobotMap {
     
     //solenoids
     public static final int CLIMBER_RETRACT = 1;    
-    public static final int CLIMBER_EXTEND = 2;
+    public static final int CLIMBER_EXTEND = 5;
     
-    public static final int DUMPER_RETRACT = 4;    
-    public static final int DUMPER_EXTEND = 5;
+    public static final int DUMPER_RETRACT = 2;    
+    public static final int DUMPER_EXTEND = 6;
     
-    public static final int CLIMB_ASSIST_RETRACT = 7;    
-    public static final int CLIMB_ASSIST_EXTEND = 8;
+    public static final int CLIMB_ASSIST_RETRACT = 3;    
+    public static final int CLIMB_ASSIST_EXTEND = 7;
+    
+    public static final int DUMPER_ANGLE_EXTEND = 4;
+    public static final int DUMPER_ANGLE_RETRACT = 8;
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1;
     public static final double DUMP_TIME = 1.7;  
@@ -65,7 +68,6 @@ public class RobotMap {
     public static final int PRESSURE_SENSOR = 4;
     
     public static final int DRIVE_GYRO = 2;
-    public static final int CLIMB_GYRO = 6;
     public static final double VOLTS_PER_DEGREES_PER_SECONDS = 0.007;
     
     
