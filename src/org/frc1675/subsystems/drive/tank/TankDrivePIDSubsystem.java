@@ -45,7 +45,7 @@ public class TankDrivePIDSubsystem extends PIDSubsystem {
     
     public void initDefaultCommand() {        
 //        setDefaultCommand(new TankDriveWithJoysticks());
-        setDefaultCommand(new TankDriveDoNothing());
+        //setDefaultCommand(new TankDriveDoNothing());
     }
     
     protected double returnPIDInput() {

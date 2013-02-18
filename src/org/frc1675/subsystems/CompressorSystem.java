@@ -24,7 +24,7 @@ public class CompressorSystem extends Subsystem {
     public CompressorSystem(){
         compressor = new Compressor(RobotMap.HIGH_PRESSURE_SWITCH, RobotMap.COMPRESSOR_SPIKE);
         pressureSensor = new AnalogChannel(RobotMap.PRESSURE_SENSOR);
-        pressureSensor.setAverageBits(5);
+        pressureSensor.setAverageBits(10);
     }
     
     public void work(){
@@ -33,7 +33,7 @@ public class CompressorSystem extends Subsystem {
         }else{
             compressor.setRelayValue(Relay.Value.kOff);
         }
-        SmartDashboard.putNumber("Working Pressure", (pressureSensor.getAverageValue()*20));
+        SmartDashboard.putNumber("Working Pressure", (pressureSensor.getAverageValue()*20.0));
     }
     public void init(){
         compressor.start();

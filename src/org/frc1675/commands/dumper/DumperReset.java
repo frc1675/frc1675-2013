@@ -28,7 +28,7 @@ public class DumperReset extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        dumper.reset();
+        dumper.resetDump();
     }
 
     // Make this return true when this Command no longer needs to run execute()

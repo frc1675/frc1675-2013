@@ -52,8 +52,8 @@ public class UPS2013 extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        autonomousCommand = (Command) chooser.getSelected();
-        autonomousCommand.start();
+//        autonomousCommand = (Command) chooser.getSelected();
+//        autonomousCommand.start();
         // schedule the autonomous command (example)
         //autonomousCommand.start();
     }
