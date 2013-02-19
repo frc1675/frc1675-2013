@@ -33,7 +33,7 @@ public class CompressorSystem extends Subsystem {
         }else{
             compressor.setRelayValue(Relay.Value.kOff);
         }
-        SmartDashboard.putNumber("Working Pressure", (pressureSensor.getAverageValue()*20.0));
+        SmartDashboard.putNumber("Working Pressure", (pressureSensor.getAverageVoltage()*20.0));
     }
     public void init(){
         compressor.start();
