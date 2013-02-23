@@ -84,8 +84,8 @@ public class OI {
 //        driverAButton.whenPressed(new ClimberRetract());
 //        driverXButton.whenPressed(new ClimbAssistExtend());
 //        driverBButton.whenPressed(new ClimbAssistRetract());
-//        driverYButton.whenPressed(new ClimberExtend());
-//        driverAButton.whenPressed(new ClimberRetract());       
+        driverYButton.whenPressed(new ClimberExtend());
+        driverAButton.whenPressed(new ClimberRetract());       
 
         
     }
@@ -93,6 +93,7 @@ public class OI {
     public double getMecanumMagnitude() {
         double x = driverController.getRawAxis(XBoxControllerMap.LEFT_X_AXIS);
         double y = driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
+        System.out.println("Controller x: " + x + " , y: " + y);
         double magnitude = Math.sqrt(MathUtils.pow(x, 2.0) + MathUtils.pow(y, 2.0));
 
         if (magnitude < RobotMap.DEADZONE_RADIUS) {

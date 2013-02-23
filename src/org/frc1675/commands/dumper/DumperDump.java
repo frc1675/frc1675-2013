@@ -18,6 +18,7 @@ public class DumperDump extends CommandBase {
     
     public DumperDump() {
         requires(dumper);
+        timer = new Timer();
     }
 
     // Called just before this Command runs the first time

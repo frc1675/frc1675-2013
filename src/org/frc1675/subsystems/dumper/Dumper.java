@@ -1,8 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
+ * To ch                                                                                                                                        ange this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.subsystems.dumper;
+package org.frc1675.subsystems.dumper; 
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -15,6 +15,8 @@ import org.frc1675.RobotMap;
 public class Dumper extends Subsystem {
     private Solenoid extend;
     private Solenoid retract;
+    private Solenoid superExtend;
+    private Solenoid superRetract;
     
     public Dumper(){
         extend = new Solenoid(RobotMap.DUMPER_EXTEND);
@@ -29,8 +31,30 @@ public class Dumper extends Subsystem {
         extend.set(true);
         retract.set(false);
     }
+    public void setAngle(){
+        superExtend.set(true);
+        superRetract.set(false);
+    }
+    public void resetAngle(){
+        superRetract.set(true);
+        superExtend.set(false);
+    }
+    public void extendAll(){
+        extend.set(true);
+        retract.set(false);
+        superExtend.set(true);
+        superRetract.set(false);
+    }
     
-    public void reset(){
+    public void resetAll(){
+        extend.set(false);
+        retract.set(true);
+        superExtend.set(false);
+        superRetract.set(true);
+    }
+    
+            
+    public void resetDump(){
         extend.set(false);
         retract.set(true);
     }
@@ -38,5 +62,7 @@ public class Dumper extends Subsystem {
     public void doNothing(){
         extend.set(false);
         retract.set(false);
+        superExtend.set(false);
+        superRetract.set(false);
     }
 }

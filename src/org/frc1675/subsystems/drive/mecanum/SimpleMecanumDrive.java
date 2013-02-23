@@ -36,7 +36,7 @@ public class SimpleMecanumDrive extends Subsystem {
             magnitude = magnitude * (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
         }
         
-        
+        System.out.println("Magnitude: " + magnitude + ", direction: " + direction + ", rotation: " + rotation);
         
         double dirInRad = direction + (Math.PI/4);
         
@@ -48,13 +48,13 @@ public class SimpleMecanumDrive extends Subsystem {
         double flWheelSpeed = sinD * magnitude - rotation;
         double blWheelSpeed = cosD * magnitude - rotation;
         
-        if (anyOutsideMax(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
-            double coefficient = getScaleCoefficient(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
-            frWheelSpeed *= coefficient;
-            brWheelSpeed *= coefficient;
-            flWheelSpeed *= coefficient;
-            blWheelSpeed *= coefficient;
-        }
+//        if (anyOutsideMax(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
+//            double coefficient = getScaleCoefficient(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
+//            frWheelSpeed *= coefficient;
+//            brWheelSpeed *= coefficient;
+//            flWheelSpeed *= coefficient;
+//            blWheelSpeed *= coefficient;
+//        }
         
         frWheelSpeed *= RobotMap.FRONT_RIGHT_DRIVE_POLARITY;
         brWheelSpeed *= RobotMap.BACK_RIGHT_DRIVE_POLARITY;
