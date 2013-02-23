@@ -74,4 +74,15 @@ public class RobotMap {
     public static final double DRIVE_WHEEL_DIAMETER = 6;
     public static final double TANK_RAMP_TIME = .25;
     public static final double DRIVE_ENCODER_TICKS_PER_REV = 360.0;
+    
+    //PIDs
+    public static final double gyroP = .006;
+    public static final double gyroI = 0.0;
+    public static final double gyroD = 0.0;
+    
+    public static final double encoderP = .01;
+    public static final double encoderI = 0.0;
+    public static final double encoderD = 0.0;       
+            
+    
 }
