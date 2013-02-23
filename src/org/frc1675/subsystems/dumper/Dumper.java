@@ -21,6 +21,8 @@ public class Dumper extends Subsystem {
     public Dumper(){
         extend = new Solenoid(RobotMap.DUMPER_EXTEND);
         retract = new Solenoid(RobotMap.DUMPER_RETRACT);
+        superExtend = new Solenoid(RobotMap.DUMPER_ANGLE_EXTEND);
+        superRetract = new Solenoid(RobotMap.DUMPER_ANGLE_RETRACT);
     }
 
     public void initDefaultCommand() {
