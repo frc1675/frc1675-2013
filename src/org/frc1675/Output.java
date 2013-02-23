@@ -18,28 +18,28 @@ public class Output {
     public static Vector numbers = new Vector();
     public static Vector booleans = new Vector();
     
-    public void putString(String key, String value){
+    public static void putString(String key, String value){
         strings.addElement(new OutputString(key, value));
     }
     
-    public void putNumber(String key, Double value){
-        numbers.addElement(new OutputNumber(key, value));
+    public static void putNumber(String key, double value){
+        numbers.addElement(new OutputNumber(key, Double.valueOf(value)));
     }
     
-    public void putBoolean(String key, Boolean value){
-        booleans.addElement(new OutputBoolean(key, value));
+    public static void putBoolean(String key, boolean value){
+        booleans.addElement(new OutputBoolean(key, Boolean.valueOf(value)));
     }
     
-    public String getString(String key){
+    public static String getString(String key){
         return (String) strings.elementAt(strings.indexOf(new OutputString(key, null)));
     }
     
-    public Double getDouble(String key){
-        return (Double) numbers.elementAt(numbers.indexOf(new OutputNumber(key, null)));
+    public static double getDouble(String key){
+        return ((Double) numbers.elementAt(numbers.indexOf(new OutputNumber(key, null)))).doubleValue();
     }
     
-    public Boolean getBoolean(String key){
-        return (Boolean) booleans.elementAt(numbers.indexOf(new OutputBoolean(key, null)));
+    public static boolean getBoolean(String key){
+        return ((Boolean) booleans.elementAt(numbers.indexOf(new OutputBoolean(key, null)))).booleanValue();
     }
     
     public static void consoleOutput(){
@@ -51,7 +51,7 @@ public class Output {
     }
     
     
-    private class OutputString{
+    private static class OutputString{
         
         private String key;
         private String value;
@@ -74,7 +74,7 @@ public class Output {
         }
     }
     
-    private class OutputNumber{
+    private static class OutputNumber{
         
         private String key;
         private Double value;
@@ -98,7 +98,7 @@ public class Output {
         
     }
     
-    private class OutputBoolean{
+    private static class OutputBoolean{
         
         private String key;
         private Boolean value;
