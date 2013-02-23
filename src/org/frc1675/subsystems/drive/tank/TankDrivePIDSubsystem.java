@@ -7,6 +7,7 @@ package org.frc1675.subsystems.drive.tank;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.RobotMap;
 import org.frc1675.commands.drive.tank.TankDriveDoNothing;
 import org.frc1675.commands.drive.tank.TankDriveWithJoysticks;
@@ -60,6 +61,7 @@ public class TankDrivePIDSubsystem extends PIDSubsystem {
         // e.g. yourMotor.set(output);
         motors.setFront(output);
         motors.setBack(output);
+        SmartDashboard.putNumber("Encoder Value", encoder.get());
     }
     
     public void set(double velocity){

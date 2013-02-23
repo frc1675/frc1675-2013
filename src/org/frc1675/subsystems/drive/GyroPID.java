@@ -6,6 +6,8 @@ package org.frc1675.subsystems.drive;
 
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.frc1675.Output;
 import org.frc1675.commands.drive.GyroCommand;
 
 /**
@@ -65,7 +67,8 @@ public class GyroPID extends PIDSubsystem {
     }
     
     public double getAngle(){
-        return gyro.getAngle();
+        double x = gyro.getAngle();
+        SmartDashboard.putNumber("gyroAngle", x);
+        return x;
     }
-    
 }
