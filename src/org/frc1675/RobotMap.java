@@ -76,7 +76,7 @@ public class RobotMap {
     public static final double DRIVE_ENCODER_TICKS_PER_REV = 360.0;
     
     //PIDs
-    public static final double gyroP = .006;
+    public static final double gyroP = .004;
     public static final double gyroI = 0.0;
     public static final double gyroD = 0.0;
     
