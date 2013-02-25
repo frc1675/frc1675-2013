@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.climbassist;
+package org.frc1675.commands.foot;
 
 import edu.wpi.first.wpilibj.Timer;
 import org.frc1675.RobotMap;
@@ -12,11 +12,11 @@ import org.frc1675.commands.CommandBase;
  *
  * @author josh
  */
-public class ClimbAssistRetract extends CommandBase {
+public class FootDown extends CommandBase {
     
     Timer timer;
     
-    public ClimbAssistRetract() {
+    public FootDown() {
         requires(climbAssist);
         timer = new Timer();
     }
@@ -28,7 +28,7 @@ public class ClimbAssistRetract extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        climbAssist.retract();
+        climbAssist.extend();
     }
 
     // Make this return true when this Command no longer needs to run execute()

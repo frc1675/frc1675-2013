@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.subsystems.climbassist;
+package org.frc1675.subsystems.foot;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,11 +12,11 @@ import org.frc1675.RobotMap;
  *
  * @author josh
  */
-public class ClimbAssist extends Subsystem {
+public class Foot extends Subsystem {
     private Solenoid extend;
     private Solenoid retract;
     
-    public ClimbAssist(){
+    public Foot(){
         extend = new Solenoid(RobotMap.CLIMB_ASSIST_EXTEND);
         retract = new Solenoid(RobotMap.CLIMB_ASSIST_RETRACT);
     }

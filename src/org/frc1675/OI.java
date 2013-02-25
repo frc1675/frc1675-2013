@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import org.frc1675.commands.climbassist.ClimbAssistExtend;
-import org.frc1675.commands.climbassist.ClimbAssistRetract;
+import org.frc1675.commands.foot.FootDown;
+import org.frc1675.commands.foot.FootUp;
 import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
 import org.frc1675.commands.drive.tank.GoToDistance;
@@ -82,8 +82,8 @@ public class OI {
 //        driverBButton.whenPressed(new GoToAngle(90));
 //        driverYButton.whenPressed(new ClimberExtend());
 //        driverAButton.whenPressed(new ClimberRetract());
-//        driverXButton.whenPressed(new ClimbAssistExtend());
-//        driverBButton.whenPressed(new ClimbAssistRetract());
+//        driverXButton.whenPressed(new FootDown());
+//        driverBButton.whenPressed(new FootUp());
         driverYButton.whenPressed(new ClimberExtend());
         driverAButton.whenPressed(new ClimberRetract());       
 

@@ -5,8 +5,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.RobotMap;
 import org.frc1675.subsystems.CompressorSystem;
-import org.frc1675.subsystems.Shooter;
-import org.frc1675.subsystems.climbassist.ClimbAssist;
+import org.frc1675.subsystems.shooter.Shooter;
+import org.frc1675.subsystems.foot.Foot;
 import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.drive.DriveSideWrapper;
 import org.frc1675.subsystems.drive.GyroPID;
@@ -36,7 +36,7 @@ public abstract class CommandBase extends Command {
     public static TankDrivePIDSubsystem leftDrivePID;
     public static TankDrivePIDSubsystem rightDrivePID;
     public static Dumper dumper;
-    public static ClimbAssist climbAssist;
+    public static Foot climbAssist;
     public static GyroPID gyroPID;
     public static DriveSideWrapper leftSide;
     public static DriveSideWrapper rightSide;
@@ -53,7 +53,7 @@ public abstract class CommandBase extends Command {
         compressor = new CompressorSystem();
         climber = new Climber();
         dumper = new Dumper();
-        climbAssist = new ClimbAssist();        
+        climbAssist = new Foot();        
         gyroPID = new GyroPID(RobotMap.gyroP, RobotMap.gyroI, RobotMap.gyroD, RobotMap.DRIVE_GYRO, -180, 180,
                 RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
        
