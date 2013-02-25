@@ -34,7 +34,7 @@ public class Output {
         return (String) strings.elementAt(strings.indexOf(new OutputString(key, null)));
     }
     
-    public static double getDouble(String key){
+    public static double getNumber(String key){
         return ((Double) numbers.elementAt(numbers.indexOf(new OutputNumber(key, null)))).doubleValue();
     }
     
