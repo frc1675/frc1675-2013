@@ -46,15 +46,15 @@ public abstract class CommandBase extends Command {
         leftSide = new DriveSideWrapper(RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR);
         rightSide = new DriveSideWrapper(RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR);
         simpleMecanumDrive = new SimpleMecanumDrive(leftSide, rightSide);
-        leftDrivePID = new TankDrivePIDSubsystem(RobotMap.encoderP, RobotMap.encoderI, RobotMap.encoderD, leftSide,
+        leftDrivePID = new TankDrivePIDSubsystem(RobotMap.ENCODER_P, RobotMap.ENCODER_I, RobotMap.ENCODER_D, leftSide,
                 RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, .05236);
-        rightDrivePID = new TankDrivePIDSubsystem(RobotMap.encoderP, RobotMap.encoderI, RobotMap.encoderD, rightSide, 
+        rightDrivePID = new TankDrivePIDSubsystem(RobotMap.ENCODER_P, RobotMap.ENCODER_I, RobotMap.ENCODER_D, rightSide, 
                 RobotMap.FRONT_RIGHT_ENCODER_A, RobotMap.FRONT_RIGHT_ENCODER_B, .05236);       
         compressor = new CompressorSystem();
         climber = new Climber();
         dumper = new Dumper();
         climbAssist = new Foot();        
-        gyroPID = new GyroPID(RobotMap.gyroP, RobotMap.gyroI, RobotMap.gyroD, RobotMap.DRIVE_GYRO, -180, 180,
+        gyroPID = new GyroPID(RobotMap.GYRO_P, RobotMap.GYRO_I, RobotMap.GYRO_D, RobotMap.DRIVE_GYRO, -180, 180,
                 RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
        
     }

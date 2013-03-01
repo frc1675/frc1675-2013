@@ -49,8 +49,8 @@ public class RobotMap {
     public static final int DUMPER_EXTEND = 6;    
     public static final int DUMPER_RETRACT = 2;
     
-    public static final int CLIMB_ASSIST_EXTEND = 7;    
-    public static final int CLIMB_ASSIST_RETRACT = 3;
+    public static final int FOOT_EXTEND = 7;    
+    public static final int FOOT_RETRACT = 3;
     
     public static final int DUMPER_ANGLE_EXTEND = 8;
     public static final int DUMPER_ANGLE_RETRACT = 4;
@@ -76,13 +76,13 @@ public class RobotMap {
     public static final double DRIVE_ENCODER_TICKS_PER_REV = 360.0;
     
     //PIDs
-    public static final double gyroP = .004;
-    public static final double gyroI = 0.0;
-    public static final double gyroD = 0.0;
+    public static final double GYRO_P = .004;
+    public static final double GYRO_I = 0.0;
+    public static final double GYRO_D = 0.0;
     
-    public static final double encoderP = .01;
-    public static final double encoderI = 0.0;
-    public static final double encoderD = 0.0;       
+    public static final double ENCODER_P = .01;
+    public static final double ENCODER_I = 0.0;
+    public static final double ENCODER_D = 0.0;       
             
     
 }

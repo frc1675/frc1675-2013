@@ -134,22 +134,25 @@ public class OI {
 
     public double getLeftTankCommand() {
         double leftY = -driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
-        double absValue = Math.abs(leftY);        
-        if(absValue <= RobotMap.DEADZONE_RADIUS){
-            return 0.0;
+        double returnValue = Math.abs(leftY);        
+        if(returnValue <= RobotMap.DEADZONE_RADIUS){
+            returnValue = 0.0;
         } else {
-            return leftY;
+            returnValue = leftY;
         }
+        return returnValue;
     }
 
     public double getRightTankCommand() {
         double rightY = -driverController.getRawAxis(XBoxControllerMap.RIGHT_Y_AXIS);
         double absValue = Math.abs(rightY);        
-        if(absValue <= RobotMap.DEADZONE_RADIUS){
-            return 0.0;
+        double returnValue = Math.abs(rightY);        
+        if(returnValue <= RobotMap.DEADZONE_RADIUS){
+            returnValue = 0.0;
         } else {
-            return rightY;
+            returnValue = rightY;
         }
+        return returnValue;
     }
     
 

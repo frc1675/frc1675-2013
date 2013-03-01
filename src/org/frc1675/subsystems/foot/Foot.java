@@ -17,8 +17,8 @@ public class Foot extends Subsystem {
     private Solenoid retract;
     
     public Foot(){
-        extend = new Solenoid(RobotMap.CLIMB_ASSIST_EXTEND);
-        retract = new Solenoid(RobotMap.CLIMB_ASSIST_RETRACT);
+        extend = new Solenoid(RobotMap.FOOT_EXTEND);
+        retract = new Solenoid(RobotMap.FOOT_RETRACT);
     }
 
     public void initDefaultCommand() {
