@@ -83,6 +83,8 @@ public class RobotMap {
     public static final double ENCODER_P = .01;
     public static final double ENCODER_I = 0.0;
     public static final double ENCODER_D = 0.0;       
+    public static final int SHOOTER_MOTOR_ONE = 5;
+    public static final int SHOOTER_MOTOR_TWO = 6;
             
     
 }

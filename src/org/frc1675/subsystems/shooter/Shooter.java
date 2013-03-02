@@ -16,9 +16,11 @@ import org.frc1675.RobotMap;
 public class Shooter extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    private SpeedController motor;
+    private SpeedController motorOne;
+    private SpeedController motorTwo;
     public Shooter(){
-        motor = new Victor(RobotMap.SHOOTER_MOTOR);
+        motorOne = new Victor(RobotMap.SHOOTER_MOTOR_ONE);
+        motorTwo = new Victor(RobotMap.SHOOTER_MOTOR_TWO);
     }    
     public void initDefaultCommand() {
         
@@ -26,12 +28,15 @@ public class Shooter extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void setFull(){
-        motor.set(1);
+        motorOne.set(1);
+        motorTwo.set(1);
     }
     public void setToVoltage(double voltage){
-        motor.set(voltage);
+        motorOne.set(voltage);
+        motorTwo.set(voltage);
     }
     public void setOff(){
-        motor.set(0);
+        motorOne.set(0);
+        motorTwo.set(0);
     }
 }
