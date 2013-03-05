@@ -82,8 +82,8 @@ public class OI {
 //        driverBButton.whenPressed(new GoToAngle(90));
 //        driverYButton.whenPressed(new ClimberExtend());
 //        driverAButton.whenPressed(new ClimberRetract());
-//        driverXButton.whenPressed(new FootDown());
-//        driverBButton.whenPressed(new FootUp());
+        driverXButton.whenPressed(new FootDown());
+        driverBButton.whenPressed(new FootUp());
         driverYButton.whenPressed(new ClimberExtend());
         driverAButton.whenPressed(new ClimberRetract());       
 

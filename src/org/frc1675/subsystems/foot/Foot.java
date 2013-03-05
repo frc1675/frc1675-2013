@@ -26,13 +26,13 @@ public class Foot extends Subsystem {
     }
     
     public void extend(){
-        extend.set(true);
-        retract.set(false);
+        extend.set(false);
+        retract.set(true);
     }
     
     public void retract(){
-        extend.set(false);
-        retract.set(true);
+        extend.set(true);
+        retract.set(false);
     }
     public void doNothing(){
         extend.set(false);

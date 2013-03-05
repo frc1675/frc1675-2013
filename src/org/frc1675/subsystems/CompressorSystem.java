@@ -28,13 +28,9 @@ public class CompressorSystem extends Subsystem {
     }
     
     public void work(){
-        if (!compressor.getPressureSwitchValue()){
-            compressor.setRelayValue(Relay.Value.kForward);
-        }else{
-            compressor.setRelayValue(Relay.Value.kOff);
-        }
         SmartDashboard.putNumber("Working Pressure", (pressureSensor.getAverageVoltage()*20.0));
     }
+    
     public void init(){
         compressor.start();
     }
