@@ -1,7 +1,7 @@
 frc1675-2013
 ============
 
-FRC 1675's 2013 robot!
+FRC 1675's 2013 robot, Upollo's Chariot.
 
 How to Use
 ----------
