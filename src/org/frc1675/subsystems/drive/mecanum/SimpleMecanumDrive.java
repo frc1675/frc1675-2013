@@ -30,11 +30,14 @@ public class SimpleMecanumDrive extends Subsystem {
     }
     
     public void drive(double magnitude, double direction, double rotation){
+        magnitude *= Math.sqrt(2.0); //upscale to convert from cartesian
+        
         if(magnitude == 0.0){
             rampTimer.reset(); //get ready to ramp
         } else if (rampTimer.get() < RobotMap.TANK_RAMP_TIME) {
             magnitude = magnitude * (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
         }
+
         
         System.out.println("Magnitude: " + magnitude + ", direction: " + direction + ", rotation: " + rotation);
         
@@ -48,13 +51,14 @@ public class SimpleMecanumDrive extends Subsystem {
         double flWheelSpeed = sinD * magnitude - rotation;
         double blWheelSpeed = cosD * magnitude - rotation;
         
-//        if (anyOutsideMax(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
-//            double coefficient = getScaleCoefficient(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
-//            frWheelSpeed *= coefficient;
-//            brWheelSpeed *= coefficient;
-//            flWheelSpeed *= coefficient;
-//            blWheelSpeed *= coefficient;
-//        }
+        //normalize highest wheel speed if above/below max
+        if (anyOutsideMax(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
+            double coefficient = getScaleCoefficient(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
+            frWheelSpeed *= coefficient;
+            brWheelSpeed *= coefficient;
+            flWheelSpeed *= coefficient;
+            blWheelSpeed *= coefficient;
+        }
         
         frWheelSpeed *= RobotMap.FRONT_RIGHT_DRIVE_POLARITY;
         brWheelSpeed *= RobotMap.BACK_RIGHT_DRIVE_POLARITY;
