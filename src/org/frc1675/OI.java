@@ -102,7 +102,7 @@ public class OI {
 //
 //
 //        return magnitude;
-        
+        double returnMagnitude = 0.0;
         double squareMagnitude = Math.sqrt(MathUtils.pow(x, 2.0) + MathUtils.pow(y, 2.0));
         if(x != 0.0 && y != 0.0){
             double borderX;
@@ -116,9 +116,16 @@ public class OI {
             }
             System.out.println("border x: " + borderX + " y: " + borderY);
             double borderMagnitude = Math.sqrt(MathUtils.pow(borderX, 2.0) + MathUtils.pow(borderY, 2.0));
-            return squareMagnitude / borderMagnitude;
+            returnMagnitude = squareMagnitude / borderMagnitude;
+        } else {
+            returnMagnitude = squareMagnitude;
         }
-        return squareMagnitude;
+        
+        if (returnMagnitude < RobotMap.DEADZONE_RADIUS) {
+            returnMagnitude = 0.0;
+        }
+        
+        return returnMagnitude;
     }
 
     public double getMecanumRotation() {
