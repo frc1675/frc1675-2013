@@ -30,31 +30,28 @@ public class SimpleMecanumDrive extends Subsystem {
     }
     
     public void drive(double magnitude, double direction, double rotation){
-        double normalMagnitude = magnitude;
-        magnitude *= Math.sqrt(2.0); //upscale to convert from cartesian
+        System.out.println("Magnitude: " + magnitude + ", direction: " + direction + ", rotation: " + rotation);
+        double upscaledMagnitude = magnitude * Math.sqrt(2.0); //upscale to convert from cartesian
         
-        if(magnitude == 0.0){
+        if(upscaledMagnitude == 0.0){
             rampTimer.reset(); //get ready to ramp
         } else if (rampTimer.get() < RobotMap.TANK_RAMP_TIME) {
-            magnitude = magnitude * (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
+            upscaledMagnitude *= (rampTimer.get() / RobotMap.TANK_RAMP_TIME);
         }
-
-        
-        System.out.println("Magnitude: " + magnitude + ", direction: " + direction + ", rotation: " + rotation);
         
         double dirInRad = direction + (Math.PI/4);
         
         double sinD = Math.sin(dirInRad);
         double cosD = Math.cos(dirInRad);
         
-        double frWheelSpeed = cosD * magnitude + rotation;
-        double brWheelSpeed = sinD * magnitude + rotation;
-        double flWheelSpeed = sinD * magnitude - rotation;
-        double blWheelSpeed = cosD * magnitude - rotation;
+        double frWheelSpeed = cosD * upscaledMagnitude + rotation;
+        double brWheelSpeed = sinD * upscaledMagnitude + rotation;
+        double flWheelSpeed = sinD * upscaledMagnitude - rotation;
+        double blWheelSpeed = cosD * upscaledMagnitude - rotation;
         
         //normalize highest wheel speed if above/below max
-        if (anyOutsideNormalMagnitude(normalMagnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
-            double coefficient = getNormalizingCoefficient(normalMagnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
+        if (anyOutsideNormalMagnitude(magnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
+            double coefficient = getNormalizingCoefficient(magnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
             frWheelSpeed *= coefficient;
             brWheelSpeed *= coefficient;
             flWheelSpeed *= coefficient;
