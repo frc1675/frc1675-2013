@@ -94,14 +94,31 @@ public class OI {
         double x = driverController.getRawAxis(XBoxControllerMap.LEFT_X_AXIS);
         double y = driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
         System.out.println("Controller x: " + x + " , y: " + y);
-        double magnitude = Math.sqrt(MathUtils.pow(x, 2.0) + MathUtils.pow(y, 2.0));
-
-        if (magnitude < RobotMap.DEADZONE_RADIUS) {
-            magnitude = 0;
+//        double magnitude = Math.sqrt(MathUtils.pow(x, 2.0) + MathUtils.pow(y, 2.0));
+//
+//        if (magnitude < RobotMap.DEADZONE_RADIUS) {
+//            magnitude = 0;
+//        }
+//
+//
+//        return magnitude;
+        
+        double squareMagnitude = Math.sqrt(MathUtils.pow(x, 2.0) + MathUtils.pow(y, 2.0));
+        if(x != 0.0 && y != 0.0){
+            double borderX;
+            double borderY;
+            if(Math.abs(x) > Math.abs(y)){ //scale x to 1.0
+                borderX = x / Math.abs(x);
+                borderY = y / Math.abs(x);
+            } else { //scale y to 1.0
+                borderX = x / Math.abs(y);
+                borderY = y / Math.abs(y);
+            }
+            System.out.println("border x: " + borderX + " y: " + borderY);
+            double borderMagnitude = Math.sqrt(MathUtils.pow(borderX, 2.0) + MathUtils.pow(borderY, 2.0));
+            return squareMagnitude / borderMagnitude;
         }
-
-
-        return magnitude;
+        return squareMagnitude;
     }
 
     public double getMecanumRotation() {

@@ -30,6 +30,7 @@ public class SimpleMecanumDrive extends Subsystem {
     }
     
     public void drive(double magnitude, double direction, double rotation){
+        double normalMagnitude = magnitude;
         magnitude *= Math.sqrt(2.0); //upscale to convert from cartesian
         
         if(magnitude == 0.0){
@@ -52,8 +53,8 @@ public class SimpleMecanumDrive extends Subsystem {
         double blWheelSpeed = cosD * magnitude - rotation;
         
         //normalize highest wheel speed if above/below max
-        if (anyOutsideMax(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
-            double coefficient = getScaleCoefficient(frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
+        if (anyOutsideNormalMagnitude(normalMagnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
+            double coefficient = getNormalizingCoefficient(normalMagnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
             frWheelSpeed *= coefficient;
             brWheelSpeed *= coefficient;
             flWheelSpeed *= coefficient;
@@ -87,18 +88,18 @@ public class SimpleMecanumDrive extends Subsystem {
         setDefaultCommand(new MecanumDrive());
     }
 
-    private boolean anyOutsideMax(double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
-        return Math.abs(frWheelSpeed) > 1.0 || 
-                Math.abs(brWheelSpeed) > 1.0 || 
-                Math.abs(flWheelSpeed) > 1.0 || 
-                Math.abs(blWheelSpeed) > 1.0;
+    private boolean anyOutsideNormalMagnitude(double normalMagnitude, double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
+        return Math.abs(frWheelSpeed) > normalMagnitude || 
+                Math.abs(brWheelSpeed) > normalMagnitude || 
+                Math.abs(flWheelSpeed) > normalMagnitude || 
+                Math.abs(blWheelSpeed) > normalMagnitude;
     }
 
-    private double getScaleCoefficient(double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
+    private double getNormalizingCoefficient(double normalMagnitude, double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
         double maxRight = Math.max(Math.abs(frWheelSpeed), Math.abs(brWheelSpeed));
         double maxLeft = Math.max(Math.abs(flWheelSpeed), Math.abs(blWheelSpeed));
         double max = Math.max(maxRight, maxLeft);
         
-        return 1.0 / max;
+        return normalMagnitude / max;
     }
 }
