@@ -49,14 +49,12 @@ public class SimpleMecanumDrive extends Subsystem {
         double flWheelSpeed = sinD * upscaledMagnitude - rotation;
         double blWheelSpeed = cosD * upscaledMagnitude - rotation;
         
-        //normalize highest wheel speed if above/below max
-        if (anyOutsideNormalMagnitude(magnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed)){
-            double coefficient = getNormalizingCoefficient(magnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
-            frWheelSpeed *= coefficient;
-            brWheelSpeed *= coefficient;
-            flWheelSpeed *= coefficient;
-            blWheelSpeed *= coefficient;
-        }
+        //normalize to highest wheel speed if above/below max
+        double coefficient = getNormalizingCoefficient(magnitude, frWheelSpeed, brWheelSpeed, flWheelSpeed, blWheelSpeed);
+        frWheelSpeed *= coefficient;
+        brWheelSpeed *= coefficient;
+        flWheelSpeed *= coefficient;
+        blWheelSpeed *= coefficient;
         
         frWheelSpeed *= RobotMap.FRONT_RIGHT_DRIVE_POLARITY;
         brWheelSpeed *= RobotMap.BACK_RIGHT_DRIVE_POLARITY;
@@ -86,10 +84,10 @@ public class SimpleMecanumDrive extends Subsystem {
     }
 
     private boolean anyOutsideNormalMagnitude(double normalMagnitude, double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
-        return Math.abs(frWheelSpeed) > normalMagnitude || 
-                Math.abs(brWheelSpeed) > normalMagnitude || 
-                Math.abs(flWheelSpeed) > normalMagnitude || 
-                Math.abs(blWheelSpeed) > normalMagnitude;
+        return Math.abs(frWheelSpeed) > 1.0 || 
+                Math.abs(brWheelSpeed) > 1.0 || 
+                Math.abs(flWheelSpeed) > 1.0 || 
+                Math.abs(blWheelSpeed) > 1.0;
     }
 
     private double getNormalizingCoefficient(double normalMagnitude, double frWheelSpeed, double brWheelSpeed, double flWheelSpeed, double blWheelSpeed) {
@@ -97,6 +95,11 @@ public class SimpleMecanumDrive extends Subsystem {
         double maxLeft = Math.max(Math.abs(flWheelSpeed), Math.abs(blWheelSpeed));
         double max = Math.max(maxRight, maxLeft);
         
-        return normalMagnitude / max;
+        if(max > 1.0){
+            return 1.0 / max; //scale everything down
+        } else {
+            return 1.0; //leave everything normal
+        }
+        
     }
 }
