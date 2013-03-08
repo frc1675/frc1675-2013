@@ -30,6 +30,7 @@ public class MecanumDrivePolarForTime extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        timer.reset();
         timer.start();
     }
 
