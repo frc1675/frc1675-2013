@@ -17,6 +17,7 @@ import org.frc1675.commands.AutonA;
 import org.frc1675.commands.AutonB;
 import org.frc1675.commands.AutonC;
 import org.frc1675.commands.CommandBase;
+import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
 
 
 /**
@@ -58,6 +59,8 @@ public class UPS2013 extends IterativeRobot {
 //        autonomousCommand.start();
         // schedule the autonomous command (example)
         //autonomousCommand.start();
+        autonomousCommand = new MecanumDrivePolarForTime(0.5, 0.0, 0.0, 2.5); //drive forward half speed 2.5 sec
+        autonomousCommand.start();
     }
 
     /**
