@@ -59,7 +59,7 @@ public class UPS2013 extends IterativeRobot {
 //        autonomousCommand.start();
         // schedule the autonomous command (example)
         //autonomousCommand.start();
-        autonomousCommand = new MecanumDrivePolarForTime(0.5, 0.0, 0.0, 2.5); //drive forward half speed 2.5 sec
+        autonomousCommand = new MecanumDrivePolarForTime(0.75, 0, 0.0, 2.0); //drive forward half speed 2.5 sec
         autonomousCommand.start();
     }
 
