@@ -79,6 +79,10 @@ public class SimpleMecanumDrive extends Subsystem {
 
     }
 
+    public void setAll(double setValue){
+        motorRightSide.setBoth(setValue, setValue);
+        motorLeftSide.setBoth(setValue, setValue);
+    }
     public void initDefaultCommand() {
         setDefaultCommand(new MecanumDrive());
     }
