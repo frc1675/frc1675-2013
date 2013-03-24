@@ -103,8 +103,6 @@ public class UPS2013 extends IterativeRobot {
          Scheduler.getInstance().run();
 //        InsightController.updateInsightDisplay();
         
-         Output.consoleOutput();
-         Output.dashboardOutput();
 
     }
     /**
