@@ -39,9 +39,6 @@ public class OI {
     private Button operatorLeftJoystickButton = new JoystickButton(operatorController, XBoxControllerMap.RIGHT_JOYSTICK_BUTTON);
     private Button operatorRightJoystickButton = new JoystickButton(operatorController, XBoxControllerMap.LEFT_JOYSTICK_BUTTON);
     
-    
-    public DigitalIOButton pneumaticsExtendedSwitch = new DigitalIOButton(RobotMap.EXTEND_PNEUMATICS_SWITCH);
-    public DigitalIOButton pneumaticsRetractedSwitch = new DigitalIOButton(RobotMap.RETRACT_PNEUMATICS_SWITCH);
     //testing pulling from master
 
     //// CREATING BUTTONS

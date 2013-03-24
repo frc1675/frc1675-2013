@@ -39,8 +39,9 @@ public class RobotMap {
     public static final int FRONT_RIGHT_ENCODER_A = 3;
     public static final int FRONT_RIGHT_ENCODER_B = 4;
     public static final int HIGH_PRESSURE_SWITCH = 5;
-    public static final int EXTEND_PNEUMATICS_SWITCH = 6;
-    public static final int RETRACT_PNEUMATICS_SWITCH = 7;
+    public static final int LIGHTS_BIT_ONE = 8;
+    public static final int LIGHTS_BIT_TWO = 9;
+    public static final int LIGHTS_BIT_THREE = 10;
     
     //solenoids
     public static final int CLIMBER_EXTEND = 5;    
