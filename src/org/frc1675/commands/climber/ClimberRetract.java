@@ -29,6 +29,7 @@ public class ClimberRetract extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         climber.retract();
+        lights.sendVal(RobotMap.LIGHTS_RETRACTING);
     }
 
     // Make this return true when this Command no longer needs to run execute()
