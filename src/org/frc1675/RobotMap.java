@@ -88,4 +88,9 @@ public class RobotMap {
     public static final int SHOOTER_MOTOR_TWO = 6;
             
     
+    //light routines
+    public static final int LIGHTS_OFF = 0;
+    public static final int LIGHTS_EXTENDING = 1;
+    public static final int LIGHTS_RETRACTING = 2;
+    public static final int LIGHTS_SPAZZ_OUT = 3;
 }
