@@ -24,7 +24,6 @@ public class GyroCommand extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        System.out.println("This is the angle the gyroscope is showing:" + gyroPID.getAngle());
     }
 
     // Make this return true when this Command no longer needs to run execute()
