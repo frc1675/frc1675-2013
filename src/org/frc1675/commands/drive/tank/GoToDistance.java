@@ -31,9 +31,7 @@ public class GoToDistance extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-        System.out.println("PID'ing: left = " + leftDrivePID.getPIDController().get() + " right = " + rightDrivePID.getPIDController().get());
-        
+    protected void execute() {        
     }
 
     // Make this return true when this Command no longer needs to run execute()

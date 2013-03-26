@@ -8,29 +8,23 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.commands.CommandBase;
 
 /**
- *
+ * Goes to an angle relative to where the robot is when command was called
  * @author TonyStano
  */
 public class GoToAngle extends CommandBase {
-    //goes to an angle relative to where the robot is when command was called
     public double angle;    
     public GoToAngle(double angle) {
-        // Use requires() here to declare subsystem dependenci es
-        // eg. requires(chassis); 
         requires(gyroPID);
         requires(leftDrivePID);
         requires(rightDrivePID);
         this.angle = angle;
-//        this.setTimeout();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
         gyroPID.reset();
         gyroPID.setSetpoint(angle);
-        
         gyroPID.enable();
-
     }
 
     // Called repeatedly when this Command is scheduled to run
