@@ -13,9 +13,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.frc1675.commands.AutonA;
-import org.frc1675.commands.AutonB;
-import org.frc1675.commands.AutonC;
 import org.frc1675.commands.CommandBase;
 import org.frc1675.commands.FrontCornerAuton;
 import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
@@ -38,28 +35,18 @@ public class UPS2013 extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        CommandBase.init();       
-        chooser = new SendableChooser();
-//        chooser.addDefault("AutonA", new AutonA());
-//        chooser.addObject("AutonB", new AutonB());
-//        chooser.addObject("AutonC", new AutonC());
+        CommandBase.init();
         SmartDashboard.putData("Autonomous", chooser);
-        // instantiate the command used for the autonomous period
-        // Initialize all subsystems       
+        // instantiate the command used for the autonomous period   
 
 
 
         //set insight display strategy
-
 //       InsightController.setDisplayStrategy(new DefaultInsightDisplayStrategy());        
 
     }
 
     public void autonomousInit() {
-//        autonomousCommand = (Command) chooser.getSelected();
-//        autonomousCommand.start();
-        // schedule the autonomous command (example)
-        //autonomousCommand.start();
         autonomousCommand = new FrontCornerAuton();
         autonomousCommand.start();
     }
@@ -92,7 +79,7 @@ public class UPS2013 extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        //autonomousCommand.cancel();
+        autonomousCommand.cancel();
     }
 
     /**
