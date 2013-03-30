@@ -2,34 +2,43 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.shooter;
-
-import org.frc1675.commands.CommandBase;
+package org.frc1675.commands;
+import edu.wpi.first.wpilibj.Timer;
+import org.frc1675.RobotMap;
 
 /**
  *
- * @author TonyStano
+ * @author josh
  */
-public class ShooterOff extends CommandBase {
+public class BumpDownBack extends CommandBase {
     
-    public ShooterOff() {
+    private Timer timer;
+    
+    public BumpDownBack() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
+        timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        shooter.bumpDownBack();
+        shooter.updateSpeed();
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.setOff();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if(timer.get() > RobotMap.BUMP_COOLDOWN){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Called once after isFinished returns true

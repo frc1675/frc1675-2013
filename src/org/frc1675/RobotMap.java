@@ -18,6 +18,15 @@ public class RobotMap {
     // public static final int rangefinderModule = 1;
     
     //motors
+    public static double FRONT_BASELINE = 0.5;
+    public static double BACK_BASELINE = 0.5;
+    public static double FRONT_BUMP = 0.05;
+    public static double BACK_BUMP = 0.05;
+    public static double BUMP_COOLDOWN = 0.25;
+
+    
+    
+    
     public static final int FRONT_LEFT_DRIVE_MOTOR = 1;
     public static final int FRONT_RIGHT_DRIVE_MOTOR = 3;
     public static final int BACK_LEFT_DRIVE_MOTOR = 2;

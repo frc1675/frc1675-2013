@@ -6,7 +6,8 @@ import org.frc1675.OI;
 import org.frc1675.RobotMap;
 import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.Lights;
-import org.frc1675.subsystems.shooter.Shooter;
+import org.frc1675.subsystems.Shooter;
+
 import org.frc1675.subsystems.foot.Foot;
 import org.frc1675.subsystems.climber.Climber;
 import org.frc1675.subsystems.drive.DriveSideWrapper;

@@ -2,34 +2,43 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.shooter;
+package org.frc1675.commands;
 
-import org.frc1675.commands.CommandBase;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
- * @author TonyStano
+ * @author josh
  */
-public class ShooterOnFull extends CommandBase {
+public class GoToBaseline extends CommandBase {
     
-    public ShooterOnFull() {
+    private Timer timer;
+    
+    public GoToBaseline() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
+        timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        shooter.goToBaseline();
+        shooter.updateSpeed();
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.setFull();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if(timer.get() > 0.25){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Called once after isFinished returns true
