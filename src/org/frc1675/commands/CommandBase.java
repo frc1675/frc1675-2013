@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.RobotMap;
 import org.frc1675.subsystems.CompressorSystem;
+import org.frc1675.subsystems.Indexer;
 import org.frc1675.subsystems.Lights;
 import org.frc1675.subsystems.shooter.Shooter;
 import org.frc1675.subsystems.foot.Foot;
@@ -43,6 +44,7 @@ public abstract class CommandBase extends Command {
     public static DriveSideWrapper rightSide;
     public static Shooter shooter;
     public static Lights lights;
+    public static Indexer indexer;
     static {
         shooter = new Shooter();
         leftSide = new DriveSideWrapper(RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR);
@@ -59,6 +61,7 @@ public abstract class CommandBase extends Command {
         gyroPID = new GyroPID(RobotMap.GYRO_P, RobotMap.GYRO_I, RobotMap.GYRO_D, RobotMap.DRIVE_GYRO, -180, 180,
                 RobotMap.VOLTS_PER_DEGREES_PER_SECONDS);        
         lights = new Lights();
+        indexer = new Indexer();
     }
 
     public static void init() {
