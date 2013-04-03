@@ -30,6 +30,8 @@ public class RobotMap {
     
     public static final int SHOOTER_MOTOR = 5;
     
+    public static final int DUMPER_MOTOR = 7;
+    
     //relays
     public static final int COMPRESSOR_SPIKE = 2;
     
@@ -53,11 +55,12 @@ public class RobotMap {
     public static final int FOOT_EXTEND = 7;    
     public static final int FOOT_RETRACT = 3;
     
-    public static final int DUMPER_ANGLE_EXTEND = 8;
-    public static final int DUMPER_ANGLE_RETRACT = 4;
+    public static final int INDEXER_EXTEND = 8;
+    public static final int INDEXER_RETRACT = 4;
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1; //seconds
     public static final double DUMP_TIME = 1.7;   //seconds
+    public static final double INDEX_TIME = 2.0;
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;
