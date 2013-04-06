@@ -13,6 +13,11 @@ import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
 import org.frc1675.commands.drive.tank.GoToDistance;
 import org.frc1675.commands.drive.tank.GoToAngle;
+import org.frc1675.commands.shooter.BumpDown;
+import org.frc1675.commands.shooter.BumpUp;
+import org.frc1675.commands.shooter.GoToIdleSpeed;
+import org.frc1675.commands.shooter.GoToShootingSpeed;
+import org.frc1675.commands.shooter.StopShooter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,15 +44,22 @@ public class OI {
     private Button operatorLeftBumper = new JoystickButton(operatorController, XBoxControllerMap.LEFT_BUMPER_BUTTON);
     private Button operatorLeftJoystickButton = new JoystickButton(operatorController, XBoxControllerMap.RIGHT_JOYSTICK_BUTTON);
     private Button operatorRightJoystickButton = new JoystickButton(operatorController, XBoxControllerMap.LEFT_JOYSTICK_BUTTON);
+    private Button operatorDPadRightButton = new DPadButton(operatorController, DPadButton.RIGHT);
+    private Button operatorDPadLeftButton = new DPadButton(operatorController, DPadButton.LEFT);
     
     public OI() {
-
         operatorXButton.whenPressed(new FootDown());
         operatorBButton.whenPressed(new FootUp());
         operatorYButton.whenPressed(new ClimberExtend());
         operatorAButton.whenPressed(new ClimberRetract()); 
+        operatorRightBumper.whenPressed(new GoToShootingSpeed());
+        operatorLeftBumper.whenPressed(new GoToIdleSpeed());
+        operatorDPadLeftButton.whenPressed(new BumpDown());
+        operatorDPadRightButton.whenPressed(new BumpUp());
         
         driverAButton.whenPressed(new Index());
+        driverYButton.whenPressed(new StopShooter());
+        
 
         
     }
@@ -67,7 +79,6 @@ public class OI {
                 borderX = x / Math.abs(y);
                 borderY = y / Math.abs(y);
             }
-            System.out.println("border x: " + borderX + " y: " + borderY);
             double borderMagnitude = Math.sqrt(MathUtils.pow(borderX, 2.0) + MathUtils.pow(borderY, 2.0));
             returnMagnitude = squareMagnitude / borderMagnitude;
         } else {
@@ -128,6 +139,20 @@ public class OI {
             returnValue = rightY;
         }
         return returnValue;
+    }
+    
+    public int operatorDPadState(){
+        double deadzone = RobotMap.DEADZONE_RADIUS;
+        double x = operatorController.getRawAxis(XBoxControllerMap.DPAD_AXIS);
+        if (Math.abs(x) <= deadzone){
+            return 0;
+        }else if (x > deadzone){
+            return 1;
+        }else if (x < -deadzone){
+            return -1;
+        }
+        return 0;
+
     }
     
 

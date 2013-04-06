@@ -14,7 +14,7 @@ import org.frc1675.RobotMap;
  * @author Tony
  */
 public class Dumper extends Subsystem {
-    private Relay motor = new Relay(RobotMap.DUMPER_MOTOR);
+    private Relay motor = new Relay(RobotMap.DUMPER_SPIKE);
     
     public Dumper(){
             

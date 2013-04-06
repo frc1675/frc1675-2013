@@ -22,17 +22,17 @@ public class RobotMap {
     public static final int FRONT_RIGHT_DRIVE_MOTOR = 3;
     public static final int BACK_LEFT_DRIVE_MOTOR = 2;
     public static final int BACK_RIGHT_DRIVE_MOTOR = 4;
+    public static final int SHOOTER_MOTOR_ONE = 5;
+    public static final int SHOOTER_MOTOR_TWO = 6;
     
     public static final double FRONT_LEFT_DRIVE_POLARITY = 1.0;
     public static final double FRONT_RIGHT_DRIVE_POLARITY = -1.0;
     public static final double BACK_LEFT_DRIVE_POLARITY = 1.0;
     public static final double BACK_RIGHT_DRIVE_POLARITY = -1.0;
-    
-    public static final int SHOOTER_MOTOR = 5;
-    
-    public static final int DUMPER_MOTOR = 7;
-    
+
+       
     //relays
+    public static final int DUMPER_SPIKE = 3;
     public static final int COMPRESSOR_SPIKE = 2;
     
     //sensors
@@ -60,13 +60,15 @@ public class RobotMap {
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1; //seconds
     public static final double DUMP_TIME = 1.7;   //seconds
-    public static final double INDEX_TIME = 2.0;
+    public static final double INDEX_TIME = .5;
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;
     public static final int OPERATOR_CONTROLLER = 2;
     public static final double DEADZONE_RADIUS = 0.15;
-    
+    public static final double BUMP = .05;
+    public static final double BUTTON_COOLDOWN = .25;
+    public static final double IDLE_SPEED = .3;
     
     //analog card
     public static final int PRESSURE_SENSOR = 4;
@@ -87,8 +89,7 @@ public class RobotMap {
     public static final double ENCODER_P = .01;
     public static final double ENCODER_I = 0.0;
     public static final double ENCODER_D = 0.0;       
-    public static final int SHOOTER_MOTOR_ONE = 5;
-    public static final int SHOOTER_MOTOR_TWO = 6;
+
             
     
     //light routines
@@ -96,4 +97,9 @@ public class RobotMap {
     public static final int LIGHTS_EXTENDING = 1;
     public static final int LIGHTS_RETRACTING = 2;
     public static final int LIGHTS_SPAZZ_OUT = 3;
+    
+    
+    public static final double DEFAULT_VOLTAGE = 12.0;
+    public static double BACK_SHOOTING_SPEED = 0.5;
+    public static double FRONT_SHOOTING_SPEED = 1.0;
 }

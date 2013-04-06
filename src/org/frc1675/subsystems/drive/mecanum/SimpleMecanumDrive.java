@@ -30,7 +30,6 @@ public class SimpleMecanumDrive extends Subsystem {
     }
     
     public void drive(double magnitude, double direction, double rotation){
-        System.out.println("Magnitude: " + magnitude + ", direction: " + direction + ", rotation: " + rotation);
         double upscaledMagnitude = magnitude * Math.sqrt(2.0); //upscale to convert from cartesian
         
         if(upscaledMagnitude == 0.0){

@@ -8,11 +8,11 @@ import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author TonyStano
+ * @author josh
  */
-public class ShooterOnFull extends CommandBase {
+public class StopShooter extends CommandBase {
     
-    public ShooterOnFull() {
+    public StopShooter() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
@@ -20,16 +20,16 @@ public class ShooterOnFull extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        shooter.stopShooter();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.setFull();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

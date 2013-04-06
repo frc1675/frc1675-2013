@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.frc1675.commands.BackCornerAuton;
 import org.frc1675.commands.CommandBase;
 import org.frc1675.commands.FrontCornerAuton;
 import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
@@ -27,7 +28,6 @@ import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
  */
 public class UPS2013 extends IterativeRobot {
     Command autonomousCommand;
-    SendableChooser chooser;
     private Command Command;
     
     /**
@@ -36,7 +36,6 @@ public class UPS2013 extends IterativeRobot {
      */
     public void robotInit() {
         CommandBase.init();
-        SmartDashboard.putData("Autonomous", chooser);
         // instantiate the command used for the autonomous period   
 
 
@@ -47,7 +46,7 @@ public class UPS2013 extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        autonomousCommand = new FrontCornerAuton();
+        autonomousCommand = new BackCornerAuton();
         autonomousCommand.start();
     }
 
@@ -79,7 +78,7 @@ public class UPS2013 extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        autonomousCommand.cancel();
+//        autonomousCommand.cancel();
     }
 
     /**
