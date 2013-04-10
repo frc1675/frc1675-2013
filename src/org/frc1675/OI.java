@@ -155,6 +155,22 @@ public class OI {
 
     }
     
-
+    public double getRightVectorX(){
+        double x = driverController.getRawAxis(XBoxControllerMap.RIGHT_X_AXIS);
+        if(Math.abs(x) < RobotMap.DEADZONE_RADIUS){
+            x = 0.0;
+        }
+        return x;
+    }
+    
+    public double getLeftVectorY(){
+        double x = driverController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS);
+        if(Math.abs(x) < RobotMap.DEADZONE_RADIUS){
+            return 0;
+        }
+        else{
+            return x;
+        }
+    }
     
 }

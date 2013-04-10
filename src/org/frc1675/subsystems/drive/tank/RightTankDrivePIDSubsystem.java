@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import org.frc1675.RobotMap;
-import org.frc1675.commands.drive.tank.TankDriveWithJoysticks;
+import org.frc1675.commands.drive.edrive.EDriveWithJoysticks;
 
 /**
  *
@@ -48,7 +48,7 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new TankDriveWithJoysticks());
+        setDefaultCommand(new EDriveWithJoysticks());
     }
     
     protected double returnPIDInput() {
@@ -74,6 +74,8 @@ public class RightTankDrivePIDSubsystem extends PIDSubsystem {
         frontRightMotor.set(velocity);
         backRightMotor.set(velocity);
     }
+    
+    
     
     public double get(){
         return frontRightMotor.get();

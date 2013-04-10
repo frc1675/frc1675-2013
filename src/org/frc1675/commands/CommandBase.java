@@ -1,9 +1,9 @@
 package org.frc1675.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.OI;
 import org.frc1675.RobotMap;
+import org.frc1675.commands.drive.edrive.EDriveWithJoysticks;
 import org.frc1675.subsystems.CompressorSystem;
 import org.frc1675.subsystems.Indexer;
 import org.frc1675.subsystems.Lights;
@@ -45,11 +45,12 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter;
     public static Lights lights;
     public static Indexer indexer;
+    public static EDriveWithJoysticks edrive;
     static {
         shooter = new Shooter();
         leftSide = new DriveSideWrapper(RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR);
         rightSide = new DriveSideWrapper(RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR);
-        simpleMecanumDrive = new SimpleMecanumDrive(leftSide, rightSide);
+//        simpleMecanumDrive = new SimpleMecanumDrive(leftSide, rightSide);
         leftDrivePID = new TankDrivePIDSubsystem(RobotMap.ENCODER_P, RobotMap.ENCODER_I, RobotMap.ENCODER_D, leftSide,
                 RobotMap.FRONT_LEFT_ENCODER_A, RobotMap.FRONT_LEFT_ENCODER_B, .05236);
         rightDrivePID = new TankDrivePIDSubsystem(RobotMap.ENCODER_P, RobotMap.ENCODER_I, RobotMap.ENCODER_D, rightSide, 
