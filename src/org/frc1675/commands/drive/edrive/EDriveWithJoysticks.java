@@ -25,20 +25,34 @@ public class EDriveWithJoysticks extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
-        double turn = -oi.getLeftVectorY();
-        double forward = -oi.getRightVectorX();
+        double forward = oi.getLeftVectorY();
+        double turn = oi.getRightVectorX();
         
         double left;
         double right;
-        if(forward <= 0.0){
-            left = forward - turn;
-            right = (forward + turn);
+        if(forward >= 0.0){
+            left = forward + turn;
+            right = forward - turn;
         }
         else{
-            left = forward + turn;
-            right = (forward - turn);
+            left = forward - turn;
+            right = forward + turn;
         }
         
+        //Compensation for overflow of forward + turn: Some sent to other side.
+        if(left > 1.0){
+            right -= (left - 1.0) / 2.0;
+        } else if (left < -1.0) {
+            right -= (left + 1.0) / 2.0;
+        }
+
+        if (right > 1.0) {
+            left -= (right - 1.0) / 2.0;
+        } else if (right < -1.0) {
+            left -= (right + 1.0) / 2.0;
+        }
+        
+        //Corrects for being over |1.0|
         if(Math.abs(left) > 1.0){
             left /= Math.abs(left);
         }
@@ -65,29 +79,3 @@ public class EDriveWithJoysticks extends CommandBase {
     protected void interrupted() {
     }
 }
-
-/*
- * public void eDrive(double forward, double turn){
-        double left;
-        double right;
-        if(forward <= 0.0){
-            left = forward - turn;
-            right = forward + turn;
-        }
-        else{
-            left = forward + turn;
-            right = forward - turn;
-        }
-        
-        if(Math.abs(left) > 1.0){
-            left /= Math.abs(left);
-        }
-        if(Math.abs(right) > 1.0){
-            right /= Math.abs(right);
-        }
-        
-        
-        motorL.set(left);
-        motorR.set(right);
-    }
- */
