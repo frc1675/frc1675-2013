@@ -141,20 +141,6 @@ public class OI {
         return returnValue;
     }
     
-    public int operatorDPadState(){
-        double deadzone = RobotMap.DEADZONE_RADIUS;
-        double x = operatorController.getRawAxis(XBoxControllerMap.DPAD_AXIS);
-        if (Math.abs(x) <= deadzone){
-            return 0;
-        }else if (x > deadzone){
-            return 1;
-        }else if (x < -deadzone){
-            return -1;
-        }
-        return 0;
-
-    }
-    
     public double getRightVectorX(){
         double x = driverController.getRawAxis(XBoxControllerMap.RIGHT_X_AXIS);
         if(Math.abs(x) < RobotMap.DEADZONE_RADIUS){
