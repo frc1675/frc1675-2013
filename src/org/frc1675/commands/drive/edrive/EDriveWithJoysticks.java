@@ -12,6 +12,10 @@ import org.frc1675.commands.CommandBase;
  */
 public class EDriveWithJoysticks extends CommandBase {
     
+    //this decides how much compensation is made for turning at high speeds.
+    //The higher it is, the wider the turns. Should never be <= 1. 2 is good.
+    private static final double COMPENSATION_INDEX = 2.0;
+    
     public EDriveWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -26,11 +30,11 @@ public class EDriveWithJoysticks extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute(){
         double forward = oi.getLeftVectorY();
-        double turn = oi.getRightVectorX();
+        double turn = -oi.getRightVectorX();
         
         double left;
         double right;
-        if(forward >= 0.0){
+        if(forward <= 0.0){
             left = forward + turn;
             right = forward - turn;
         }
@@ -41,15 +45,15 @@ public class EDriveWithJoysticks extends CommandBase {
         
         //Compensation for overflow of forward + turn: Some sent to other side.
         if(left > 1.0){
-            right -= (left - 1.0) / 2.0;
+            right -= (left - 1.0) / COMPENSATION_INDEX;
         } else if (left < -1.0) {
-            right -= (left + 1.0) / 2.0;
+            right -= (left + 1.0) / COMPENSATION_INDEX;
         }
 
         if (right > 1.0) {
-            left -= (right - 1.0) / 2.0;
+            left -= (right - 1.0) / COMPENSATION_INDEX;
         } else if (right < -1.0) {
-            left -= (right + 1.0) / 2.0;
+            left -= (right + 1.0) / COMPENSATION_INDEX;
         }
         
         //Corrects for being over |1.0|
@@ -62,7 +66,7 @@ public class EDriveWithJoysticks extends CommandBase {
         
         
         leftDrivePID.set(left);
-        rightDrivePID.set(right);
+        rightDrivePID.set(-right);
     }
 
     // Make this return true when this Command no longer needs to run execute()
