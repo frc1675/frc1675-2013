@@ -3,16 +3,13 @@ package org.frc1675;
 import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Scheduler;
 import org.frc1675.commands.Index;
-import org.frc1675.commands.foot.FootDown;
-import org.frc1675.commands.foot.FootUp;
 import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
-import org.frc1675.commands.drive.tank.GoToDistance;
-import org.frc1675.commands.drive.tank.GoToAngle;
+import org.frc1675.commands.drive.edrive.Handbrake;
+import org.frc1675.commands.foot.FootDown;
+import org.frc1675.commands.foot.FootUp;
 import org.frc1675.commands.shooter.BumpDown;
 import org.frc1675.commands.shooter.BumpUp;
 import org.frc1675.commands.shooter.GoToIdleSpeed;
@@ -60,7 +57,7 @@ public class OI {
         driverAButton.whenPressed(new Index());
         driverYButton.whenPressed(new StopShooter());
         
-
+        driverLeftBumper.whileHeld(new Handbrake());
         
     }
 

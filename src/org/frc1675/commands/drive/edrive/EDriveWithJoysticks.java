@@ -14,7 +14,9 @@ public class EDriveWithJoysticks extends CommandBase {
     
     //this decides how much compensation is made for turning at high speeds.
     //The higher it is, the wider the turns. Should never be <= 1. 2 is good.
-    private static final double COMPENSATION_INDEX = 2.0;
+    public static final double COMPENSATION_INDEX = 2.0;
+    //This one allows the handbrake to be used.
+    public static double compensationIndex = COMPENSATION_INDEX;
     
     public EDriveWithJoysticks() {
         // Use requires() here to declare subsystem dependencies
@@ -45,15 +47,15 @@ public class EDriveWithJoysticks extends CommandBase {
         
         //Compensation for overflow of forward + turn: Some sent to other side.
         if(left > 1.0){
-            right -= (left - 1.0) / COMPENSATION_INDEX;
+            right -= (left - 1.0) / compensationIndex;
         } else if (left < -1.0) {
-            right -= (left + 1.0) / COMPENSATION_INDEX;
+            right -= (left + 1.0) / compensationIndex;
         }
 
         if (right > 1.0) {
-            left -= (right - 1.0) / COMPENSATION_INDEX;
+            left -= (right - 1.0) / compensationIndex;
         } else if (right < -1.0) {
-            left -= (right + 1.0) / COMPENSATION_INDEX;
+            left -= (right + 1.0) / compensationIndex;
         }
         
         //Corrects for being over |1.0|
