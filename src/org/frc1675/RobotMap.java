@@ -17,13 +17,18 @@ public class RobotMap {
     // public static final int rangefinderPort = 1;
     // public static final int rangefinderModule = 1;
     
-    //motors
+    //outputs
     public static final int FRONT_LEFT_DRIVE_MOTOR = 1;
     public static final int FRONT_RIGHT_DRIVE_MOTOR = 3;
     public static final int BACK_LEFT_DRIVE_MOTOR = 2;
     public static final int BACK_RIGHT_DRIVE_MOTOR = 4;
-    public static final int SHOOTER_MOTOR_ONE = 5;
-    public static final int SHOOTER_MOTOR_TWO = 6;
+    public static final int BACK_SHOOTER_MOTOR = 5;
+    public static final int FRONT_SHOOTER_MOTOR = 6;
+    
+    public static final int LIGHTS_BIT_ONE = 8;
+    public static final int LIGHTS_BIT_TWO = 9;
+    public static final int LIGHTS_BIT_THREE = 10;
+
     
     public static final double FRONT_LEFT_DRIVE_POLARITY = 1.0;
     public static final double FRONT_RIGHT_DRIVE_POLARITY = -1.0;
@@ -33,18 +38,18 @@ public class RobotMap {
        
     //relays
     public static final int DUMPER_SPIKE = 3;
-    public static final int COMPRESSOR_SPIKE = 2;
+    public static final int COMPRESSOR_SPIKE = 2; 
     
-    //sensors
-    public static final int FRONT_LEFT_ENCODER_A = 1;
+    // digital sensors
+    public static final int SHOOTER_ENCODER = 1;
+    public static final int FRONT_LEFT_ENCODER_A = 7;
     public static final int FRONT_LEFT_ENCODER_B = 2;
     public static final int FRONT_RIGHT_ENCODER_A = 3;
     public static final int FRONT_RIGHT_ENCODER_B = 4;
-    public static final int HIGH_PRESSURE_SWITCH = 5;
-    public static final int LIGHTS_BIT_ONE = 8;
-    public static final int LIGHTS_BIT_TWO = 9;
-    public static final int LIGHTS_BIT_THREE = 10;
+    public static final int COMPRESSOR_SWITCH = 5;
+
     
+       
     //solenoids
     public static final int CLIMBER_EXTEND = 5;    
     public static final int CLIMBER_RETRACT = 1;
@@ -92,11 +97,18 @@ public class RobotMap {
 
             
     
+    
     //light routines
     public static final int LIGHTS_OFF = 0;
     public static final int LIGHTS_EXTENDING = 1;
     public static final int LIGHTS_RETRACTING = 2;
     public static final int LIGHTS_SPAZZ_OUT = 3;
+    
+    
+    //shooting stuff
+    public static final double DEFAULT_SETPOINT = 2500;
+    public static final double STEP = 500;
+    public static final double IDLE_RPM = 1000;
     
     
     public static final double DEFAULT_VOLTAGE = 12.0;

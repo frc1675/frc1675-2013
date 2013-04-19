@@ -4,6 +4,11 @@ import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.frc1675.commands.EncoderShooter.EncoderShooterBumpDown;
+import org.frc1675.commands.EncoderShooter.EncoderShooterBumpUp;
+import org.frc1675.commands.EncoderShooter.EncoderShooterSetToRPM;
+import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOff;
+import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOn;
 import org.frc1675.commands.Index;
 import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
@@ -49,14 +54,18 @@ public class OI {
         operatorBButton.whenPressed(new FootUp());
         operatorYButton.whenPressed(new ClimberExtend());
         operatorAButton.whenPressed(new ClimberRetract()); 
-        operatorRightBumper.whenPressed(new GoToShootingSpeed());
-        operatorLeftBumper.whenPressed(new GoToIdleSpeed());
-        operatorDPadLeftButton.whenPressed(new BumpDown());
-        operatorDPadRightButton.whenPressed(new BumpUp());
+//        operatorRightBumper.whenPressed(new GoToShootingSpeed());
+//        operatorLeftBumper.whenPressed(new GoToIdleSpeed());
+//        operatorDPadLeftButton.whenPressed(new BumpDown());
+//        operatorDPadRightButton.whenPressed(new BumpUp());
+        operatorRightBumper.whenPressed(new EncoderShooterTurnOn());
+        operatorLeftBumper.whenPressed(new EncoderShooterSetToRPM(RobotMap.IDLE_RPM));
+        operatorDPadLeftButton.whenPressed(new EncoderShooterBumpDown());
+        operatorDPadRightButton.whenPressed(new EncoderShooterBumpUp());
         
         driverAButton.whenPressed(new Index());
-        driverYButton.whenPressed(new StopShooter());
-        
+//        driverYButton.whenPressed(new StopShooter());
+        driverYButton.whenPressed(new EncoderShooterTurnOff());
         driverLeftBumper.whileHeld(new Handbrake());
         
     }

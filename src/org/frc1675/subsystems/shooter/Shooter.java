@@ -22,8 +22,8 @@ public class Shooter extends Subsystem {
     private SpeedController motorOne;
     private SpeedController motorTwo;
     public Shooter(){
-        motorOne = new Victor(RobotMap.SHOOTER_MOTOR_ONE);
-        motorTwo = new Victor(RobotMap.SHOOTER_MOTOR_TWO);
+        motorOne = new Victor(RobotMap.BACK_SHOOTER_MOTOR);
+        motorTwo = new Victor(RobotMap.FRONT_SHOOTER_MOTOR);
         SmartDashboard.putNumber("bumps", bumps);
         
         SmartDashboard.putNumber("shooterSpeed", motorOne.get());

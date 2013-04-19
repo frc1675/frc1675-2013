@@ -15,6 +15,7 @@ import org.frc1675.subsystems.drive.GyroPID;
 import org.frc1675.subsystems.drive.mecanum.SimpleMecanumDrive;
 import org.frc1675.subsystems.drive.tank.TankDrivePIDSubsystem;
 import org.frc1675.subsystems.dumper.Dumper;
+import org.frc1675.subsystems.shooter.EncoderShooter;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -43,11 +44,13 @@ public abstract class CommandBase extends Command {
     public static DriveSideWrapper leftSide;
     public static DriveSideWrapper rightSide;
     public static Shooter shooter;
+    public static EncoderShooter encoderShooter;
     public static Lights lights;
     public static Indexer indexer;
     public static EDriveWithJoysticks edrive;
     static {
-        shooter = new Shooter();
+//        shooter = new Shooter();
+        encoderShooter = new EncoderShooter();
         leftSide = new DriveSideWrapper(RobotMap.FRONT_LEFT_DRIVE_MOTOR, RobotMap.BACK_LEFT_DRIVE_MOTOR);
         rightSide = new DriveSideWrapper(RobotMap.FRONT_RIGHT_DRIVE_MOTOR, RobotMap.BACK_RIGHT_DRIVE_MOTOR);
 //        simpleMecanumDrive = new SimpleMecanumDrive(leftSide, rightSide);
