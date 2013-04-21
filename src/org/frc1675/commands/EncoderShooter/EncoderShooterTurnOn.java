@@ -36,8 +36,9 @@ public class EncoderShooterTurnOn extends CommandBase {
     protected boolean isFinished() {
         if (timer.get()>RobotMap.BUTTON_COOLDOWN){
         return true;
-        }
+        }else{
         return false;
+        }
     }
 
     // Called once after isFinished returns true

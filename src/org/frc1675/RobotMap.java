@@ -41,12 +41,12 @@ public class RobotMap {
     public static final int COMPRESSOR_SPIKE = 2; 
     
     // digital sensors
-    public static final int SHOOTER_ENCODER = 1;
+    public static final int SHOOTER_ENCODER = 2;
     public static final int FRONT_LEFT_ENCODER_A = 7;
-    public static final int FRONT_LEFT_ENCODER_B = 2;
-    public static final int FRONT_RIGHT_ENCODER_A = 3;
+    public static final int FRONT_LEFT_ENCODER_B = 12;
+    public static final int FRONT_RIGHT_ENCODER_A = 11;
     public static final int FRONT_RIGHT_ENCODER_B = 4;
-    public static final int COMPRESSOR_SWITCH = 5;
+    public static final int COMPRESSOR_SWITCH = 1; //5
 
     
        
@@ -60,12 +60,12 @@ public class RobotMap {
     public static final int FOOT_EXTEND = 7;    
     public static final int FOOT_RETRACT = 3;
     
-    public static final int INDEXER_EXTEND = 8;
-    public static final int INDEXER_RETRACT = 4;
+    public static final int INDEXER_EXTEND = 4;  //4 
+    public static final int INDEXER_RETRACT = 8; //8
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1; //seconds
     public static final double DUMP_TIME = 1.7;   //seconds
-    public static final double INDEX_TIME = .5;
+    public static final double INDEX_TIME = .25;
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;

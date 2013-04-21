@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.frc1675.commands.EncoderShooter.EncoderShooterBumpDown;
 import org.frc1675.commands.EncoderShooter.EncoderShooterBumpUp;
+import org.frc1675.commands.EncoderShooter.EncoderShooterIdle;
 import org.frc1675.commands.EncoderShooter.EncoderShooterSetToRPM;
 import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOff;
 import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOn;
@@ -58,8 +59,8 @@ public class OI {
 //        operatorLeftBumper.whenPressed(new GoToIdleSpeed());
 //        operatorDPadLeftButton.whenPressed(new BumpDown());
 //        operatorDPadRightButton.whenPressed(new BumpUp());
-        operatorRightBumper.whenPressed(new EncoderShooterTurnOn());
-        operatorLeftBumper.whenPressed(new EncoderShooterSetToRPM(RobotMap.IDLE_RPM));
+        operatorLeftBumper.whenPressed(new EncoderShooterTurnOn());
+        operatorRightBumper.whenPressed(new EncoderShooterIdle());
         operatorDPadLeftButton.whenPressed(new EncoderShooterBumpDown());
         operatorDPadRightButton.whenPressed(new EncoderShooterBumpUp());
         

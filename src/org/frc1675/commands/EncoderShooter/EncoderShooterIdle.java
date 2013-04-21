@@ -2,35 +2,42 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.frc1675.commands.shooter;
+package org.frc1675.commands.EncoderShooter;
 
+import edu.wpi.first.wpilibj.Timer;
+import org.frc1675.RobotMap;
 import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author josh
+ * @author Tony
  */
-public class StopShooter extends CommandBase {
-    
-    public StopShooter() {
+public class EncoderShooterIdle extends CommandBase {
+    Timer timer;
+    public EncoderShooterIdle() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(shooter);
+        requires(encoderShooter);
+        timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        shooter.stopShooter();
+        encoderShooter.idle();
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+        encoderShooter.execute();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        if (timer.get()>RobotMap.BUTTON_COOLDOWN){
         return true;
+        }
+        return false;
     }
 
     // Called once after isFinished returns true

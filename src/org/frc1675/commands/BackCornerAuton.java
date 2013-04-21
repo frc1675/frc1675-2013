@@ -5,6 +5,7 @@
 package org.frc1675.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOn;
 import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
 import org.frc1675.commands.shooter.GoToIdleSpeed;
 import org.frc1675.commands.shooter.GoToShootingSpeed;
@@ -21,7 +22,7 @@ public class BackCornerAuton extends CommandGroup {
     private static final double DRIVE_DURATION = 1.0;
 
     public BackCornerAuton() {
-        addSequential(new GoToShootingSpeed());
+        addSequential(new EncoderShooterTurnOn());
         addSequential(new Wait(INITIAL_WIND_UP));
         addSequential(new Index());
         addSequential(new Wait(AFTER_FIRST_SHOT));

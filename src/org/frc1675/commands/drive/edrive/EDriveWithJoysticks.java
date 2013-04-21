@@ -36,14 +36,14 @@ public class EDriveWithJoysticks extends CommandBase {
         
         double left;
         double right;
-        if(forward <= 0.0){
+//        if(forward <= 0.0){
             left = forward + turn;
             right = forward - turn;
-        }
-        else{
-            left = forward - turn;
-            right = forward + turn;
-        }
+//        }
+//        else{
+//            left = forward - turn;
+//            right = forward + turn;
+//        }
         
         //Compensation for overflow of forward + turn: Some sent to other side.
         if(left > 1.0){
