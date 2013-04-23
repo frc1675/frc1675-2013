@@ -45,6 +45,11 @@ public class EncoderShooter extends Subsystem {
         stopped = true;
         isSetOnControls = false;
         
+
+    }
+    public void setToVoltage(double backSpeed, double frontSpeed){
+        backMotor.set(backSpeed);
+        frontMotor.set(frontSpeed);
         
     }
     

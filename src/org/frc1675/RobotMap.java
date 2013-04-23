@@ -65,7 +65,7 @@ public class RobotMap {
     
     public static final double SOLENOID_ACTIVE_TIME = 0.1; //seconds
     public static final double DUMP_TIME = 1.7;   //seconds
-    public static final double INDEX_TIME = .25;
+    public static final double INDEX_TIME = .5;
     
     //controllers and other stuff
     public static final int DRIVER_CONTROLLER = 1;
@@ -106,12 +106,12 @@ public class RobotMap {
     
     
     //shooting stuff
-    public static final double DEFAULT_SETPOINT = 2500;
-    public static final double STEP = 500;
+    public static final double DEFAULT_SETPOINT = 2700;  //2700
+    public static final double STEP = 100;
     public static final double IDLE_RPM = 1000;
     
     
     public static final double DEFAULT_VOLTAGE = 12.0;
-    public static double BACK_SHOOTING_SPEED = 0.5;
+    public static double BACK_SHOOTING_SPEED = 0.6;
     public static double FRONT_SHOOTING_SPEED = 1.0;
 }

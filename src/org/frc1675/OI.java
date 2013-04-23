@@ -7,20 +7,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.frc1675.commands.EncoderShooter.EncoderShooterBumpDown;
 import org.frc1675.commands.EncoderShooter.EncoderShooterBumpUp;
 import org.frc1675.commands.EncoderShooter.EncoderShooterIdle;
-import org.frc1675.commands.EncoderShooter.EncoderShooterSetToRPM;
 import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOff;
 import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOn;
 import org.frc1675.commands.Index;
 import org.frc1675.commands.climber.ClimberExtend;
 import org.frc1675.commands.climber.ClimberRetract;
-import org.frc1675.commands.drive.edrive.Handbrake;
+import org.frc1675.commands.drive.edrive.SlowLeft;
+import org.frc1675.commands.drive.edrive.SlowRight;
 import org.frc1675.commands.foot.FootDown;
 import org.frc1675.commands.foot.FootUp;
-import org.frc1675.commands.shooter.BumpDown;
-import org.frc1675.commands.shooter.BumpUp;
-import org.frc1675.commands.shooter.GoToIdleSpeed;
-import org.frc1675.commands.shooter.GoToShootingSpeed;
-import org.frc1675.commands.shooter.StopShooter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -59,15 +54,16 @@ public class OI {
 //        operatorLeftBumper.whenPressed(new GoToIdleSpeed());
 //        operatorDPadLeftButton.whenPressed(new BumpDown());
 //        operatorDPadRightButton.whenPressed(new BumpUp());
-        operatorLeftBumper.whenPressed(new EncoderShooterTurnOn());
-        operatorRightBumper.whenPressed(new EncoderShooterIdle());
+        operatorRightBumper.whenPressed(new EncoderShooterTurnOn());
+        operatorLeftBumper.whenPressed(new EncoderShooterIdle());
         operatorDPadLeftButton.whenPressed(new EncoderShooterBumpDown());
         operatorDPadRightButton.whenPressed(new EncoderShooterBumpUp());
         
         driverAButton.whenPressed(new Index());
 //        driverYButton.whenPressed(new StopShooter());
         driverYButton.whenPressed(new EncoderShooterTurnOff());
-        driverLeftBumper.whileHeld(new Handbrake());
+        driverLeftBumper.whileHeld(new SlowLeft());
+        driverRightBumper.whileHeld(new SlowRight());
         
     }
 

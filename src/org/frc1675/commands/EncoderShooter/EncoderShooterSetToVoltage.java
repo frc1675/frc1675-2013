@@ -4,41 +4,36 @@
  */
 package org.frc1675.commands.EncoderShooter;
 
-import edu.wpi.first.wpilibj.Timer;
-import org.frc1675.RobotMap;
 import org.frc1675.commands.CommandBase;
 
 /**
  *
- * @author Tony
+ * @author josh
  */
-public class EncoderShooterTurnOn extends CommandBase {
-    Timer timer;
-    public EncoderShooterTurnOn() {
+public class EncoderShooterSetToVoltage extends CommandBase {
+        
+    double backSpeed;
+    double frontSpeed;    
+    public EncoderShooterSetToVoltage(double backVoltage, double frontVoltage) {
+        requires(encoderShooter);
+        backSpeed = backVoltage;
+        frontSpeed = frontVoltage;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(encoderShooter);
-        timer = new Timer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        encoderShooter.turnOn();
-        timer.start();
+        encoderShooter.setToVoltage(this.backSpeed, this.frontSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        encoderShooter.execute();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (timer.get()>RobotMap.BUTTON_COOLDOWN){
-            return true;
-        }else{
-            return false;
-        }
+        return false;
     }
 
     // Called once after isFinished returns true
