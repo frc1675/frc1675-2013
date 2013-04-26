@@ -22,7 +22,7 @@ public class CompressorSystem extends Subsystem {
     private AnalogChannel pressureSensor;
     
     public CompressorSystem(){
-        compressor = new Compressor(RobotMap.HIGH_PRESSURE_SWITCH, RobotMap.COMPRESSOR_SPIKE);
+        compressor = new Compressor(RobotMap.COMPRESSOR_SWITCH, RobotMap.COMPRESSOR_SPIKE);
         pressureSensor = new AnalogChannel(RobotMap.PRESSURE_SENSOR);
         pressureSensor.setAverageBits(10);
     }
