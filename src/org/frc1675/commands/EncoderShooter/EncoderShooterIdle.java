@@ -24,19 +24,16 @@ public class EncoderShooterIdle extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         encoderShooter.idle();
-        timer.start();
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        encoderShooter.execute();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (timer.get()>RobotMap.BUTTON_COOLDOWN){
-        return true;
-        }
         return false;
     }
 

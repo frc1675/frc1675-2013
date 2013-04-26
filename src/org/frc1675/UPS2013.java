@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.commands.BackCornerAuton;
 import org.frc1675.commands.CommandBase;
+import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOff;
 import org.frc1675.commands.FrontCornerAuton;
 import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
 
@@ -28,6 +29,7 @@ import org.frc1675.commands.drive.mecanum.MecanumDrivePolarForTime;
  */
 public class UPS2013 extends IterativeRobot {
     Command autonomousCommand;
+    Command teleCommand;
     private Command Command;
     
     /**
@@ -74,6 +76,8 @@ public class UPS2013 extends IterativeRobot {
 
    
     public void teleopInit() {
+        teleCommand = new EncoderShooterTurnOff();
+        teleCommand.start();        
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove

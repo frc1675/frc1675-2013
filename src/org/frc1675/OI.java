@@ -4,9 +4,11 @@ import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.frc1675.commands.EncoderShooter.EncoderShooterBumpDown;
 import org.frc1675.commands.EncoderShooter.EncoderShooterBumpUp;
 import org.frc1675.commands.EncoderShooter.EncoderShooterIdle;
+import org.frc1675.commands.EncoderShooter.EncoderShooterSetToVoltage;
 import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOff;
 import org.frc1675.commands.EncoderShooter.EncoderShooterTurnOn;
 import org.frc1675.commands.Index;
@@ -50,14 +52,25 @@ public class OI {
         operatorBButton.whenPressed(new FootUp());
         operatorYButton.whenPressed(new ClimberExtend());
         operatorAButton.whenPressed(new ClimberRetract()); 
+        
 //        operatorRightBumper.whenPressed(new GoToShootingSpeed());
 //        operatorLeftBumper.whenPressed(new GoToIdleSpeed());
 //        operatorDPadLeftButton.whenPressed(new BumpDown());
 //        operatorDPadRightButton.whenPressed(new BumpUp());
-        operatorRightBumper.whenPressed(new EncoderShooterTurnOn());
-        operatorLeftBumper.whenPressed(new EncoderShooterIdle());
-        operatorDPadLeftButton.whenPressed(new EncoderShooterBumpDown());
-        operatorDPadRightButton.whenPressed(new EncoderShooterBumpUp());
+        if(operatorController.getRawAxis(XBoxControllerMap.LEFT_Y_AXIS)> .8){
+            operatorRightBumper.whenPressed(new EncoderShooterSetToVoltage(RobotMap.BACK_SHOOTING_SPEED, RobotMap.FRONT_SHOOTING_SPEED));
+            SmartDashboard.putBoolean("Encoder Mode", false);
+
+        }else{
+            operatorRightBumper.whenPressed(new EncoderShooterTurnOn());
+            operatorDPadLeftButton.whenPressed(new EncoderShooterBumpDown());
+            operatorDPadRightButton.whenPressed(new EncoderShooterBumpUp());
+            SmartDashboard.putBoolean("Encoder Mode", true);
+
+        }
+        operatorRightJoystickButton.whenPressed(new EncoderShooterSetToVoltage(RobotMap.BACK_SHOOTING_SPEED, 1));
+        operatorLeftBumper.whenPressed(new EncoderShooterTurnOff());  // used to be idle
+        
         
         driverAButton.whenPressed(new Index());
 //        driverYButton.whenPressed(new StopShooter());
