@@ -23,7 +23,7 @@ public class BackCornerAuton extends CommandGroup {
     private static final double AFTER_FIRST_SHOT = 0.5;
     private static final double AFTER_SECOND_SHOT = 0.5;
     private static final double RETRY_WAIT = 0.5;
-    private static final double DRIVE_DURATION = 1.0;
+    private static final double DRIVE_DURATION = 1.25;
 
     public BackCornerAuton() {
         //times are approximate
@@ -39,13 +39,13 @@ public class BackCornerAuton extends CommandGroup {
         addSequential(new Index());//10.0
         addSequential(new Wait(AFTER_SECOND_SHOT));//11.0
         addSequential(new Index());//11.5
-        addSequential(new Wait(AFTER_SECOND_SHOT));//11.0
-        addSequential(new Index());//11.5
-        addSequential(new Wait(AFTER_SECOND_SHOT));//11.0
-        addSequential(new Index());//11.5
+//        addSequential(new Wait(AFTER_SECOND_SHOT));//11.0
+//        addSequential(new Index());//11.5
+//        addSequential(new Wait(AFTER_SECOND_SHOT));//11.0
+//        addSequential(new Index());//11.5
         
 //        addSequential(new MecanumDrivePolarForTime(0.5, 0.0, 0.0, DRIVE_DURATION));//12.5
-//        addSequential(new EDriveForTime(0.5, 0.0, DRIVE_DURATION));
+        addSequential(new EDriveForTime(0.5, 0.0, DRIVE_DURATION));
         addSequential(new EncoderShooterTurnOff());
     }
 }
