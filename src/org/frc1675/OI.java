@@ -76,8 +76,7 @@ public class OI {
 //        driverYButton.whenPressed(new StopShooter());
         driverYButton.whenPressed(new EncoderShooterTurnOff());
         driverLeftBumper.whileHeld(new SlowLeft());
-        driverRightBumper.whileHeld(new SlowRight());
-        
+        driverRightBumper.whileHeld(new SlowRight());      
     }
 
     public double getMecanumMagnitude() {
