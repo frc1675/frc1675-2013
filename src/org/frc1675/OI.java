@@ -33,8 +33,7 @@ public class OI {
     private Button driverLeftBumper = new JoystickButton(driverController, XBoxControllerMap.LEFT_BUMPER_BUTTON);
     private Button driverLeftJoystickButton = new JoystickButton(driverController, XBoxControllerMap.RIGHT_JOYSTICK_BUTTON);
     private Button driverRightJoystickButton = new JoystickButton(driverController, XBoxControllerMap.LEFT_JOYSTICK_BUTTON);
-    
-    
+        
     public Joystick operatorController = new Joystick(RobotMap.OPERATOR_CONTROLLER); 
     private Button operatorBButton = new JoystickButton(operatorController, XBoxControllerMap.B_BUTTON);
     private Button operatorXButton = new JoystickButton(operatorController, XBoxControllerMap.X_BUTTON);
