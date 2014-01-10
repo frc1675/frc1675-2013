@@ -110,7 +110,6 @@ public class OI {
         if (Math.abs(rotation) < RobotMap.DEADZONE_RADIUS) {
             rotation = 0;
         }
-
         return rotation;
     }
 
