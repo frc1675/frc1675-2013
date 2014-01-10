@@ -69,8 +69,7 @@ public class OI {
         }
         operatorRightJoystickButton.whenPressed(new EncoderShooterSetToVoltage(RobotMap.BACK_SHOOTING_SPEED, 1));
         operatorLeftBumper.whenPressed(new EncoderShooterTurnOff());  // used to be idle
-        
-        
+                
         driverAButton.whenPressed(new Index());
 //        driverYButton.whenPressed(new StopShooter());
         driverYButton.whenPressed(new EncoderShooterTurnOff());
