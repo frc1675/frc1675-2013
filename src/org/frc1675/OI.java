@@ -100,8 +100,7 @@ public class OI {
         
         if (returnMagnitude < RobotMap.DEADZONE_RADIUS) {
             returnMagnitude = 0.0;
-        }
-        
+        }        
         return returnMagnitude;
     }
 
