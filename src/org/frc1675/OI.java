@@ -126,7 +126,6 @@ public class OI {
             direction = MathUtils.atan2(y, x);
         }
         direction -= Math.PI / 2;
-
         return direction;
     }
 
